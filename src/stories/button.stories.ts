@@ -4,6 +4,8 @@ import { cva } from "cva";
 type ButtonArgs = {
   color: "primary" | "success" | "danger" | "neutral";
   variant: "solid" | "outlined" | "tonal" | "text";
+  size: "default" | "small" | "large";
+  disabled: boolean;
   label: string;
 };
 
@@ -19,6 +21,12 @@ const meta: Meta<ButtonArgs> = {
     },
     variant: {
       options: ["solid", "outlined", "tonal", "text"],
+      control: {
+        type: "select",
+      },
+    },
+    size: {
+      options: ["default", "small", "large"],
       control: {
         type: "select",
       },
@@ -46,22 +54,34 @@ const badgeVariants = cva({
       tonal: "tonal",
       text: "text",
     },
+
+    size: {
+      default: "default",
+      large: "large",
+      small: "small",
+    },
   },
 });
 
 export const Primary: Story = {
   render: (args) => {
-    const badge = document.createElement("button");
-    badge.innerText = args.label;
-    badge.className = badgeVariants({
+    const button = document.createElement("button");
+
+    button.innerText = args.label;
+    button.disabled = args.disabled;
+    button.className = badgeVariants({
       variant: args.variant,
       color: args.color,
+      size: args.size,
     });
-    return badge;
+
+    return button;
   },
   args: {
     color: "primary",
     variant: "solid",
+    size: "default",
+    disabled: false,
     label: "Button",
   },
 };

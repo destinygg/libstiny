@@ -204,6 +204,17 @@ $button-styles: (
   ),
 );
 
+/// Fetches a specific nested property from the globally defined `$button-styles` map.
+///
+/// @param {String} $color - The color context (e.g., primary, success, danger, neutral). This refers to the first level key in `$button-styles`.
+/// @param {String} $style - The button style (e.g., solid, outlined, tonal, text). This refers to the second level key in `$button-styles`.
+/// @param {String} $property - The CSS property (e.g., background, foreground, border). This refers to the third level key in `$button-styles`.
+/// @param {String} $state - The state of the button (e.g., rest, hover, pressed). This refers to the fourth level key in `$button-styles`.
+///
+/// @returns {String|null} - Returns the value of the nested property if it exists, or `null` otherwise.
+///
+/// @example
+/// button-color('primary', 'solid', 'background', 'rest') => Returns the 'rest' background color of a 'solid' 'primary' button.
 @function button-color($color, $style, $property, $state) {
   $property-map: map-get(
     map-get(map-get($button-styles, $color), $style),
@@ -217,6 +228,15 @@ $button-styles: (
   @return null;
 }
 
+/// Applies the shared states for a button, including background color, font color, and border.
+/// If a border color is defined and exists, this mixin also applies a border to the button.
+///
+/// @param {String} $color - The color context (e.g., primary, success, danger, neutral). This refers to the button's color theme.
+/// @param {String} $style - The button style (e.g., solid, outlined, tonal, text). This applies specific visual styles to the button.
+/// @param {String} $state - The state of the button (e.g., rest, hover, pressed). These styles are applied based on the current interaction state of the button.
+///
+/// @example
+/// @include button-state('primary', 'solid', 'hover'); => Sets the hover state's styles for a 'solid' 'primary' button.
 @mixin button-state($color, $style, $state) {
   background-color: button-color($color, $style, "background", $state);
   color: button-color($color, $style, "foreground", $state);
@@ -226,15 +246,31 @@ $button-styles: (
   }
 }
 
+/// This mixin applies the different states for a button including `rest`, `hover`, `active` and `disabled` states.
+/// It sets the appropriate color and style based on the `$color` and `$style` inputs and the button's interaction state.
+/// Disabled state has special styles applied, making the cursor `not-allowed` and reducing the button's opacity and saturation.
+/// While dealing with `hover` and `active` state, it ensures not to alter disabled buttons.
+///
+/// @param {String} $color - The color theme of the button (e.g., primary, success, danger, neutral).
+/// @param {String} $style - The visual style of the button (e.g., solid, outlined, tonal, text).
+///
+/// @example
+/// @include button('primary', 'solid'); => Generates styles for 'solid' 'primary' button including `rest`, `hover`, `active` and `disabled` states.
 @mixin button($color, $style) {
   @include button-state($color, $style, "rest");
 
-  &:hover {
+  &:hover:not(:disabled) {
     @include button-state($color, $style, "hover");
   }
 
-  &:active {
+  &:active:not(:disabled) {
     @include button-state($color, $style, "pressed");
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    filter: saturate(0.4);
   }
 }
 
@@ -265,5 +301,18 @@ $button-styles: (
         }
       }
     }
+  }
+
+  &.large {
+    height: $button-large-height;
+    gap: $button-large-gap;
+    padding: 0 $button-large-padding;
+    font: $body-300-semi-bold;
+  }
+
+  &.small {
+    height: $button-small-height;
+    gap: $button-small-gap;
+    padding: 0 $button-small-padding;
   }
 }
