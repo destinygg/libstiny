@@ -12,25 +12,25 @@
   border-width: 1px;
   border-style: solid;
 
-  &.primary {
+  &--primary {
     background-color: $badge-primary-background;
     color: $badge-primary-foreground;
     border-color: $badge-primary-border;
   }
 
-  &.success {
+  &--success {
     background-color: $badge-success-background;
     color: $badge-success-foreground;
     border-color: $badge-success-border;
   }
 
-  &.danger {
+  &--danger {
     background-color: $badge-danger-background;
     color: $badge-danger-foreground;
     border-color: $badge-danger-border;
   }
 
-  &.neutral {
+  &--neutral {
     background-color: $badge-neutral-background;
     color: $badge-neutral-foreground;
     border-color: $badge-neutral-border;
@@ -38,5 +38,5 @@
 }
 
 .badge {
-  @extend .primary;
+  @extend .badge--primary;
 }

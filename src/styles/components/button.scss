@@ -314,3 +314,7 @@ $button-styles: (
     padding: 0 $button-small-padding;
   }
 }
+
+.button {
+  @extend .button--primary-solid;
+}
