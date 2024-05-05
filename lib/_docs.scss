@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
+/*
+This file is used in the documentation and shouldn't be consumed directly
+ */
 
-@import "normalize.css/normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
 
 @import "tokens/colors";
 @import "tokens/core";
@@ -9,7 +11,7 @@
 @import "tokens/typography";
 
 @import "components/badge";
-@import "components/button.scss";
+@import "components/button";
 
 html,
 body {

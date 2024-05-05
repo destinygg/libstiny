@@ -1,8 +1,6 @@
 @import "core";
 @import "semantic";
 
-/* Mode 1 */
-/* colors */
 $badge-danger-background: $palette-danger-3;
 $badge-danger-border: $palette-danger-6;
 $badge-danger-foreground: $palette-danger-11;
@@ -144,7 +142,7 @@ $navbar-item-default-foreground-hover: $palette-neutral-12;
 $navbar-item-default-foreground-pressed: $palette-neutral-12;
 $navbar-item-default-foreground-rest: $palette-neutral-12;
 $section-header-border: $palette-primary-9;
-/* numbers */
+
 $badge-padding: $space-3;
 $badge-height: $space-5;
 $badge-radii: $semantic-radii-pill;

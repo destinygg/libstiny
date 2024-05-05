@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/html";
-import dggTheme from './dgg-theme';
-import '../src/styles/main.scss';
+import dggTheme from "./dgg-theme";
+import "../lib/_docs.scss";
 
 const preview: Preview = {
   parameters: {
