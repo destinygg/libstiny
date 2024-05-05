@@ -1,6 +1,18 @@
 @import "core";
 @import "semantic";
 
+$alert-danger-background: $palette-danger-3;
+$alert-danger-border: $palette-danger-6;
+$alert-danger-foreground: $palette-danger-11;
+$alert-neutral-background: $palette-neutral-3;
+$alert-neutral-border: $palette-neutral-6;
+$alert-neutral-foreground: $palette-neutral-11;
+$alert-primary-background: $palette-primary-3;
+$alert-primary-border: $palette-primary-6;
+$alert-primary-foreground: $palette-primary-11;
+$alert-success-background: $palette-success-3;
+$alert-success-border: $palette-success-6;
+$alert-success-foreground: $palette-success-11;
 $badge-danger-background: $palette-danger-3;
 $badge-danger-border: $palette-danger-6;
 $badge-danger-foreground: $palette-danger-11;
@@ -143,6 +155,9 @@ $navbar-item-default-foreground-pressed: $palette-neutral-12;
 $navbar-item-default-foreground-rest: $palette-neutral-12;
 $section-header-border: $palette-primary-9;
 
+$alert-radii: $semantic-radii-medium;
+$alert-gap: $space-5;
+$alert-padding: $space-5;
 $badge-padding: $space-3;
 $badge-height: $space-5;
 $badge-radii: $semantic-radii-pill;
