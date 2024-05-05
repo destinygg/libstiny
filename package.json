@@ -1,9 +1,13 @@
 {
-  "name": "libstiny",
+  "name": "@destinygg/libstiny",
+  "description": "A framework-agnostic scss component library for use in the destiny.gg website",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1-alpha",
   "type": "module",
   "main": "lib/index.scss",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "sass lib/_docs.scss dist/libstiny.css",
