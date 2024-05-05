@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+@import "normalize.css/normalize.css";
+
+@import "tokens/colors";
+@import "tokens/core";
+@import "tokens/semantic";
+@import "tokens/component";
+@import "tokens/typography";
+
+@import "components/badge";
+@import "components/button.scss";
+
+html,
+body {
+  background-color: $semantic-background-default;
+  color: $semantic-foreground-default;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

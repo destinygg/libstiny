@@ -1,0 +1,310 @@
+@import "../tokens/component";
+@import "../tokens/typography";
+
+$variants: solid outlined tonal text;
+$states: rest hover active;
+
+$themes: (
+  primary: (
+    solid: (
+      rest: (
+        background: $button-primary-solid-background-rest,
+        color: $button-primary-solid-foreground-rest,
+      ),
+      hover: (
+        background: $button-primary-solid-background-hover,
+        color: $button-primary-solid-foreground-hover,
+      ),
+      active: (
+        background: $button-primary-solid-background-pressed,
+        color: $button-primary-solid-foreground-pressed,
+      ),
+    ),
+    outlined: (
+      rest: (
+        background: $button-primary-outlined-background-rest,
+        color: $button-primary-outlined-foreground-rest,
+        border: $button-primary-outlined-border-rest,
+      ),
+      hover: (
+        background: $button-primary-outlined-background-hover,
+        color: $button-primary-outlined-foreground-hover,
+        border: $button-primary-outlined-border-hover,
+      ),
+      active: (
+        background: $button-primary-outlined-background-pressed,
+        color: $button-primary-outlined-foreground-pressed,
+        border: $button-primary-outlined-border-pressed,
+      ),
+    ),
+    tonal: (
+      rest: (
+        background: $button-primary-tonal-background-rest,
+        color: $button-primary-tonal-foreground-rest,
+      ),
+      hover: (
+        background: $button-primary-tonal-background-hover,
+        color: $button-primary-tonal-foreground-hover,
+      ),
+      active: (
+        background: $button-primary-tonal-background-pressed,
+        color: $button-primary-tonal-foreground-pressed,
+      ),
+    ),
+    text: (
+      rest: (
+        color: $button-primary-text-foreground-rest,
+      ),
+      hover: (
+        color: $button-primary-text-foreground-hover,
+      ),
+      active: (
+        color: $button-primary-text-foreground-pressed,
+      ),
+    ),
+  ),
+  success: (
+    solid: (
+      rest: (
+        background: $button-success-solid-background-rest,
+        color: $button-success-solid-foreground-rest,
+      ),
+      hover: (
+        background: $button-success-solid-background-hover,
+        color: $button-success-solid-foreground-hover,
+      ),
+      active: (
+        background: $button-success-solid-background-pressed,
+        color: $button-success-solid-foreground-pressed,
+      ),
+    ),
+    outlined: (
+      rest: (
+        background: $button-success-outlined-background-rest,
+        color: $button-success-outlined-foreground-rest,
+        border: $button-success-outlined-border-rest,
+      ),
+      hover: (
+        background: $button-success-outlined-background-hover,
+        color: $button-success-outlined-foreground-hover,
+        border: $button-success-outlined-border-hover,
+      ),
+      active: (
+        background: $button-success-outlined-background-pressed,
+        color: $button-success-outlined-foreground-pressed,
+        border: $button-success-outlined-border-pressed,
+      ),
+    ),
+    tonal: (
+      rest: (
+        background: $button-success-tonal-background-rest,
+        color: $button-success-tonal-foreground-rest,
+      ),
+      hover: (
+        background: $button-success-tonal-background-hover,
+        color: $button-success-tonal-foreground-hover,
+      ),
+      active: (
+        background: $button-success-tonal-background-pressed,
+        color: $button-success-tonal-foreground-pressed,
+      ),
+    ),
+    text: (
+      rest: (
+        color: $button-success-text-foreground-rest,
+      ),
+      hover: (
+        color: $button-success-text-foreground-hover,
+      ),
+      active: (
+        color: $button-success-text-foreground-pressed,
+      ),
+    ),
+  ),
+  danger: (
+    solid: (
+      rest: (
+        background: $button-danger-solid-background-rest,
+        color: $button-danger-solid-foreground-rest,
+      ),
+      hover: (
+        background: $button-danger-solid-background-hover,
+        color: $button-danger-solid-foreground-hover,
+      ),
+      active: (
+        background: $button-danger-solid-background-pressed,
+        color: $button-danger-solid-foreground-pressed,
+      ),
+    ),
+    outlined: (
+      rest: (
+        background: $button-danger-outlined-background-rest,
+        color: $button-danger-outlined-foreground-rest,
+        border: $button-danger-outlined-border-rest,
+      ),
+      hover: (
+        background: $button-danger-outlined-background-hover,
+        color: $button-danger-outlined-foreground-hover,
+        border: $button-danger-outlined-border-hover,
+      ),
+      active: (
+        background: $button-danger-outlined-background-pressed,
+        color: $button-danger-outlined-foreground-pressed,
+        border: $button-danger-outlined-border-pressed,
+      ),
+    ),
+    tonal: (
+      rest: (
+        background: $button-danger-tonal-background-rest,
+        color: $button-danger-tonal-foreground-rest,
+      ),
+      hover: (
+        background: $button-danger-tonal-background-hover,
+        color: $button-danger-tonal-foreground-hover,
+      ),
+      active: (
+        background: $button-danger-tonal-background-pressed,
+        color: $button-danger-tonal-foreground-pressed,
+      ),
+    ),
+    text: (
+      rest: (
+        color: $button-danger-text-foreground-rest,
+      ),
+      hover: (
+        color: $button-danger-text-foreground-hover,
+      ),
+      active: (
+        color: $button-danger-text-foreground-pressed,
+      ),
+    ),
+  ),
+  neutral: (
+    solid: (
+      rest: (
+        background: $button-neutral-solid-background-rest,
+        color: $button-neutral-solid-foreground-rest,
+      ),
+      hover: (
+        background: $button-neutral-solid-background-hover,
+        color: $button-neutral-solid-foreground-hover,
+      ),
+      active: (
+        background: $button-neutral-solid-background-pressed,
+        color: $button-neutral-solid-foreground-pressed,
+      ),
+    ),
+    outlined: (
+      rest: (
+        background: $button-neutral-outlined-background-rest,
+        color: $button-neutral-outlined-foreground-rest,
+        border: $button-neutral-outlined-border-rest,
+      ),
+      hover: (
+        background: $button-neutral-outlined-background-hover,
+        color: $button-neutral-outlined-foreground-hover,
+        border: $button-neutral-outlined-border-hover,
+      ),
+      active: (
+        background: $button-neutral-outlined-background-pressed,
+        color: $button-neutral-outlined-foreground-pressed,
+        border: $button-neutral-outlined-border-pressed,
+      ),
+    ),
+    tonal: (
+      rest: (
+        background: $button-neutral-tonal-background-rest,
+        color: $button-neutral-tonal-foreground-rest,
+      ),
+      hover: (
+        background: $button-neutral-tonal-background-hover,
+        color: $button-neutral-tonal-foreground-hover,
+      ),
+      active: (
+        background: $button-neutral-tonal-background-pressed,
+        color: $button-neutral-tonal-foreground-pressed,
+      ),
+    ),
+    text: (
+      rest: (
+        color: $button-neutral-text-foreground-rest,
+      ),
+      hover: (
+        color: $button-neutral-text-foreground-hover,
+      ),
+      active: (
+        color: $button-neutral-text-foreground-pressed,
+      ),
+    ),
+  ),
+);
+
+.button {
+  display: inline-flex;
+  border: none;
+  font: $body-200-semi-bold;
+  height: $button-default-height;
+  padding: 0 $button-default-padding;
+  justify-content: center;
+  align-items: center;
+  gap: $button-default-gap;
+  flex-shrink: 0;
+  border-radius: $button-radii;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: none;
+
+  @each $theme, $theme-map in $themes {
+    &.#{$theme} {
+      @each $variant in $variants {
+        &.#{$variant} {
+          $variant-map: map-get($theme-map, $variant);
+
+          color: map-get(map-get($variant-map, "rest"), "color");
+
+          @if map-has-key(map-get($variant-map, "rest"), "background") {
+            background-color: map-get(
+              map-get($variant-map, "rest"),
+              "background"
+            );
+          }
+
+          @if map-has-key(map-get($variant-map, "rest"), "border") {
+            border: 1px solid map-get(map-get($variant-map, "rest"), "border");
+          }
+
+          &:hover {
+            color: map-get(map-get($variant-map, "hover"), "color");
+
+            @if map-has-key(map-get($variant-map, "hover"), "background") {
+              background-color: map-get(
+                map-get($variant-map, "hover"),
+                "background"
+              );
+            }
+
+            @if map-has-key(map-get($variant-map, "hover"), "border") {
+              border-color: map-get(map-get($variant-map, "hover"), "border");
+            }
+          }
+
+          &:active {
+            color: map-get(map-get($variant-map, "active"), "color");
+
+            @if map-has-key(map-get($variant-map, "active"), "background") {
+              background-color: map-get(
+                map-get($variant-map, "active"),
+                "background"
+              );
+            }
+
+            @if map-has-key(map-get($variant-map, "active"), "border") {
+              border-color: map-get(map-get($variant-map, "active"), "border");
+            }
+          }
+        }
+      }
+    }
+  }
+}

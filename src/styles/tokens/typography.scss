@@ -1,0 +1,62 @@
+$label: 700 0.75rem Inter;
+$label-letter-spacing: 0.1em;
+
+$display-600-regular: 300 4.5rem "Poppins";
+$display-600-medium: 400 4.5rem "Poppins";
+$display-600-semi-bold: 600 4.5rem "Poppins";
+$display-600-bold: 700 4.5rem "Poppins";
+
+$display-500-regular: 300 3.75rem "Poppins";
+$display-500-medium: 400 3.75rem "Poppins";
+$display-500-semi-bold: 600 3.75rem "Poppins";
+$display-500-bold: 700 3.75rem "Poppins";
+
+$display-400-regular: 300 3rem "Poppins";
+$display-400-medium: 400 3rem "Poppins";
+$display-400-semi-bold: 600 3rem "Poppins";
+$display-400-bold: 700 3rem "Poppins";
+
+$display-300-regular: 300 2.25rem "Poppins";
+$display-300-medium: 400 2.25rem "Poppins";
+$display-300-semi-bold: 600 2.25rem "Poppins";
+$display-300-bold: 700 2.25rem "Poppins";
+
+$display-200-regular: 300 1.88rem "Poppins";
+$display-200-medium: 400 1.88rem "Poppins";
+$display-200-semi-bold: 600 1.88rem "Poppins";
+$display-200-bold: 700 1.88rem "Poppins";
+
+$display-100-regular: 300 1.5rem "Poppins";
+$display-100-medium: 400 1.5rem "Poppins";
+$display-100-semi-bold: 600 1.5rem "Poppins";
+$display-100-bold: 700 1.5rem "Poppins";
+
+$body-500-regular: 300 1.25rem/1.875rem "Inter";
+$body-500-medium: 400 1.25rem/1.875rem "Inter";
+$body-500-semi-bold: 600 1.25rem/1.875rem "Inter";
+$body-500-bold: 700 1.25rem/1.875rem "Inter";
+
+$body-400-regular: 300 1.12rem/1.75rem "Inter";
+$body-400-medium: 400 1.12rem/1.75rem "Inter";
+$body-400-semi-bold: 600 1.12rem/1.75rem "Inter";
+$body-400-bold: 700 1.12rem/1.75rem "Inter";
+
+$body-300-regular: 300 1rem/1.5rem "Inter";
+$body-300-medium: 400 1rem/1.5rem "Inter";
+$body-300-semi-bold: 600 1rem/1.5rem "Inter";
+$body-300-bold: 700 1rem/1.5rem "Inter";
+
+$body-200-regular: 300 0.88rem/1.25rem "Inter";
+$body-200-medium: 400 0.88rem/1.25rem "Inter";
+$body-200-semi-bold: 600 0.88rem/1.25rem "Inter";
+$body-200-bold: 700 0.88rem/1.25rem "Inter";
+
+$body-100-regular: 300 0.75rem/1.125rem "Inter";
+$body-100-medium: 400 0.75rem/1.125rem "Inter";
+$body-100-semi-bold: 600 0.75rem/1.125rem "Inter";
+$body-100-bold: 700 0.75rem/1.125rem "Inter";
+
+.label {
+  font: $label;
+  letter-spacing: $label-letter-spacing;
+}
