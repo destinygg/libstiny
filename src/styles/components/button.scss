@@ -295,22 +295,20 @@ $button-styles: (
 
   @each $color, $styles in $button-styles {
     @each $style, $properties in $styles {
-      &.#{$style} {
-        &.#{$color} {
-          @include button($color, $style);
-        }
+      &--#{$color}-#{$style} {
+        @include button($color, $style);
       }
     }
   }
 
-  &.large {
+  &--large {
     height: $button-large-height;
     gap: $button-large-gap;
     padding: 0 $button-large-padding;
     font: $body-300-semi-bold;
   }
 
-  &.small {
+  &--small {
     height: $button-small-height;
     gap: $button-small-gap;
     padding: 0 $button-small-padding;
