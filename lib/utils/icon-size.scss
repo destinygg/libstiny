@@ -1,0 +1,8 @@
+@import "../tokens/core";
+
+@mixin icon-size($size: $icon-default) {
+  & .lucide {
+    height: $size;
+    width: $size;
+  }
+}

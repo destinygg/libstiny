@@ -1,5 +1,6 @@
 @import "../tokens/component";
 @import "../tokens/typography";
+@import "../utils/icon-size";
 
 $button-styles: (
   primary: (
@@ -276,6 +277,7 @@ $button-styles: (
 
 .button {
   // Layout
+  @include icon-size();
   display: inline-flex;
   justify-content: center;
   align-items: center;
