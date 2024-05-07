@@ -1,6 +1,8 @@
 @import "core";
 @import "semantic";
 
+/* Mode 1 */
+/* colors */
 $alert-danger-background: $palette-danger-3;
 $alert-danger-border: $palette-danger-6;
 $alert-danger-foreground: $palette-danger-11;
@@ -132,7 +134,7 @@ $input-label: $semantic-foreground-default;
 $input-placeholder: $semantic-foreground-subtle;
 $input-background-disabled: $palette-neutral-4;
 $input-background-rest: $semantic-background-surface-rest;
-$input-border-error: $palette-danger-7;
+$input-border-error: $palette-danger-9;
 $input-border-focused: $palette-primary-9;
 $input-border-hover: $semantic-border-default-hover;
 $input-border-rest: $semantic-border-default-rest;
@@ -154,7 +156,7 @@ $navbar-item-default-foreground-hover: $palette-neutral-12;
 $navbar-item-default-foreground-pressed: $palette-neutral-12;
 $navbar-item-default-foreground-rest: $palette-neutral-12;
 $section-header-border: $palette-primary-9;
-
+/* numbers */
 $alert-radii: $semantic-radii-medium;
 $alert-gap: $space-5;
 $alert-padding: $space-5;
@@ -172,6 +174,7 @@ $button-small-gap: $space-2;
 $button-small-padding: $space-3;
 $button-small-height: $space-6;
 $card-radii: $semantic-radii-medium;
+$card-gap: $space-4;
 $card-padding: $space-5;
 $footer-padding: $space-5;
 $input-gap: $space-2;

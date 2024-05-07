@@ -1,0 +1,47 @@
+@import "../tokens/component";
+@import "../tokens/shadows";
+@import "../tokens/typography";
+
+.card {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  gap: $card-gap;
+  padding: $card-padding;
+  box-sizing: border-box;
+
+  // Styling
+  border-radius: $card-radii;
+  border: 1px solid $card-default-border;
+  background-color: $card-default-background;
+  color: $semantic-foreground-default;
+  font: $body-200-regular;
+
+  &--prominent {
+    border-color: $card-prominent-border;
+    box-shadow: $blue-glow;
+  }
+
+  .card-extra {
+    display: flex;
+    gap: $space-4;
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+
+    .card-title {
+      font: $display-100-semi-bold;
+    }
+
+    .card-subtitle {
+      font: $body-200-semi-bold;
+      color: $semantic-foreground-subtle;
+    }
+  }
+}

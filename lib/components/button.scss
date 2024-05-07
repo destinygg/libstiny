@@ -295,6 +295,7 @@ $button-styles: (
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
+  // Color and Intent variants, ie primary-solid, success-outline, etc
   @each $color, $styles in $button-styles {
     @each $style, $properties in $styles {
       &--#{$color}-#{$style} {
@@ -304,6 +305,7 @@ $button-styles: (
   }
 
   &--large {
+    @include icon-size($icon-md);
     height: $button-large-height;
     gap: $button-large-gap;
     padding: 0 $button-large-padding;
@@ -315,8 +317,4 @@ $button-styles: (
     gap: $button-small-gap;
     padding: 0 $button-small-padding;
   }
-}
-
-.button {
-  @extend .button--primary-solid;
 }
