@@ -1,0 +1,44 @@
+@import "../tokens/component";
+@import "../tokens/typography";
+@import "../tokens/semantic";
+
+.dropdown {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  padding: $dropdown-padding;
+  gap: $dropdown-gap;
+
+  // Styling
+  border-radius: $dropdown-radii;
+  background-color: $dropdown-background;
+  border: 1px solid $dropdown-border;
+
+  .dropdown-item {
+    // Layout
+    display: flex;
+    align-items: center;
+    padding: 0 $dropdown-item-padding;
+    gap: $dropdown-item-gap;
+    height: $dropdown-item-height;
+
+    // Styling
+    border-radius: $dropdown-item-radii;
+    background-color: $dropdown-item-background-rest;
+    color: $dropdown-item-foreground-rest;
+    font: $body-200-medium;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $dropdown-item-background-hover;
+      color: $dropdown-item-foreground-hover;
+    }
+  }
+
+  hr {
+    border-width: 1px;
+    border-color: $semantic-border-default-rest;
+    margin: $space-1 0;
+  }
+}
