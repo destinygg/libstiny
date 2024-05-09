@@ -1,8 +1,8 @@
 @import "core";
 
 $semantic-background-default: $palette-neutral-1;
+$semantic-background-overlay: $black-a10;
 $semantic-background-surface-rest: $palette-neutral-2;
-$semantic-border-default-hover: $palette-neutral-7;
 $semantic-border-default-rest: $palette-neutral-6;
 $semantic-foreground-danger: $palette-danger-11;
 $semantic-foreground-default: $palette-neutral-12;
@@ -11,6 +11,7 @@ $semantic-foreground-primary: $palette-primary-11;
 $semantic-foreground-subtle: $palette-neutral-10;
 $semantic-foreground-success: $palette-success-11;
 
+$semantic-screen-width: 72rem;
 $semantic-height-default: $space-7;
 $semantic-radii-small: 0.5rem;
 $semantic-radii-default: 0.625rem;

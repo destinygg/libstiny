@@ -1,0 +1,48 @@
+@import "../tokens/component";
+@import "../tokens/typography";
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $modal-overlay-background;
+  filter: blur(4px);
+  z-index: 900;
+}
+
+.modal {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  padding: $modal-window-padding;
+  gap: $modal-window-gap;
+  width: $modal-window-width;
+
+  // Styling
+  border-radius: $modal-window-radii;
+  background-color: $modal-window-background;
+  border: 1px solid $modal-window-border;
+
+  .modal-title {
+    font: $display-100-semi-bold;
+    color: $modal-title-foreground;
+  }
+
+  .modal-subtitle {
+    font: $body-300-semi-bold;
+    color: $modal-subtitle-foreground;
+  }
+
+  .modal-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: $modal-actions-gap;
+  }
+}
