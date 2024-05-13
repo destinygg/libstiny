@@ -33,6 +33,8 @@ We have four main color scales; `primary`, `success`, `danger`, `neutral` and ea
 99% of the time, you will be using our core colors. However, we have 33 different color palettes available for use.
 
 ```scss
+@import "~libstiny/lib/tokens/colors";
+
 .example {
   background-color: $iris-3;
   color: $purple-8;
@@ -72,7 +74,11 @@ $icon-xl: $space-7; // 40px
 ```
 
 ### Semantic Tokens
-These tokens have specific usages
+These tokens have specific usages. You can import them from
+
+```scss
+@import "~libstiny/lib/tokens/semantic";
+```
 
 | Variable Name                 | Value (Dark Mode)    | Description                                                       |
 |-------------------------------|----------------------|-------------------------------------------------------------------|
@@ -91,7 +97,11 @@ These tokens have specific usages
 | \$semantic-radii-pill         | 9999px               | The border radius of components that are pill-shaped, like badges |
 
 ### Typography
-We have our own typography system. There are two main styles, `Display` and `Body`.
+We have our own typography system. There are two main styles, `Display` and `Body`. You can import them from
+
+```scss
+@import "~libstiny/lib/tokens/typography";
+```
 
 #### Display
 We have 6 sizes and 4 font-widths of our Display font. These fonts should be used for headers and other large text. We use the Poppins font here.
