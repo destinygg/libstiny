@@ -80,21 +80,21 @@ These tokens have specific usages. You can import them from
 @import "~libstiny/lib/tokens/semantic";
 ```
 
-| Variable Name                 | Value (Dark Mode)    | Description                                                       |
-|-------------------------------|----------------------|-------------------------------------------------------------------|
-| \$semantic-background-default | \$palette-neutral-1  | The background color of the application                           |
-| \$semantic-background-overlay | \$black-a10          | The default overlay color for modals and drawers                  |
-| \$semantic-background-surface | \$palette-neutral-2  | The background color of surfaces, such as cards                   |
-| \$semantic-border-default     | \$palette-neutral-6  | The default border color for containers                           |
-| \$semantic-foreground-default | \$palette-neutral-12 | The default color of text in the application                      |
-| \$semantic-foreground-subtle  | \$palette-neutral-10 | The color of subtitles and subtle text                            |
-| \$semantic-screen-width       | 72rem (1,152px)      | The width of the main container for the application               |
-| \$semantic-height-default     | \$space-7            | The height of components such as buttons and inputs               |
-| \$semantic-radii-small        | 0.5rem (8px)         | The border radius of small components, like small buttons         |
-| \$semantic-radii-default      | 0.625rem (10px)      | The border radius of components such as buttons and inputs        |
-| \$semantic-radii-medium       | 0.75rem (12px)       | The border radius of containers such as cards                     |
-| \$semantic-radii-large        | 0.875rem (14px)      | The border radius of large containers such as modals and tables   |
-| \$semantic-radii-pill         | 9999px               | The border radius of components that are pill-shaped, like badges |
+| Variable Name                  | Value (Dark Mode)     | Description                                                       |
+|--------------------------------|-----------------------|-------------------------------------------------------------------|
+| `$semantic-background-default` | `$palette-neutral-1`  | The background color of the application                           |
+| `$semantic-background-overlay` | `$black-a10`          | The default overlay color for modals and drawers                  |
+| `$semantic-background-surface` | `$palette-neutral-2`  | The background color of surfaces, such as cards                   |
+| `$semantic-border-default`     | `$palette-neutral-6`  | The default border color for containers                           |
+| `$semantic-foreground-default` | `$palette-neutral-12` | The default color of text in the application                      |
+| `$semantic-foreground-subtle`  | `$palette-neutral-10` | The color of subtitles and subtle text                            |
+| `$semantic-screen-width`       | `72rem (1,152px)`     | The width of the main container for the application               |
+| `$semantic-height-default`     | `$space-7`            | The height of components such as buttons and inputs               |
+| `$semantic-radii-small`        | `0.5rem (8px)`        | The border radius of small components, like small buttons         |
+| `$semantic-radii-default`      | `0.625rem (10px)`     | The border radius of components such as buttons and inputs        |
+| `$semantic-radii-medium`       | `0.75rem (12px)`      | The border radius of containers such as cards                     |
+| `$semantic-radii-large`        | `0.875rem (14px)`     | The border radius of large containers such as modals and tables   |
+| `$semantic-radii-pill`         | `9999px`              | The border radius of components that are pill-shaped, like badges |
 
 ### Typography
 We have our own typography system. There are two main styles, `Display` and `Body`. You can import them from
