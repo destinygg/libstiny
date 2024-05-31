@@ -7,77 +7,77 @@
   justify-content: space-between;
   align-items: center;
   padding: $navbar-padding 0;
-}
 
-.nav-items {
-  display: flex;
-  gap: $navbar-gap;
-}
-
-.nav-actions {
-  display: flex;
-  gap: $space-4;
-}
-
-.nav-item {
-  // Layout
-  display: flex;
-  align-items: center;
-  gap: $navbar-item-gap;
-  padding: 0 $navbar-item-padding;
-  height: $navbar-item-height;
-
-  // Styling
-  border-radius: $navbar-item-radii;
-  color: $navbar-item-default-foreground-rest;
-  background-color: $navbar-item-default-background-rest;
-  font: $body-300-medium;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: $navbar-item-default-foreground-hover;
-    background-color: $navbar-item-default-background-hover;
+  &__items {
+    display: flex;
+    gap: $navbar-gap;
   }
 
-  &:active {
-    color: $navbar-item-default-foreground-pressed;
-    background-color: $navbar-item-default-background-pressed;
+  &__actions {
+    display: flex;
+    gap: $space-4;
   }
 
-  &--active {
-    color: $navbar-item-active-foreground-rest;
-    background-color: $navbar-item-active-background-rest;
+  &__item {
+    // Layout
+    display: flex;
+    align-items: center;
+    gap: $navbar-item-gap;
+    padding: 0 $navbar-item-padding;
+    height: $navbar-item-height;
+
+    // Styling
+    border-radius: $navbar-item-radii;
+    color: $navbar-item-default-foreground-rest;
+    background-color: $navbar-item-default-background-rest;
+    font: $body-300-medium;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-      color: $navbar-item-active-foreground-hover;
-      background-color: $navbar-item-active-background-hover;
+      color: $navbar-item-default-foreground-hover;
+      background-color: $navbar-item-default-background-hover;
     }
 
     &:active {
-      color: $navbar-item-active-foreground-pressed;
-      background-color: $navbar-item-active-background-pressed;
+      color: $navbar-item-default-foreground-pressed;
+      background-color: $navbar-item-default-background-pressed;
+    }
+
+    &--active {
+      color: $navbar-item-active-foreground-rest;
+      background-color: $navbar-item-active-background-rest;
+
+      &:hover {
+        color: $navbar-item-active-foreground-hover;
+        background-color: $navbar-item-active-background-hover;
+      }
+
+      &:active {
+        color: $navbar-item-active-foreground-pressed;
+        background-color: $navbar-item-active-background-pressed;
+      }
     }
   }
-}
 
-.nav-logo {
-  height: 40px;
-  width: auto;
-}
+  &__logo {
+    height: 40px;
+    width: auto;
+  }
 
-.nav-user {
-  // Layout
-  display: flex;
-  align-items: center;
-  gap: $navbar-item-gap;
-  padding: 0 $navbar-item-padding;
-  height: $navbar-item-height;
+  &__user {
+    // Layout
+    display: flex;
+    align-items: center;
+    gap: $navbar-item-gap;
+    padding: 0 $navbar-item-padding;
+    height: $navbar-item-height;
 
-  // Styling
-  border-radius: $navbar-item-radii;
-  background-color: $black-a8;
-  color: $semantic-foreground-default;
-  font: $body-300-medium;
-  cursor: pointer;
+    // Styling
+    border-radius: $navbar-item-radii;
+    background-color: $black-a8;
+    color: $semantic-foreground-default;
+    font: $body-300-medium;
+    cursor: pointer;
+  }
 }

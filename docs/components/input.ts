@@ -1,7 +1,7 @@
 import { cva } from "cva";
 
 export const inputComponent = cva({
-  base: "input-wrapper",
+  base: "input",
   variants: {
     error: {
       true: "input--error",

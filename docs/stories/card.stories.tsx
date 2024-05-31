@@ -23,15 +23,15 @@ export const Primary: Story = {
       className={cardComponent({ prominent: args.prominent })}
       style={{ width: 340 }}
     >
-      <div className="card-extra">
+      <div className="card__extra">
         <span className="badge">Badge</span>
         <span className="badge">Badge</span>
         <span className="badge">Badge</span>
       </div>
 
-      <div className="card-header">
-        <span className="card-title">{args.title}</span>
-        <span className="card-subtitle">{args.subtitle}</span>
+      <div className="card__header">
+        <span className="card__header__title">{args.title}</span>
+        <span className="card__header__subtitle">{args.subtitle}</span>
       </div>
 
       <span>
@@ -40,7 +40,7 @@ export const Primary: Story = {
         meet the guy I watch constantly in person. On the...
       </span>
 
-      <div className="card-extra card-extra--right">
+      <div className="card__extra card__extra--right">
         <button className="button button--neutral-text">Action</button>
         <button className="button button--primary-solid">Action</button>
       </div>

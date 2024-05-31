@@ -22,7 +22,7 @@
     box-shadow: $blue-glow;
   }
 
-  .card-extra {
+  &__extra {
     display: flex;
     gap: $space-4;
 
@@ -31,15 +31,15 @@
     }
   }
 
-  .card-header {
+  &__header {
     display: flex;
     flex-direction: column;
 
-    .card-title {
+    &__title {
       font: $display-100-semi-bold;
     }
 
-    .card-subtitle {
+    &__subtitle {
       font: $body-200-semi-bold;
       color: $semantic-foreground-subtle;
     }

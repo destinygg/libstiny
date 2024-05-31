@@ -37,16 +37,16 @@
     border: 1px solid $alert-neutral-border;
   }
 
-  & .alert-content {
+  &__content {
     display: flex;
     flex-direction: column;
     gap: $space-1;
 
-    & .alert-title {
+    &__title {
       font: $body-500-semi-bold;
     }
 
-    & .alert-body {
+    &__body {
       font: $body-200-medium;
     }
   }

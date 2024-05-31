@@ -24,14 +24,14 @@ export const TextInput: Story = {
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
-      <div className="input-area">
-        <div className="prefix">https://</div>
+      <div className="input__area">
+        <div className="input__area__prefix">https://</div>
 
-        <div className="input-container">
+        <div className="input__container">
           <input placeholder="Placeholder text..." disabled={args.disabled} />
         </div>
       </div>
-      <span className="help-text">{args.helpText}</span>
+      <span className="input__help-text">{args.helpText}</span>
     </div>
   ),
   args: {
@@ -49,10 +49,10 @@ export const Select: Story = {
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
-      <div className="input-area">
-        <div className="prefix">https://</div>
+      <div className="input__area">
+        <div className="input__area__prefix">https://</div>
 
-        <div className="input-container">
+        <div className="input__container">
           <select disabled={args.disabled}>
             <option value=""></option>
             <option value="1">Value 1</option>
@@ -61,7 +61,7 @@ export const Select: Story = {
           </select>
         </div>
       </div>
-      <span className="help-text">{args.helpText}</span>
+      <span className="input__help-text">{args.helpText}</span>
     </div>
   ),
   args: {
@@ -79,8 +79,8 @@ export const TextArea: Story = {
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
-      <div className="input-area">
-        <div className="input-container">
+      <div className="input__area">
+        <div className="input__container">
           <textarea
             placeholder="Placeholder text..."
             disabled={args.disabled}
@@ -88,7 +88,7 @@ export const TextArea: Story = {
           />
         </div>
       </div>
-      <span className="help-text">{args.helpText}</span>
+      <span className="input__help-text">{args.helpText}</span>
     </div>
   ),
   args: {

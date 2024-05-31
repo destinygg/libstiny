@@ -25,22 +25,22 @@
   background-color: $modal-window-background;
   border: 1px solid $modal-window-border;
 
-  .modal-title {
+  &__title {
     font: $display-100-semi-bold;
     color: $modal-title-foreground;
   }
 
-  .modal-subtitle {
+  &__subtitle {
     font: $body-300-semi-bold;
     color: $modal-subtitle-foreground;
   }
 
-  .modal-header {
+  &__header {
     display: flex;
     flex-direction: column;
   }
 
-  .modal-actions {
+  &__actions {
     display: flex;
     justify-content: flex-end;
     gap: $modal-actions-gap;

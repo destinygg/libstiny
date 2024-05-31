@@ -28,9 +28,9 @@ type Story = StoryObj<AlertArgs>;
 export const Primary: Story = {
   render: (args) => (
     <div className={alertComponent({ variant: args.variant })}>
-      <div className="alert-content">
-        <span className="alert-title">{args.title}</span>
-        <span className="alert-body">{args.content}</span>
+      <div className="alert__content">
+        <span className="alert__content__title">{args.title}</span>
+        <span className="alert__content__body">{args.content}</span>
       </div>
 
       <button

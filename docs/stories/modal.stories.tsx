@@ -17,12 +17,12 @@ type Story = StoryObj<ModalArgs>;
 export const Primary: Story = {
   render: (args) => (
     <div className="modal">
-      <div className="modal-header">
-        <span className="modal-title">{args.title}</span>
-        <span className="modal-subtitle">{args.subtitle}</span>
+      <div className="modal__header">
+        <span className="modal__title">{args.title}</span>
+        <span className="modal__subtitle">{args.subtitle}</span>
       </div>
       Content
-      <div className="modal-actions">
+      <div className="modal__actions">
         <button className="button button--neutral-text">Action</button>
         <button className="button button--primary-solid">Action</button>
       </div>

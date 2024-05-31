@@ -14,7 +14,7 @@
   background-color: $dropdown-background;
   border: 1px solid $dropdown-border;
 
-  .dropdown-item {
+  &__item {
     // Layout
     display: flex;
     align-items: center;
