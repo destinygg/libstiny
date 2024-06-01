@@ -42,11 +42,11 @@
     flex-direction: column;
     gap: $space-1;
 
-    &__title {
+    .alert__title {
       font: $body-500-semi-bold;
     }
 
-    &__body {
+    .alert__body {
       font: $body-200-medium;
     }
   }

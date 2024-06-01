@@ -25,7 +25,7 @@ export const TextInput: Story = {
     >
       <label>{args.label}</label>
       <div className="input__area">
-        <div className="input__area__prefix">https://</div>
+        <div className="input__prefix">https://</div>
 
         <div className="input__container">
           <input placeholder="Placeholder text..." disabled={args.disabled} />
