@@ -10,7 +10,7 @@ A CSS Component Library for destiny.gg
 ## Usage
 You can import the entire CSS using
 ```scss
-@import "~@destinygg/libstiny/lib";
+@import "~@destinygg/libstiny";
 ```
 
 ### Core Tokens
