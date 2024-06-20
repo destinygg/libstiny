@@ -10,14 +10,14 @@ A CSS Component Library for destiny.gg
 ## Usage
 You can import the entire CSS using
 ```scss
-@import "~libstiny/lib";
+@import "~@destinygg/libstiny";
 ```
 
 ### Core Tokens
 The Core Tokens are the base color, space, and icon size variables. You can import them from
 
 ```scss
-@import "~libstiny/lib/tokens/core";
+@import "~@destinygg/libstiny/lib/tokens/core";
 ```
 
 #### Colors
@@ -77,7 +77,7 @@ $icon-xl: $space-7; // 40px
 These tokens have specific usages. You can import them from
 
 ```scss
-@import "~libstiny/lib/tokens/semantic";
+@import "~@destinygg/libstiny/lib/tokens/semantic";
 ```
 
 | Variable Name                  | Value (Dark Mode)     | Description                                                       |
@@ -100,7 +100,7 @@ These tokens have specific usages. You can import them from
 We have our own typography system. There are two main styles, `Display` and `Body`. You can import them from
 
 ```scss
-@import "~libstiny/lib/tokens/typography";
+@import "~@destinygg/libstiny/lib/tokens/typography";
 ```
 
 #### Display
