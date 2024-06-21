@@ -13,6 +13,17 @@ You can import the entire CSS, including all variables, using
 @use "~@destinygg/libstiny" as *;
 ```
 
+### Namespacing
+You can also namespace the import for clarity and to avoid collisions with your own variables.
+```scss
+@use "~@destinygg/libstiny" as dgg;
+
+body {
+  background-color: dgg.$semantic-background-default;
+  color: dgg.$semantic-foreground-default;
+}
+```
+
 ### Core Tokens
 The Core Tokens are the base color, space, and icon size variables. You can import them from
 
