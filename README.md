@@ -8,16 +8,16 @@ A CSS Component Library for destiny.gg
 3. Run `npm install @destinygg/libstiny`
 
 ## Usage
-You can import the entire CSS using
+You can import the entire CSS, including all variables, using
 ```scss
-@import "~@destinygg/libstiny";
+@use "~@destinygg/libstiny" as *;
 ```
 
 ### Core Tokens
 The Core Tokens are the base color, space, and icon size variables. You can import them from
 
 ```scss
-@import "~@destinygg/libstiny/lib/tokens/core";
+@use "~@destinygg/libstiny/lib/tokens/core" as *;
 ```
 
 #### Colors
@@ -33,7 +33,7 @@ We have four main color scales; `primary`, `success`, `danger`, `neutral` and ea
 99% of the time, you will be using our core colors. However, we have 33 different color palettes available for use.
 
 ```scss
-@import "~@destinygg/libstiny/lib/tokens/colors";
+@use "~@destinygg/libstiny/lib/tokens/colors" as *;
 
 .example {
   background-color: $iris-3;
@@ -77,7 +77,7 @@ $icon-xl: $space-7; // 40px
 These tokens have specific usages. You can import them from
 
 ```scss
-@import "~@destinygg/libstiny/lib/tokens/semantic";
+@use "~@destinygg/libstiny/lib/tokens/semantic" as *;
 ```
 
 | Variable Name                  | Value (Dark Mode)     | Description                                                       |
@@ -100,7 +100,7 @@ These tokens have specific usages. You can import them from
 We have our own typography system. There are two main styles, `Display` and `Body`. You can import them from
 
 ```scss
-@import "~@destinygg/libstiny/lib/tokens/typography";
+@use "~@destinygg/libstiny/lib/tokens/typography" as *;
 ```
 
 #### Display
