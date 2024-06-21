@@ -1,5 +1,5 @@
-@import "../tokens/component";
-@import "../tokens/typography";
+@use "../tokens/component" as *;
+@use "../tokens/typography" as *;
 
 .badge {
   display: inline-flex;

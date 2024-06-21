@@ -1,6 +1,8 @@
-@import "../tokens/component";
-@import "../tokens/shadows";
-@import "../tokens/typography";
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/shadows" as *;
+@use "../tokens/typography" as *;
 
 .card {
   // Layout

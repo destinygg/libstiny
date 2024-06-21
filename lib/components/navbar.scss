@@ -1,5 +1,8 @@
-@import "../tokens/component";
-@import "../tokens/typography";
+@use "../tokens/colors" as *;
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/typography" as *;
 
 .navbar {
   // Layout

@@ -1,6 +1,6 @@
-@import "../tokens/component";
-@import "../tokens/semantic";
-@import "../tokens/typography";
+@use "../tokens/component" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/typography" as *;
 
 .table-wrapper {
   background-color: $table-background;

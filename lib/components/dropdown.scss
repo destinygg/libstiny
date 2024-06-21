@@ -1,6 +1,7 @@
-@import "../tokens/component";
-@import "../tokens/typography";
-@import "../tokens/semantic";
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/typography" as *;
+@use "../tokens/semantic" as *;
 
 .dropdown {
   // Layout
