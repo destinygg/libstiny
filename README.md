@@ -33,7 +33,7 @@ We have four main color scales; `primary`, `success`, `danger`, `neutral` and ea
 99% of the time, you will be using our core colors. However, we have 33 different color palettes available for use.
 
 ```scss
-@import "~libstiny/lib/tokens/colors";
+@import "~@destinygg/libstiny/lib/tokens/colors";
 
 .example {
   background-color: $iris-3;
