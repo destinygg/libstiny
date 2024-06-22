@@ -3,279 +3,6 @@
 @use "../tokens/typography" as *;
 @use "../utils/icon-size" as *;
 
-$button-styles: (
-  primary: (
-    solid: (
-      background: (
-        rest: $button-primary-solid-background-rest,
-        hover: $button-primary-solid-background-hover,
-        pressed: $button-primary-solid-background-pressed,
-      ),
-      foreground: (
-        rest: $button-primary-solid-foreground-rest,
-        hover: $button-primary-solid-foreground-hover,
-        pressed: $button-primary-solid-foreground-pressed,
-      ),
-    ),
-    outlined: (
-      background: (
-        rest: $button-primary-outlined-background-rest,
-        hover: $button-primary-outlined-background-hover,
-        pressed: $button-primary-outlined-background-pressed,
-      ),
-      border: (
-        rest: $button-primary-outlined-border-rest,
-        hover: $button-primary-outlined-border-hover,
-        pressed: $button-primary-outlined-border-pressed,
-      ),
-      foreground: (
-        rest: $button-primary-outlined-foreground-rest,
-        hover: $button-primary-outlined-foreground-hover,
-        pressed: $button-primary-outlined-foreground-pressed,
-      ),
-    ),
-    tonal: (
-      background: (
-        rest: $button-primary-tonal-background-rest,
-        hover: $button-primary-tonal-background-hover,
-        pressed: $button-primary-tonal-background-pressed,
-      ),
-      foreground: (
-        rest: $button-primary-tonal-foreground-rest,
-        hover: $button-primary-tonal-foreground-hover,
-        pressed: $button-primary-tonal-foreground-pressed,
-      ),
-    ),
-    text: (
-      foreground: (
-        rest: $button-primary-text-foreground-rest,
-        hover: $button-primary-text-foreground-hover,
-        pressed: $button-primary-text-foreground-pressed,
-      ),
-    ),
-  ),
-  success: (
-    solid: (
-      background: (
-        rest: $button-success-solid-background-rest,
-        hover: $button-success-solid-background-hover,
-        pressed: $button-success-solid-background-pressed,
-      ),
-      foreground: (
-        rest: $button-success-solid-foreground-rest,
-        hover: $button-success-solid-foreground-hover,
-        pressed: $button-success-solid-foreground-pressed,
-      ),
-    ),
-    outlined: (
-      background: (
-        rest: $button-success-outlined-background-rest,
-        hover: $button-success-outlined-background-hover,
-        pressed: $button-success-outlined-background-pressed,
-      ),
-      border: (
-        rest: $button-success-outlined-border-rest,
-        hover: $button-success-outlined-border-hover,
-        pressed: $button-success-outlined-border-pressed,
-      ),
-      foreground: (
-        rest: $button-success-outlined-foreground-rest,
-        hover: $button-success-outlined-foreground-hover,
-        pressed: $button-success-outlined-foreground-pressed,
-      ),
-    ),
-    tonal: (
-      background: (
-        rest: $button-success-tonal-background-rest,
-        hover: $button-success-tonal-background-hover,
-        pressed: $button-success-tonal-background-pressed,
-      ),
-      foreground: (
-        rest: $button-success-tonal-foreground-rest,
-        hover: $button-success-tonal-foreground-hover,
-        pressed: $button-success-tonal-foreground-pressed,
-      ),
-    ),
-    text: (
-      foreground: (
-        rest: $button-success-text-foreground-rest,
-        hover: $button-success-text-foreground-hover,
-        pressed: $button-success-text-foreground-pressed,
-      ),
-    ),
-  ),
-  danger: (
-    solid: (
-      background: (
-        rest: $button-danger-solid-background-rest,
-        hover: $button-danger-solid-background-hover,
-        pressed: $button-danger-solid-background-pressed,
-      ),
-      foreground: (
-        rest: $button-danger-solid-foreground-rest,
-        hover: $button-danger-solid-foreground-hover,
-        pressed: $button-danger-solid-foreground-pressed,
-      ),
-    ),
-    outlined: (
-      background: (
-        rest: $button-danger-outlined-background-rest,
-        hover: $button-danger-outlined-background-hover,
-        pressed: $button-danger-outlined-background-pressed,
-      ),
-      border: (
-        rest: $button-danger-outlined-border-rest,
-        hover: $button-danger-outlined-border-hover,
-        pressed: $button-danger-outlined-border-pressed,
-      ),
-      foreground: (
-        rest: $button-danger-outlined-foreground-rest,
-        hover: $button-danger-outlined-foreground-hover,
-        pressed: $button-danger-outlined-foreground-pressed,
-      ),
-    ),
-    tonal: (
-      background: (
-        rest: $button-danger-tonal-background-rest,
-        hover: $button-danger-tonal-background-hover,
-        pressed: $button-danger-tonal-background-pressed,
-      ),
-      foreground: (
-        rest: $button-danger-tonal-foreground-rest,
-        hover: $button-danger-tonal-foreground-hover,
-        pressed: $button-danger-tonal-foreground-pressed,
-      ),
-    ),
-    text: (
-      foreground: (
-        rest: $button-danger-text-foreground-rest,
-        hover: $button-danger-text-foreground-hover,
-        pressed: $button-danger-text-foreground-pressed,
-      ),
-    ),
-  ),
-  neutral: (
-    solid: (
-      background: (
-        rest: $button-neutral-solid-background-rest,
-        hover: $button-neutral-solid-background-hover,
-        pressed: $button-neutral-solid-background-pressed,
-      ),
-      foreground: (
-        rest: $button-neutral-solid-foreground-rest,
-        hover: $button-neutral-solid-foreground-hover,
-        pressed: $button-neutral-solid-foreground-pressed,
-      ),
-    ),
-    outlined: (
-      background: (
-        rest: $button-neutral-outlined-background-rest,
-        hover: $button-neutral-outlined-background-hover,
-        pressed: $button-neutral-outlined-background-pressed,
-      ),
-      border: (
-        rest: $button-neutral-outlined-border-rest,
-        hover: $button-neutral-outlined-border-hover,
-        pressed: $button-neutral-outlined-border-pressed,
-      ),
-      foreground: (
-        rest: $button-neutral-outlined-foreground-rest,
-        hover: $button-neutral-outlined-foreground-hover,
-        pressed: $button-neutral-outlined-foreground-pressed,
-      ),
-    ),
-    tonal: (
-      background: (
-        rest: $button-neutral-tonal-background-rest,
-        hover: $button-neutral-tonal-background-hover,
-        pressed: $button-neutral-tonal-background-pressed,
-      ),
-      foreground: (
-        rest: $button-neutral-tonal-foreground-rest,
-        hover: $button-neutral-tonal-foreground-hover,
-        pressed: $button-neutral-tonal-foreground-pressed,
-      ),
-    ),
-    text: (
-      foreground: (
-        rest: $button-neutral-text-foreground-rest,
-        hover: $button-neutral-text-foreground-hover,
-        pressed: $button-neutral-text-foreground-pressed,
-      ),
-    ),
-  ),
-);
-
-/// Fetches a specific nested property from the globally defined `$button-styles` map.
-///
-/// @param {String} $color - The color context (e.g., primary, success, danger, neutral). This refers to the first level key in `$button-styles`.
-/// @param {String} $style - The button style (e.g., solid, outlined, tonal, text). This refers to the second level key in `$button-styles`.
-/// @param {String} $property - The CSS property (e.g., background, foreground, border). This refers to the third level key in `$button-styles`.
-/// @param {String} $state - The state of the button (e.g., rest, hover, pressed). This refers to the fourth level key in `$button-styles`.
-///
-/// @returns {String|null} - Returns the value of the nested property if it exists, or `null` otherwise.
-///
-/// @example
-/// button-color('primary', 'solid', 'background', 'rest') => Returns the 'rest' background color of a 'solid' 'primary' button.
-@function button-color($color, $style, $property, $state) {
-  $property-map: map-get(
-    map-get(map-get($button-styles, $color), $style),
-    $property
-  );
-
-  @if $property-map {
-    @return map-get($property-map, $state);
-  }
-
-  @return null;
-}
-
-/// Applies the shared states for a button, including background color, font color, and border.
-/// If a border color is defined and exists, this mixin also applies a border to the button.
-///
-/// @param {String} $color - The color context (e.g., primary, success, danger, neutral). This refers to the button's color theme.
-/// @param {String} $style - The button style (e.g., solid, outlined, tonal, text). This applies specific visual styles to the button.
-/// @param {String} $state - The state of the button (e.g., rest, hover, pressed). These styles are applied based on the current interaction state of the button.
-///
-/// @example
-/// @include button-state('primary', 'solid', 'hover'); => Sets the hover state's styles for a 'solid' 'primary' button.
-@mixin button-state($color, $style, $state) {
-  background-color: button-color($color, $style, "background", $state);
-  color: button-color($color, $style, "foreground", $state);
-  $border-color: button-color($color, $style, "border", $state);
-  @if $border-color != null {
-    border: 1px solid $border-color;
-  }
-}
-
-/// This mixin applies the different states for a button including `rest`, `hover`, `active` and `disabled` states.
-/// It sets the appropriate color and style based on the `$color` and `$style` inputs and the button's interaction state.
-/// Disabled state has special styles applied, making the cursor `not-allowed` and reducing the button's opacity and saturation.
-/// While dealing with `hover` and `active` state, it ensures not to alter disabled buttons.
-///
-/// @param {String} $color - The color theme of the button (e.g., primary, success, danger, neutral).
-/// @param {String} $style - The visual style of the button (e.g., solid, outlined, tonal, text).
-///
-/// @example
-/// @include button('primary', 'solid'); => Generates styles for 'solid' 'primary' button including `rest`, `hover`, `active` and `disabled` states.
-@mixin button($color, $style) {
-  @include button-state($color, $style, "rest");
-
-  &:hover:not(:disabled) {
-    @include button-state($color, $style, "hover");
-  }
-
-  &:active:not(:disabled) {
-    @include button-state($color, $style, "pressed");
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.8;
-    filter: saturate(0.4);
-  }
-}
-
 .button {
   // Layout
   @include icon-size();
@@ -296,12 +23,78 @@ $button-styles: (
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
-  // Color and Intent variants, ie primary-solid, success-outline, etc
-  @each $color, $styles in $button-styles {
-    @each $style, $properties in $styles {
-      &--#{$color}-#{$style} {
-        @include button($color, $style);
-      }
+  &:disabled {
+    background-color: $button-disabled-background-rest;
+    color: $button-disabled-foreground-rest;
+    border: 1px solid $button-disabled-border-rest;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background-color: $button-primary-background-rest;
+    color: $button-primary-foreground-rest;
+
+    &:not(:disabled):hover {
+      background-color: $button-primary-background-hover;
+    }
+
+    &:not(:disabled):active {
+      background-color: $button-primary-background-pressed;
+    }
+  }
+
+  &--secondary {
+    background-color: $button-secondary-background-rest;
+    color: $button-secondary-foreground-rest;
+    border: 1px solid $button-secondary-border-rest;
+
+    &:not(:disabled):hover {
+      background-color: $button-secondary-background-hover;
+      border-color: $button-secondary-border-hover;
+    }
+
+    &:not(:disabled):active {
+      background-color: $button-secondary-background-pressed;
+    }
+  }
+
+  &--tertiary {
+    color: $button-tertiary-foreground-rest;
+
+    &:not(:disabled):hover {
+      background-color: $button-tertiary-background-hover;
+    }
+
+    &:not(:disabled):active {
+      background-color: $button-tertiary-background-pressed;
+    }
+  }
+
+  &--ghost {
+    background-color: $button-ghost-background-rest;
+    color: $button-ghost-foreground-rest;
+    border: 1px solid $button-ghost-border-rest;
+
+    &:not(:disabled):hover {
+      background-color: $button-ghost-background-hover;
+      border-color: $button-ghost-border-hover;
+    }
+
+    &:not(:disabled):active {
+      background-color: $button-ghost-background-pressed;
+    }
+  }
+
+  &--danger {
+    background-color: $button-danger-background-rest;
+    color: $button-danger-foreground-rest;
+
+    &:not(:disabled):hover {
+      background-color: $button-danger-background-hover;
+    }
+
+    &:not(:disabled):active {
+      background-color: $button-danger-background-pressed;
     }
   }
 
