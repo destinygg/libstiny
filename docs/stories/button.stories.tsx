@@ -2,8 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { buttonComponent } from "../components/button";
 
 type ButtonArgs = {
-  color: "primary" | "success" | "danger" | "neutral";
-  variant: "solid" | "outlined" | "tonal" | "text";
+  intent: "primary" | "secondary" | "tertiary" | "ghost" | "danger";
   size: "default" | "small" | "large";
   disabled: boolean;
   label: string;
@@ -13,14 +12,8 @@ const meta: Meta<ButtonArgs> = {
   title: "Button",
   tags: ["autodocs"],
   argTypes: {
-    color: {
-      options: ["primary", "success", "danger", "neutral"],
-      control: {
-        type: "select",
-      },
-    },
-    variant: {
-      options: ["solid", "outlined", "tonal", "text"],
+    intent: {
+      options: ["primary", "secondary", "tertiary", "ghost", "danger"],
       control: {
         type: "select",
       },
@@ -42,8 +35,7 @@ export const Primary: Story = {
   render: (args) => (
     <button
       className={buttonComponent({
-        variant: args.variant,
-        color: args.color,
+        intent: args.intent,
         size: args.size,
       })}
       disabled={args.disabled}
@@ -52,8 +44,7 @@ export const Primary: Story = {
     </button>
   ),
   args: {
-    color: "primary",
-    variant: "solid",
+    intent: "primary",
     size: "default",
     disabled: false,
     label: "Button",
