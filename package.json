@@ -1,7 +1,7 @@
 {
   "name": "@destinygg/libstiny",
   "description": "A framework-agnostic scss component library for use in the destiny.gg website",
-  "version": "0.0.7-alpha",
+  "version": "0.0.8-alpha",
   "type": "module",
   "main": "lib/index.scss",
   "publishConfig": {
@@ -31,6 +31,7 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.5",
     "cva": "^1.0.0-beta.1",
     "normalize.css": "^8.0.1",
     "prettier": "^3.2.5",

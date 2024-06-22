@@ -2,23 +2,24 @@
 This file is used in the documentation and shouldn't be consumed directly
  */
 
+@use "tokens/colors" as *;
+@use "tokens/core" as *;
+@use "tokens/semantic" as *;
+@use "tokens/component" as *;
+@use "tokens/typography" as *;
+
+@use "components/badge" as *;
+@use "components/button" as *;
+@use "components/alert" as *;
+@use "components/input" as *;
+@use "components/card" as *;
+@use "components/navbar" as *;
+@use "components/dropdown" as *;
+@use "components/modal" as *;
+@use "components/table" as *;
+@use "components/section-header" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
-
-@import "tokens/colors";
-@import "tokens/core";
-@import "tokens/semantic";
-@import "tokens/component";
-@import "tokens/typography";
-
-@import "components/badge";
-@import "components/button";
-@import "components/alert";
-@import "components/input";
-@import "components/card";
-@import "components/navbar";
-@import "components/dropdown";
-@import "components/modal";
-@import "components/table";
 
 html,
 body {

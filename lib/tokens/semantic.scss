@@ -1,4 +1,5 @@
-@import "core";
+@use "colors" as *;
+@use "core" as *;
 
 $semantic-background-default: $palette-neutral-1;
 $semantic-background-overlay: $black-a10;
@@ -12,7 +13,9 @@ $semantic-foreground-subtle: $palette-neutral-10;
 $semantic-foreground-success: $palette-success-11;
 
 $semantic-screen-width: 72rem;
+$semantic-height-small: $space-6;
 $semantic-height-default: $space-7;
+$semantic-height-large: $space-8;
 $semantic-radii-small: 0.5rem;
 $semantic-radii-default: 0.625rem;
 $semantic-radii-medium: 0.75rem;

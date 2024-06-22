@@ -1,0 +1,23 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/typography" as *;
+@use "../tokens/semantic" as *;
+
+.section-header {
+  &__content {
+    display: inline-grid;
+    gap: $space-3;
+  }
+
+  &__heading {
+    margin: 0;
+    font: $display-300-semi-bold;
+  }
+
+  &__divider {
+    margin-right: $section-header-line-right-margin;
+    height: $section-header-line-height;
+    background-color: $section-header-line-background;
+    border-radius: $semantic-radii-pill;
+  }
+}

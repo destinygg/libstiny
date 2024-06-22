@@ -1,4 +1,4 @@
-@import "../tokens/core";
+@use "../tokens/core" as *;
 
 @mixin icon-size($size: $icon-default) {
   & .lucide {

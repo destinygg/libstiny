@@ -1,6 +1,6 @@
-@use "component";
-@use "colors";
-@use "core";
-@use "semantic";
-@use "typography";
-@use "shadows";
+@forward "component";
+@forward "colors";
+@forward "core";
+@forward "semantic";
+@forward "typography";
+@forward "shadows";

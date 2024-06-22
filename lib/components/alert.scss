@@ -1,5 +1,6 @@
-@import "../tokens/component";
-@import "../tokens/typography";
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/typography" as *;
 
 .alert {
   // Layout

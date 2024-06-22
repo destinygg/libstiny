@@ -1,7 +1,20 @@
-@import "colors";
+@use "colors" as *;
 
+/* color */
 $palette-transparent: #ffffff00;
 $palette-white: #ffffff;
+$palette-black-a-1: $black-a1;
+$palette-black-a-10: $black-a10;
+$palette-black-a-11: $black-a11;
+$palette-black-a-12: $black-a12;
+$palette-black-a-2: $black-a2;
+$palette-black-a-3: $black-a3;
+$palette-black-a-4: $black-a4;
+$palette-black-a-5: $black-a5;
+$palette-black-a-6: $black-a6;
+$palette-black-a-7: $black-a7;
+$palette-black-a-8: $black-a8;
+$palette-black-a-9: $black-a9;
 $palette-danger-1: $red-1;
 $palette-danger-10: $red-10;
 $palette-danger-11: $red-11;
@@ -50,7 +63,19 @@ $palette-success-6: $jade-6;
 $palette-success-7: $jade-7;
 $palette-success-8: $jade-8;
 $palette-success-9: $jade-9;
-
+$palette-white-a-1: $white-a1;
+$palette-white-a-10: $white-a10;
+$palette-white-a-11: $white-a11;
+$palette-white-a-12: $white-a12;
+$palette-white-a-2: $white-a2;
+$palette-white-a-3: $white-a3;
+$palette-white-a-4: $white-a4;
+$palette-white-a-5: $white-a5;
+$palette-white-a-6: $white-a6;
+$palette-white-a-7: $white-a7;
+$palette-white-a-8: $white-a8;
+$palette-white-a-9: $white-a9;
+/* number */
 $space-1: 0.25rem;
 $space-2: 0.5rem;
 $space-3: 0.75rem;
@@ -63,7 +88,7 @@ $space-9: 3.5rem;
 $space-10: 4rem;
 $space-11: 6rem;
 $space-12: 8rem;
-
+/* icon sizes */
 $icon-sm: $space-4;
 $icon-default: 1.25rem;
 $icon-md: $space-5;
