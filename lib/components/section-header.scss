@@ -1,0 +1,23 @@
+@import "../tokens/component";
+@import "../tokens/core";
+@import "../tokens/typography";
+
+.section-header {
+  &__content {
+    display: inline-grid;
+    gap: $space-1;
+  }
+
+  &__heading {
+    margin: 0;
+    font: $display-300-semi-bold;
+    line-height: 2.75rem;
+  }
+
+  &__divider {
+    margin-right: 2.75rem;
+    height: 0.375rem;
+    background-color: $section-header-border;
+    border-radius: $semantic-radii-pill;
+  }
+}
