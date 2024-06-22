@@ -1,6 +1,7 @@
-@import "../tokens/component";
-@import "../tokens/typography";
-@import "../utils/icon-size";
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/typography" as *;
+@use "../utils/icon-size" as *;
 
 $button-styles: (
   primary: (

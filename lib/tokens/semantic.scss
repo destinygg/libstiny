@@ -1,4 +1,5 @@
-@import "core";
+@use "colors" as *;
+@use "core" as *;
 
 $semantic-background-default: $palette-neutral-1;
 $semantic-background-overlay: $black-a10;

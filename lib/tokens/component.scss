@@ -1,5 +1,6 @@
-@import "core";
-@import "semantic";
+@use "colors" as *;
+@use "core" as *;
+@use "semantic" as *;
 
 $alert-danger-background: $palette-danger-3;
 $alert-danger-border: $palette-danger-6;
