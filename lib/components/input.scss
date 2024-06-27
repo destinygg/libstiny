@@ -38,7 +38,7 @@
     border: 1px solid $input-border-rest;
     color: $semantic-foreground-default;
     background-color: $input-background-rest;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease;
 
     &:not(&:has(textarea)) {
       height: $input-height;
