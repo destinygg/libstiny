@@ -21,7 +21,7 @@
   border-radius: $button-radii;
   font: $body-200-semi-bold;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
 
   &:disabled {
     background-color: $button-disabled-background-rest;
@@ -67,21 +67,6 @@
 
     &:not(:disabled):active {
       background-color: $button-tertiary-background-pressed;
-    }
-  }
-
-  &--ghost {
-    background-color: $button-ghost-background-rest;
-    color: $button-ghost-foreground-rest;
-    border: 1px solid $button-ghost-border-rest;
-
-    &:not(:disabled):hover {
-      background-color: $button-ghost-background-hover;
-      border-color: $button-ghost-border-hover;
-    }
-
-    &:not(:disabled):active {
-      background-color: $button-ghost-background-pressed;
     }
   }
 
