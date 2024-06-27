@@ -1,0 +1,51 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/shadows" as *;
+@use "../tokens/typography" as *;
+
+.radio {
+  appearance: none;
+  position: relative;
+  width: $icon-default;
+  height: $icon-default;
+  border-radius: $semantic-radii-pill;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+
+  border: 1px solid $radio-indicator-unselected-rest;
+
+  .choicebox:hover &,
+  &:hover {
+    border-color: $radio-indicator-unselected-hover;
+    cursor: pointer;
+  }
+
+  &:checked {
+    border: 1px solid $radio-indicator-selected-rest;
+
+    .choicebox:hover &,
+    &:hover {
+      border-color: $radio-indicator-selected-hover;
+    }
+
+    &::after {
+      content: "";
+      border-radius: $semantic-radii-pill;
+      transition: all 0.2s ease;
+      position: absolute;
+      height: 0.625rem;
+      width: 0.625rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: $radio-indicator-selected-rest;
+    }
+
+    .choicebox:hover &::after,
+    &:hover::after {
+      background-color: $radio-indicator-selected-hover;
+    }
+  }
+}

@@ -30,8 +30,8 @@ export const Primary: Story = {
       </div>
 
       <div className="card__header">
-        <span className="card__header__title">{args.title}</span>
-        <span className="card__header__subtitle">{args.subtitle}</span>
+        <span className="card__title">{args.title}</span>
+        <span className="card__subtitle">{args.subtitle}</span>
       </div>
 
       <span>
@@ -41,8 +41,8 @@ export const Primary: Story = {
       </span>
 
       <div className="card__extra card__extra--right">
-        <button className="button button--neutral-text">Action</button>
-        <button className="button button--primary-solid">Action</button>
+        <button className="button button--tertiary">Action</button>
+        <button className="button button--secondary">Action</button>
       </div>
     </div>
   ),
