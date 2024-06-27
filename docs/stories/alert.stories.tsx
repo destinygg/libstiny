@@ -35,8 +35,7 @@ export const Primary: Story = {
 
       <button
         className={buttonComponent({
-          variant: "outlined",
-          color: args.variant,
+          intent: "secondary",
         })}
       >
         Alert Action

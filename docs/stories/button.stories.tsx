@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { buttonComponent } from "../components/button";
 
 type ButtonArgs = {
-  intent: "primary" | "secondary" | "tertiary" | "ghost" | "danger";
+  intent: "primary" | "secondary" | "tertiary" | "danger";
   size: "default" | "small" | "large";
   disabled: boolean;
   label: string;
@@ -13,7 +13,7 @@ const meta: Meta<ButtonArgs> = {
   tags: ["autodocs"],
   argTypes: {
     intent: {
-      options: ["primary", "secondary", "tertiary", "ghost", "danger"],
+      options: ["primary", "secondary", "tertiary", "danger"],
       control: {
         type: "select",
       },
