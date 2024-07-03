@@ -5,6 +5,7 @@ type ButtonArgs = {
   intent: "primary" | "secondary" | "tertiary" | "danger";
   size: "default" | "small" | "large";
   disabled: boolean;
+  iconOnly: boolean;
   label: string;
 };
 
@@ -37,15 +38,17 @@ export const Primary: Story = {
       className={buttonComponent({
         intent: args.intent,
         size: args.size,
+        iconOnly: args.iconOnly,
       })}
       disabled={args.disabled}
     >
-      {args.label}
+      {args.iconOnly ? "i" : args.label}
     </button>
   ),
   args: {
     intent: "primary",
     size: "default",
+    iconOnly: false,
     disabled: false,
     label: "Button",
   },
