@@ -34,11 +34,11 @@ export const Primary: Story = {
         <span className="card__subtitle">{args.subtitle}</span>
       </div>
 
-      <span>
+      <div className="card__description">
         As you guys might know, Destiny had a meetup in Georgia today to canvas.
         I was super excited for this since I live there, and I had a chance to
         meet the guy I watch constantly in person. On the...
-      </span>
+      </div>
 
       <div className="card__extra card__extra--right">
         <button className="button button--tertiary">Action</button>
