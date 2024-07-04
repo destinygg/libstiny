@@ -16,5 +16,9 @@ export const buttonComponent = cva({
       large: "button--large",
       small: "button--small",
     },
+
+    iconOnly: {
+      true: "button--icon-only",
+    },
   },
 });

@@ -22,6 +22,7 @@ export const Primary: Story = {
       />
 
       <div className="navbar__items">
+        <a className="navbar__item navbar__item--icon-only">i</a>
         <a className="navbar__item navbar__item--active">Home</a>
         <a className="navbar__item">
           Big Screen <span className="badge badge--danger">Live</span>
