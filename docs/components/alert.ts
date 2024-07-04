@@ -1,13 +1,17 @@
 import { cva } from "cva";
 
-export const alertComponent = cva({
-  base: "alert",
+export const notificationComponent = cva({
+  base: "notification",
   variants: {
     variant: {
-      primary: "alert--primary",
-      danger: "alert--danger",
-      neutral: "alert--neutral",
-      success: "alert--success",
+      primary: "notification--primary",
+      danger: "notification--danger",
+      neutral: "notification--neutral",
+      success: "notification--success",
+    },
+    type: {
+      toast: "notification--toast",
+      alert: "notification--alert",
     },
   },
 });
