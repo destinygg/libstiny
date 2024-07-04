@@ -54,10 +54,10 @@
 
     &:after {
       background-color: $tabs-border-active;
-      height: 2px;
+      height: 3px;
 
       .tabs--vertical & {
-        width: 2px;
+        width: 3px;
       }
     }
   }
