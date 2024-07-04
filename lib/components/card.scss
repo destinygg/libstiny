@@ -33,6 +33,11 @@
     }
   }
 
+  &__description {
+    font: $body-200-regular;
+    flex: 1;
+  }
+
   &__header {
     display: flex;
     flex-direction: column;
