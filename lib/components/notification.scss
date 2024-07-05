@@ -1,0 +1,67 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/typography" as *;
+
+.notification {
+  // Layout
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  &--primary {
+    background-color: $notification-primary-background;
+    color: $notification-primary-foreground;
+    border: 1px solid $notification-primary-border;
+  }
+
+  &--success {
+    background-color: $notification-success-background;
+    color: $notification-success-foreground;
+    border: 1px solid $notification-success-border;
+  }
+
+  &--danger {
+    background-color: $notification-danger-background;
+    color: $notification-danger-foreground;
+    border: 1px solid $notification-danger-border;
+  }
+
+  &--neutral {
+    background-color: $notification-neutral-background;
+    color: $notification-neutral-foreground;
+    border: 1px solid $notification-neutral-border;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+
+    .notification__title {
+      .notification--alert & {
+        font: $body-500-semi-bold;
+      }
+
+      .notification--toast & {
+        font: $body-400-semi-bold;
+      }
+    }
+
+    .notification__body {
+      font: $body-200-medium;
+    }
+  }
+
+  &--alert {
+    padding: $notification-large-padding;
+    gap: $notification-large-gap;
+    border-radius: $notification-large-radii;
+  }
+
+  &--toast {
+    padding: $notification-small-padding;
+    gap: $notification-small-gap;
+    border-radius: $notification-small-radii;
+  }
+}

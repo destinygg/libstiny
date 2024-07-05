@@ -25,9 +25,11 @@
     // Layout
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: $navbar-item-gap;
     padding: 0 $navbar-item-padding;
     height: $navbar-item-height;
+    box-sizing: border-box;
 
     // Styling
     border-radius: $navbar-item-radii;
@@ -35,7 +37,11 @@
     background-color: $navbar-item-default-background-rest;
     font: $body-300-medium;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease;
+
+    &--icon-only {
+      aspect-ratio: 1/1;
+    }
 
     &:hover {
       color: $navbar-item-default-foreground-hover;

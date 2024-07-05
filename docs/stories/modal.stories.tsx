@@ -23,8 +23,8 @@ export const Primary: Story = {
       </div>
       Content
       <div className="modal__actions">
-        <button className="button button--neutral-text">Action</button>
-        <button className="button button--primary-solid">Action</button>
+        <button className="button button--tertiary">Action</button>
+        <button className="button button--primary">Action</button>
       </div>
     </div>
   ),

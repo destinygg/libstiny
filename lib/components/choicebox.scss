@@ -1,0 +1,57 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/shadows" as *;
+@use "../tokens/typography" as *;
+
+.choicebox {
+  // Layout
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  padding: $choicebox-padding;
+  cursor: pointer;
+
+  // Style
+  transition: all 0.2s ease;
+  border-radius: $choicebox-radii;
+  border: 1px solid $choicebox-border-unselected-rest;
+  background-color: $choicebox-background-unselected-rest;
+  color: $choicebox-title-foreground-unselected;
+
+  &:hover {
+    border: 1px solid $choicebox-border-unselected-hover;
+    background-color: $choicebox-background-unselected-hover;
+  }
+
+  .radio {
+    position: absolute;
+    top: $choicebox-radio-offset;
+    right: $choicebox-radio-offset;
+  }
+
+  &__title {
+    font: $body-300-semi-bold;
+  }
+
+  &__subtitle {
+    font: $body-200-medium;
+    color: $choicebox-subtitle-foreground-unselected;
+  }
+
+  &:has(input[type="radio"]:checked) {
+    border: 1px solid $choicebox-border-selected-rest;
+    background-color: $choicebox-background-selected-rest;
+    color: $choicebox-title-foreground-selected;
+    box-shadow: $blue-glow;
+
+    .choicebox__subtitle {
+      color: $choicebox-subtitle-foreground-selected;
+    }
+
+    &:hover {
+      border: 1px solid $choicebox-border-selected-hover;
+      background-color: $choicebox-background-selected-hover;
+    }
+  }
+}

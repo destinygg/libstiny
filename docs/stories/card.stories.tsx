@@ -30,19 +30,19 @@ export const Primary: Story = {
       </div>
 
       <div className="card__header">
-        <span className="card__header__title">{args.title}</span>
-        <span className="card__header__subtitle">{args.subtitle}</span>
+        <span className="card__title">{args.title}</span>
+        <span className="card__subtitle">{args.subtitle}</span>
       </div>
 
-      <span>
+      <div className="card__description">
         As you guys might know, Destiny had a meetup in Georgia today to canvas.
         I was super excited for this since I live there, and I had a chance to
         meet the guy I watch constantly in person. On the...
-      </span>
+      </div>
 
       <div className="card__extra card__extra--right">
-        <button className="button button--neutral-text">Action</button>
-        <button className="button button--primary-solid">Action</button>
+        <button className="button button--tertiary">Action</button>
+        <button className="button button--secondary">Action</button>
       </div>
     </div>
   ),
