@@ -31,11 +31,19 @@
     &--right {
       justify-content: flex-end;
     }
+
+    &:empty {
+      display: none;
+    }
   }
 
   &__description {
     font: $body-200-regular;
     flex: 1;
+
+    &:empty {
+      display: none;
+    }
   }
 
   &__header {
