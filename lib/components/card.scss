@@ -26,7 +26,8 @@
 
   &__extra {
     display: flex;
-    gap: $space-4;
+    flex-wrap: wrap;
+    gap: $space-2 $space-4;
 
     &--right {
       justify-content: flex-end;
