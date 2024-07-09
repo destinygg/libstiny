@@ -26,16 +26,25 @@
 
   &__extra {
     display: flex;
-    gap: $space-4;
+    flex-wrap: wrap;
+    gap: $space-2 $space-4;
 
     &--right {
       justify-content: flex-end;
+    }
+
+    &:empty {
+      display: none;
     }
   }
 
   &__description {
     font: $body-200-regular;
     flex: 1;
+
+    &:empty {
+      display: none;
+    }
   }
 
   &__header {
