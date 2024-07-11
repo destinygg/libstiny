@@ -100,13 +100,13 @@
 
     // Styling
     border-radius: $navbar-item-radii;
-    background-color: $black-a8;
+    background-color: $palette-black-a-8;
     color: $semantic-foreground-default;
     font: $body-300-medium;
     cursor: pointer;
 
     &:hover {
-      background-color: $black-a9;
+      background-color: $palette-black-a-9;
     }
   }
 }
