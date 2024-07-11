@@ -56,6 +56,16 @@ $body-100-medium: 500 0.75rem/1.125rem "Inter";
 $body-100-semi-bold: 600 0.75rem/1.125rem "Inter";
 $body-100-bold: 700 0.75rem/1.125rem "Inter";
 
+// Function to extract the font size from the variable
+@function get-font-size($font-variable) {
+  @return nth(nth($font-variable, 2), 1);
+}
+
+// Function to extract the line height from the variable
+@function get-line-height($font-variable) {
+  @return nth(nth($font-variable, 2), 2);
+}
+
 .label {
   font: $label;
   letter-spacing: $label-letter-spacing;

@@ -21,6 +21,7 @@
 
   &--prominent {
     border-color: $card-prominent-border;
+    background-color: $card-prominent-background;
     box-shadow: $blue-glow;
   }
 
@@ -50,14 +51,24 @@
   &__header {
     display: flex;
     flex-direction: column;
+    gap: $space-1;
 
     .card__title {
       font: $display-100-semi-bold;
+      color: $card-default-title;
+
+      .card--prominent & {
+        color: $card-prominent-title;
+      }
     }
 
     .card__subtitle {
       font: $body-200-semi-bold;
-      color: $semantic-foreground-subtle;
+      color: $card-default-subtitle;
+
+      .card--prominent & {
+        color: $card-prominent-subtitle;
+      }
     }
   }
 }
