@@ -3,202 +3,60 @@
 $label: 700 0.75rem Inter;
 $label-letter-spacing: 0.1em;
 
-$display-600-regular:
-  400 list.slash(4.5rem, 4.5rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-600-medium:
-  500 list.slash(4.5rem, 4.5rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-600-semi-bold:
-  600 list.slash(4.5rem, 4.5rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-600-bold:
-  700 list.slash(4.5rem, 4.5rem) Poppins,
-  system-ui,
-  sans-serif;
+$display-600-regular: 400 list.slash(4.5rem, 4.5rem) "Poppins";
+$display-600-medium: 500 list.slash(4.5rem, 4.5rem) "Poppins";
+$display-600-semi-bold: 600 list.slash(4.5rem, 4.5rem) "Poppins";
+$display-600-bold: 700 list.slash(4.5rem, 4.5rem) "Poppins";
 
-$display-500-regular:
-  400 list.slash(3.75rem, 3.75rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-500-medium:
-  500 list.slash(3.75rem, 3.75rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-500-semi-bold:
-  600 list.slash(3.75rem, 3.75rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-500-bold:
-  700 list.slash(3.75rem, 3.75rem) Poppins,
-  system-ui,
-  sans-serif;
+$display-500-regular: 400 list.slash(3.75rem, 3.75rem) "Poppins";
+$display-500-medium: 500 list.slash(3.75rem, 3.75rem) "Poppins";
+$display-500-semi-bold: 600 list.slash(3.75rem, 3.75rem) "Poppins";
+$display-500-bold: 700 list.slash(3.75rem, 3.75rem) "Poppins";
 
-$display-400-regular:
-  400 list.slash(3rem, 3rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-400-medium:
-  500 list.slash(3rem, 3rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-400-semi-bold:
-  600 list.slash(3rem, 3rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-400-bold:
-  700 list.slash(3rem, 3rem) Poppins,
-  system-ui,
-  sans-serif;
+$display-400-regular: 400 list.slash(3rem, 3rem) "Poppins";
+$display-400-medium: 500 list.slash(3rem, 3rem) "Poppins";
+$display-400-semi-bold: 600 list.slash(3rem, 3rem) "Poppins";
+$display-400-bold: 700 list.slash(3rem, 3rem) "Poppins";
 
-$display-300-regular:
-  400 list.slash(2.25rem, 2.25rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-300-medium:
-  500 list.slash(2.25rem, 2.25rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-300-semi-bold:
-  600 list.slash(2.25rem, 2.25rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-300-bold:
-  700 list.slash(2.25rem, 2.25rem) Poppins,
-  system-ui,
-  sans-serif;
+$display-300-regular: 400 list.slash(2.25rem, 2.25rem) "Poppins";
+$display-300-medium: 500 list.slash(2.25rem, 2.25rem) "Poppins";
+$display-300-semi-bold: 600 list.slash(2.25rem, 2.25rem) "Poppins";
+$display-300-bold: 700 list.slash(2.25rem, 2.25rem) "Poppins";
 
-$display-200-regular:
-  400 list.slash(1.88rem, 1.88rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-200-medium:
-  500 list.slash(1.88rem, 1.88rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-200-semi-bold:
-  600 list.slash(1.88rem, 1.88rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-200-bold:
-  700 list.slash(1.88rem, 1.88rem) Poppins,
-  system-ui,
-  sans-serif;
+$display-200-regular: 400 list.slash(1.88rem, 1.88rem) "Poppins";
+$display-200-medium: 500 list.slash(1.88rem, 1.88rem) "Poppins";
+$display-200-semi-bold: 600 list.slash(1.88rem, 1.88rem) "Poppins";
+$display-200-bold: 700 list.slash(1.88rem, 1.88rem) "Poppins";
 
-$display-100-regular:
-  400 list.slash(1.5rem, 1.5rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-100-medium:
-  500 list.slash(1.5rem, 1.5rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-100-semi-bold:
-  600 list.slash(1.5rem, 1.5rem) Poppins,
-  system-ui,
-  sans-serif;
-$display-100-bold:
-  700 list.slash(1.5rem, 1.5rem) Poppins,
-  system-ui,
-  sans-serif;
+$display-100-regular: 400 list.slash(1.5rem, 1.5rem) "Poppins";
+$display-100-medium: 500 list.slash(1.5rem, 1.5rem) "Poppins";
+$display-100-semi-bold: 600 list.slash(1.5rem, 1.5rem) "Poppins";
+$display-100-bold: 700 list.slash(1.5rem, 1.5rem) "Poppins";
 
-$body-500-regular:
-  400 list.slash(1.25rem, 1.875rem) Inter,
-  system-ui,
-  sans-serif;
-$body-500-medium:
-  500 list.slash(1.25rem, 1.875rem) Inter,
-  system-ui,
-  sans-serif;
-$body-500-semi-bold:
-  600 list.slash(1.25rem, 1.875rem) Inter,
-  system-ui,
-  sans-serif;
-$body-500-bold:
-  700 list.slash(1.25rem, 1.875rem) Inter,
-  system-ui,
-  sans-serif;
+$body-500-regular: 400 list.slash(1.25rem, 1.875rem) "Inter";
+$body-500-medium: 500 list.slash(1.25rem, 1.875rem) "Inter";
+$body-500-semi-bold: 600 list.slash(1.25rem, 1.875rem) "Inter";
+$body-500-bold: 700 list.slash(1.25rem, 1.875rem) "Inter";
 
-$body-400-regular:
-  400 list.slash(1.12rem, 1.75rem) Inter,
-  system-ui,
-  sans-serif;
-$body-400-medium:
-  500 list.slash(1.12rem, 1.75rem) Inter,
-  system-ui,
-  sans-serif;
-$body-400-semi-bold:
-  600 list.slash(1.12rem, 1.75rem) Inter,
-  system-ui,
-  sans-serif;
-$body-400-bold:
-  700 list.slash(1.12rem, 1.75rem) Inter,
-  system-ui,
-  sans-serif;
+$body-400-regular: 400 list.slash(1.12rem, 1.75rem) "Inter";
+$body-400-medium: 500 list.slash(1.12rem, 1.75rem) "Inter";
+$body-400-semi-bold: 600 list.slash(1.12rem, 1.75rem) "Inter";
+$body-400-bold: 700 list.slash(1.12rem, 1.75rem) "Inter";
 
-$body-300-regular:
-  400 list.slash(1rem, 1.5rem) Inter,
-  system-ui,
-  sans-serif;
-$body-300-medium:
-  500 list.slash(1rem, 1.5rem) Inter,
-  system-ui,
-  sans-serif;
-$body-300-semi-bold:
-  600 list.slash(1rem, 1.5rem) Inter,
-  system-ui,
-  sans-serif;
-$body-300-bold:
-  700 list.slash(1rem, 1.5rem) Inter,
-  system-ui,
-  sans-serif;
+$body-300-regular: 400 list.slash(1rem, 1.5rem) "Inter";
+$body-300-medium: 500 list.slash(1rem, 1.5rem) "Inter";
+$body-300-semi-bold: 600 list.slash(1rem, 1.5rem) "Inter";
+$body-300-bold: 700 list.slash(1rem, 1.5rem) "Inter";
 
-$body-200-regular:
-  400 list.slash(0.88rem, 1.25rem) Inter,
-  system-ui,
-  sans-serif;
-$body-200-medium:
-  500 list.slash(0.88rem, 1.25rem) Inter,
-  system-ui,
-  sans-serif;
-$body-200-semi-bold:
-  600 list.slash(0.88rem, 1.25rem) Inter,
-  system-ui,
-  sans-serif;
-$body-200-bold:
-  700 list.slash(0.88rem, 1.25rem) Inter,
-  system-ui,
-  sans-serif;
+$body-200-regular: 400 list.slash(0.88rem, 1.25rem) "Inter";
+$body-200-medium: 500 list.slash(0.88rem, 1.25rem) "Inter";
+$body-200-semi-bold: 600 list.slash(0.88rem, 1.25rem) "Inter";
+$body-200-bold: 700 list.slash(0.88rem, 1.25rem) "Inter";
 
-$body-100-regular:
-  400 list.slash(0.75rem, 1.125rem) Inter,
-  system-ui,
-  sans-serif;
-$body-100-medium:
-  500 list.slash(0.75rem, 1.125rem) Inter,
-  system-ui,
-  sans-serif;
-$body-100-semi-bold:
-  600 list.slash(0.75rem, 1.125rem) Inter,
-  system-ui,
-  sans-serif;
-$body-100-bold:
-  700 list.slash(0.75rem, 1.125rem) Inter,
-  system-ui,
-  sans-serif;
-
-// Function to extract the font size from the variable
-@function get-font-size($font-variable) {
-  @return nth(nth(nth($font-variable, 1), 2), 1);
-}
-
-// Function to extract the line height from the variable
-@function get-line-height($font-variable) {
-  @return nth(nth(nth($font-variable, 1), 2), 2);
-}
+$body-100-regular: 400 list.slash(0.75rem, 1.125rem) "Inter";
+$body-100-medium: 500 list.slash(0.75rem, 1.125rem) "Inter";
+$body-100-semi-bold: 600 list.slash(0.75rem, 1.125rem) "Inter";
+$body-100-bold: 700 list.slash(0.75rem, 1.125rem) "Inter";
 
 // Function to extract the font size from the variable
 @function get-font-size($font-variable) {
