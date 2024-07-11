@@ -41,17 +41,6 @@ We have four main color scales; `primary`, `success`, `danger`, `neutral` and ea
 }
 ```
 
-99% of the time, you will be using our core colors. However, we have 33 different color palettes available for use.
-
-```scss
-@use "~@destinygg/libstiny/lib/tokens/colors" as *;
-
-.example {
-  background-color: $iris-3;
-  color: $purple-8;
-}
-```
-
 You can view the complete color palette [here](https://www.radix-ui.com/colors/docs/palette-composition/scales).
 
 #### Space
