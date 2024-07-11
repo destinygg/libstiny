@@ -28,7 +28,7 @@
     background-color: $dropdown-item-background-rest;
     color: $dropdown-item-foreground-rest;
     font: $body-200-medium;
-    transition: all 0.2s ease;
+    transition: $transition-default;
     cursor: pointer;
 
     &:hover {

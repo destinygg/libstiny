@@ -10,7 +10,7 @@
   width: $icon-default;
   height: $icon-default;
   border-radius: $semantic-radii-pill;
-  transition: all 0.2s ease;
+  transition: $transition-default;
   box-sizing: border-box;
 
   border: 1px solid $radio-indicator-unselected-rest;
@@ -32,7 +32,7 @@
     &::after {
       content: "";
       border-radius: $semantic-radii-pill;
-      transition: all 0.2s ease;
+      transition: $transition-default;
       position: absolute;
       height: 0.625rem;
       width: 0.625rem;

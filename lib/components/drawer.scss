@@ -1,0 +1,75 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/typography" as *;
+@use "../utils/icon-size" as *;
+
+.drawer {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: $drawer-padding;
+  gap: $drawer-gap;
+
+  // Style
+  background-color: $drawer-background;
+  border-right: 1px solid $drawer-border;
+
+  &__logo {
+    height: $space-9;
+    width: auto;
+  }
+}
+
+.drawer__category {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  gap: $drawer-category-gap;
+
+  &-title {
+    font: $label;
+    letter-spacing: $label-letter-spacing;
+    color: $drawer-category-foreground;
+    text-transform: uppercase;
+  }
+}
+
+.drawer__footer {
+  display: flex;
+  gap: $space-2;
+  margin-top: auto;
+}
+
+.drawer__item {
+  // Layout
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  height: $drawer-item-height;
+  padding: 0 $drawer-item-padding;
+  gap: $drawer-item-gap;
+
+  // Style
+  background-color: $drawer-item-default-background-rest;
+  color: $drawer-item-default-foreground-rest;
+  border-radius: $drawer-item-radii;
+  font: $body-300-medium;
+  cursor: pointer;
+  transition: $transition-default;
+
+  &:hover {
+    background-color: $drawer-item-default-background-hover;
+    color: $drawer-item-default-foreground-hover;
+  }
+
+  &--active {
+    background-color: $drawer-item-active-background-rest;
+    color: $drawer-item-active-foreground-rest;
+
+    &:hover {
+      background-color: $drawer-item-active-background-hover;
+      color: $drawer-item-active-foreground-hover;
+    }
+  }
+}

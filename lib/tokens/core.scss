@@ -94,3 +94,8 @@ $icon-default: 1.25rem;
 $icon-md: $space-5;
 $icon-lg: $space-6;
 $icon-xl: $space-7;
+/* transitions */
+$transition-default: all 150ms ease;
+$transition-slow: all 200ms ease;
+$transition-slowest: all 300ms ease;
+$transition-in-out: all 150ms ease-out;
