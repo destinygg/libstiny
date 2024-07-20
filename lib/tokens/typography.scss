@@ -192,12 +192,12 @@ $body-100-bold:
 
 // Function to extract the font size from the variable
 @function get-font-size($font-variable) {
-  @return nth(nth($font-variable, 2), 1);
+  @return nth(nth(nth($font-variable, 1), 2), 1);
 }
 
 // Function to extract the line height from the variable
 @function get-line-height($font-variable) {
-  @return nth(nth($font-variable, 2), 2);
+  @return nth(nth(nth($font-variable, 2), 2), 1);
 }
 
 .label {
