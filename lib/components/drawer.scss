@@ -19,57 +19,57 @@
     height: $space-9;
     width: auto;
   }
-}
 
-.drawer__category {
-  // Layout
-  display: flex;
-  flex-direction: column;
-  gap: $drawer-category-gap;
+  &__category {
+    // Layout
+    display: flex;
+    flex-direction: column;
+    gap: $drawer-category-gap;
+  }
 
-  &-title {
+  &__category-title {
     font: $label;
     letter-spacing: $label-letter-spacing;
     color: $drawer-category-foreground;
     text-transform: uppercase;
   }
-}
 
-.drawer__footer {
-  display: flex;
-  gap: $space-2;
-  margin-top: auto;
-}
-
-.drawer__item {
-  // Layout
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  height: $drawer-item-height;
-  padding: 0 $drawer-item-padding;
-  gap: $drawer-item-gap;
-
-  // Style
-  background-color: $drawer-item-default-background-rest;
-  color: $drawer-item-default-foreground-rest;
-  border-radius: $drawer-item-radii;
-  font: $body-300-medium;
-  cursor: pointer;
-  transition: $transition-default;
-
-  &:hover {
-    background-color: $drawer-item-default-background-hover;
-    color: $drawer-item-default-foreground-hover;
+  &__footer {
+    display: flex;
+    gap: $space-2;
+    margin-top: auto;
   }
 
-  &--active {
-    background-color: $drawer-item-active-background-rest;
-    color: $drawer-item-active-foreground-rest;
+  &__item {
+    // Layout
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    height: $drawer-item-height;
+    padding: 0 $drawer-item-padding;
+    gap: $drawer-item-gap;
+
+    // Style
+    background-color: $drawer-item-default-background-rest;
+    color: $drawer-item-default-foreground-rest;
+    border-radius: $drawer-item-radii;
+    font: $body-300-medium;
+    cursor: pointer;
+    transition: $transition-default;
 
     &:hover {
-      background-color: $drawer-item-active-background-hover;
-      color: $drawer-item-active-foreground-hover;
+      background-color: $drawer-item-default-background-hover;
+      color: $drawer-item-default-foreground-hover;
+    }
+
+    &--active {
+      background-color: $drawer-item-active-background-rest;
+      color: $drawer-item-active-foreground-rest;
+
+      &:hover {
+        background-color: $drawer-item-active-background-hover;
+        color: $drawer-item-active-foreground-hover;
+      }
     }
   }
 }

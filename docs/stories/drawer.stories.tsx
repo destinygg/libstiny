@@ -34,7 +34,7 @@ export const Primary: Story = {
     <div className="drawer" style={{ width: 340, height: 900 }}>
       <div>
         <img
-          src="https://cdn.omniliberal.dev/3.11.1/img/destiny-logo.png"
+          src="https://cdn.omniliberal.dev/3.12.0/img/destiny-logo.png"
           className="drawer__logo"
         />
       </div>
