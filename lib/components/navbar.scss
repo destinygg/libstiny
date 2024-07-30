@@ -30,7 +30,7 @@
     color: $navbar-item-default-foreground-rest;
     padding: 0;
     box-sizing: border-box;
-    transition: all 150ms ease;
+    transition: $transition-default;
     cursor: pointer;
     aspect-ratio: 1/1;
 
@@ -56,7 +56,7 @@
     background-color: $navbar-item-default-background-rest;
     font: $body-300-medium;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: $transition-default;
 
     &:hover {
       color: $navbar-item-default-foreground-hover;
@@ -85,7 +85,7 @@
   }
 
   &__logo {
-    height: 40px;
+    height: $space-7;
     width: auto;
   }
 
@@ -96,7 +96,7 @@
     gap: $navbar-item-gap;
     padding: 0 $navbar-item-padding;
     height: $navbar-item-height;
-    transition: all 150ms ease;
+    transition: $transition-default;
 
     // Styling
     border-radius: $navbar-item-radii;

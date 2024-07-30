@@ -8,7 +8,7 @@ export default create({
 
   brandTitle: "Libstiny",
   brandUrl: "https://destiny.gg",
-  brandImage: "https://cdn.destiny.gg/img/destiny-logo.png",
+  brandImage: "https://cdn.omniliberal.dev/3.12.0/img/destiny-logo.png",
   brandTarget: "_self",
 
   //

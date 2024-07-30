@@ -24,7 +24,7 @@
   background-color: $tabs-background-default;
   font: $body-300-medium;
   cursor: pointer;
-  transition: all 150ms ease;
+  transition: $transition-default;
 
   &:hover {
     background-color: $tabs-background-hover;
@@ -38,7 +38,7 @@
     bottom: -1px;
     left: 0;
     background-color: $tabs-border-default;
-    transition: all 150ms ease;
+    transition: $transition-default;
 
     .tabs--vertical & {
       height: 100%;
