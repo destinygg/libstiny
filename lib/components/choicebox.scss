@@ -13,7 +13,7 @@
   cursor: pointer;
 
   // Style
-  transition: all 0.2s ease;
+  transition: $transition-default;
   border-radius: $choicebox-radii;
   border: 1px solid $choicebox-border-unselected-rest;
   background-color: $choicebox-background-unselected-rest;

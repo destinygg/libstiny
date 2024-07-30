@@ -21,7 +21,7 @@
   border-radius: $button-radii;
   font: $body-200-semi-bold;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: $transition-default;
 
   &:disabled {
     background-color: $button-disabled-background-rest;
@@ -101,5 +101,9 @@
     height: $button-small-height;
     gap: $button-small-gap;
     padding: 0 $button-small-padding;
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }
