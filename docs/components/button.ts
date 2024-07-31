@@ -12,7 +12,7 @@ export const buttonComponent = cva({
     },
 
     size: {
-      default: "button--default",
+      default: "",
       large: "button--large",
       small: "button--small",
     },
