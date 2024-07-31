@@ -15,7 +15,7 @@
     th,
     td {
       height: $table-cell-height;
-      padding: 0 $table-cell-padding;
+      padding: $table-cell-padding-vertical $table-cell-padding-horizontal;
     }
 
     th {
