@@ -3,6 +3,83 @@
 @use "../tokens/typography" as *;
 @use "../utils/icon-size" as *;
 
+@mixin button-primary {
+  background-color: $button-primary-background-rest;
+  color: $button-primary-foreground-rest;
+
+  &:not(:disabled):hover {
+    background-color: $button-primary-background-hover;
+  }
+
+  &:not(:disabled):active {
+    background-color: $button-primary-background-pressed;
+  }
+}
+
+@mixin button-secondary {
+  background-color: $button-secondary-background-rest;
+  color: $button-secondary-foreground-rest;
+  border: 1px solid $button-secondary-border-rest;
+
+  &:not(:disabled):hover {
+    background-color: $button-secondary-background-hover;
+    border-color: $button-secondary-border-hover;
+  }
+
+  &:not(:disabled):active {
+    background-color: $button-secondary-background-pressed;
+  }
+}
+
+@mixin button-tertiary {
+  color: $button-tertiary-foreground-rest;
+
+  &:not(:disabled):hover {
+    background-color: $button-tertiary-background-hover;
+  }
+
+  &:not(:disabled):active {
+    background-color: $button-tertiary-background-pressed;
+  }
+}
+
+@mixin button-danger {
+  background-color: $button-danger-background-rest;
+  color: $button-danger-foreground-rest;
+
+  &:not(:disabled):hover {
+    background-color: $button-danger-background-hover;
+  }
+
+  &:not(:disabled):active {
+    background-color: $button-danger-background-pressed;
+  }
+}
+
+@mixin button-icon-only {
+  aspect-ratio: 1/1;
+  padding: 0;
+}
+
+@mixin button-large {
+  @include icon-size($icon-md);
+  height: $button-large-height;
+  gap: $button-large-gap;
+  padding: 0 $button-large-padding;
+  font: $body-300-semi-bold;
+}
+
+@mixin button-small {
+  @include icon-size($icon-sm);
+  height: $button-small-height;
+  gap: $button-small-gap;
+  padding: 0 $button-small-padding;
+}
+
+@mixin button-full-width {
+  width: 100%;
+}
+
 .button {
   // Layout
   @include icon-size();
@@ -31,79 +108,34 @@
   }
 
   &--primary {
-    background-color: $button-primary-background-rest;
-    color: $button-primary-foreground-rest;
-
-    &:not(:disabled):hover {
-      background-color: $button-primary-background-hover;
-    }
-
-    &:not(:disabled):active {
-      background-color: $button-primary-background-pressed;
-    }
+    @include button-primary;
   }
 
   &--secondary {
-    background-color: $button-secondary-background-rest;
-    color: $button-secondary-foreground-rest;
-    border: 1px solid $button-secondary-border-rest;
-
-    &:not(:disabled):hover {
-      background-color: $button-secondary-background-hover;
-      border-color: $button-secondary-border-hover;
-    }
-
-    &:not(:disabled):active {
-      background-color: $button-secondary-background-pressed;
-    }
+    @include button-secondary;
   }
 
   &--tertiary {
-    color: $button-tertiary-foreground-rest;
-
-    &:not(:disabled):hover {
-      background-color: $button-tertiary-background-hover;
-    }
-
-    &:not(:disabled):active {
-      background-color: $button-tertiary-background-pressed;
-    }
+    @include button-tertiary;
   }
 
   &--danger {
-    background-color: $button-danger-background-rest;
-    color: $button-danger-foreground-rest;
-
-    &:not(:disabled):hover {
-      background-color: $button-danger-background-hover;
-    }
-
-    &:not(:disabled):active {
-      background-color: $button-danger-background-pressed;
-    }
+    @include button-danger;
   }
 
   &--icon-only {
-    aspect-ratio: 1/1;
-    padding: 0;
+    @include button-icon-only;
   }
 
   &--large {
-    @include icon-size($icon-md);
-    height: $button-large-height;
-    gap: $button-large-gap;
-    padding: 0 $button-large-padding;
-    font: $body-300-semi-bold;
+    @include button-large;
   }
 
   &--small {
-    @include icon-size($icon-sm);
-    height: $button-small-height;
-    gap: $button-small-gap;
-    padding: 0 $button-small-padding;
+    @include button-small;
   }
 
   &--full-width {
-    width: 100%;
+    @include button-full-width;
   }
 }
