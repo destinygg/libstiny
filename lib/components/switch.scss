@@ -1,0 +1,72 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/shadows" as *;
+@use "../tokens/typography" as *;
+
+.switch {
+  display: inline-flex;
+  gap: $space-3;
+  align-items: center;
+}
+
+.switch__toggle {
+  position: relative;
+  display: inline-block;
+  width: $switch-width;
+  height: $switch-height;
+}
+
+/* Hide default HTML checkbox */
+.switch__toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $switch-background-default-rest;
+  transition: $transition-default;
+  border-radius: 9999px;
+
+  &:hover {
+    background-color: $switch-background-default-hover;
+  }
+}
+
+.switch__slider:before {
+  position: absolute;
+  content: "";
+  height: $switch-toggle-size;
+  width: $switch-toggle-size;
+  left: 4px;
+  bottom: 4px;
+  background-color: $switch-toggle-background;
+  transition: $transition-default;
+  border-radius: 50%;
+}
+
+input:checked + .switch__slider {
+  background-color: $switch-background-active-rest;
+
+  &:hover {
+    background-color: $switch-background-active-hover;
+  }
+}
+
+input:checked + .switch__slider:before {
+  transform: translateX($switch-toggle-size);
+}
+
+.switch__label {
+  color: $semantic-foreground-default;
+  font: $body-200-medium;
+  cursor: pointer;
+}
