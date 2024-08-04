@@ -4,6 +4,17 @@
 @use "../tokens/shadows" as *;
 @use "../tokens/typography" as *;
 
+@keyframes radio-in {
+  0% {
+    height: 0;
+    width: 0;
+  }
+  100% {
+    height: 0.625rem;
+    width: 0.625rem;
+  }
+}
+
 .radio {
   appearance: none;
   position: relative;
@@ -21,6 +32,17 @@
     cursor: pointer;
   }
 
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    border-radius: $semantic-radii-pill;
+    transform: translate(-50%, -50%);
+  }
+
   &:checked {
     border: 1px solid $radio-indicator-selected-rest;
 
@@ -30,16 +52,9 @@
     }
 
     &::after {
-      content: "";
-      border-radius: $semantic-radii-pill;
-      transition: $transition-default;
-      position: absolute;
       height: 0.625rem;
       width: 0.625rem;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
+      animation: radio-in 150ms ease-in-out;
       background-color: $radio-indicator-selected-rest;
     }
 
