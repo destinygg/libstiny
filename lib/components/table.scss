@@ -16,6 +16,7 @@
     td {
       height: $table-cell-height;
       padding: $table-cell-padding-vertical $table-cell-padding-horizontal;
+      box-sizing: border-box;
     }
 
     th {
