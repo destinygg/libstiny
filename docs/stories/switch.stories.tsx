@@ -13,16 +13,13 @@ type Story = StoryObj<SwitchArgs>;
 
 export const Primary: Story = {
   render: () => (
-    <div className="switch">
-      <label className="switch__toggle">
-        <input type="checkbox" id="switch-demo" />
-        <span className="switch__slider"></span>
-      </label>
-
-      <label className="switch__label" htmlFor="switch-demo">
-        This is the label
-      </label>
-    </div>
+    <label className="switch">
+      <span className="switch__toggle">
+        <input type="checkbox" />
+        <span className="switch__slider switch__slider--round"></span>
+      </span>
+      <span className="switch__label">Toggle me</span>
+    </label>
   ),
   args: {},
 };

@@ -6,18 +6,31 @@
 
 .switch {
   display: inline-flex;
-  gap: $space-3;
   align-items: center;
+  cursor: pointer;
 
   &__toggle {
     position: relative;
+    display: inline-block;
     width: $switch-width;
     height: $switch-height;
+    flex-shrink: 0;
+  }
 
-    input {
-      opacity: 0;
-      width: 0;
-      height: 0;
+  input {
+    appearance: none;
+    display: none;
+
+    &:checked + .switch__slider {
+      background-color: $switch-background-active-rest;
+
+      &:hover {
+        background-color: $switch-background-active-hover;
+      }
+
+      &::before {
+        transform: translateX($switch-toggle-size);
+      }
     }
   }
 
@@ -38,8 +51,8 @@
       content: "";
       height: $switch-toggle-size;
       width: $switch-toggle-size;
-      left: 4px;
-      bottom: 4px;
+      left: $space-1;
+      bottom: $space-1;
       background-color: $switch-toggle-background;
       transition: $transition-default;
       border-radius: 50%;
@@ -47,20 +60,8 @@
   }
 
   &__label {
-    color: $semantic-foreground-default;
-    font: $body-200-medium;
+    margin-left: $space-3;
     cursor: pointer;
+    font: $body-300-medium;
   }
-}
-
-input:checked + .switch__slider {
-  background-color: $switch-background-active-rest;
-
-  &:hover {
-    background-color: $switch-background-active-hover;
-  }
-}
-
-input:checked + .switch__slider:before {
-  transform: translateX($switch-toggle-size);
 }
