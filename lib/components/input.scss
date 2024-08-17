@@ -93,7 +93,8 @@
       padding: 0;
       font: $body-300-regular;
       color: $semantic-foreground-default;
-      background: transparent;
+      background-color: $input-background-rest;
+      transition: all 0.2s ease;
       border: none !important;
       outline: none !important;
 
@@ -103,6 +104,7 @@
 
       &:disabled {
         cursor: not-allowed;
+        background-color: $input-background-disabled;
       }
     }
   }
