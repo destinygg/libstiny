@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   background-color: $modal-overlay-background;
-  filter: blur(4px);
+  backdrop-filter: blur(4px);
   z-index: 900;
 }
 

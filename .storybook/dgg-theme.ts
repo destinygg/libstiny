@@ -8,7 +8,7 @@ export default create({
 
   brandTitle: "Libstiny",
   brandUrl: "https://destiny.gg",
-  brandImage: "https://cdn.destiny.gg/img/destiny-logo.png",
+  brandImage: "https://cdn.omniliberal.dev/3.12.0/img/destiny-logo.png",
   brandTarget: "_self",
 
   //
@@ -16,25 +16,25 @@ export default create({
   colorSecondary: "#0091ff",
 
   // UI
-  appBg: "#18181a",
-  appContentBg: "#18181a",
-  appPreviewBg: "#18181a",
-  appBorderColor: "#3c3f44",
+  appBg: "#111113",
+  appContentBg: "#111113",
+  appPreviewBg: "#111113",
+  appBorderColor: "#363A3F",
   appBorderRadius: 12,
 
   // Text colors
-  textColor: "#edeef0",
-  textInverseColor: "#18181a",
+  textColor: "#EDEEF0",
+  textInverseColor: "#111113",
 
   // Toolbar default and active colors
   barTextColor: "#adb1b8",
   barSelectedColor: "#6bc1ff",
   barHoverColor: "#c2e5ff",
-  barBg: "#1b1b1f",
+  barBg: "#18191B",
 
   // Form colors
-  inputBg: "#1b1b1f",
-  inputBorder: "#464b50",
-  inputTextColor: "#edeef0",
+  inputBg: "#18191B",
+  inputBorder: "#43484E",
+  inputTextColor: "#EDEEF0",
   inputBorderRadius: 10,
 });

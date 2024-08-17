@@ -7,18 +7,36 @@
 .navbar {
   // Layout
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: $navbar-padding 0;
+  gap: $navbar-gap;
 
   &__items {
     display: flex;
-    gap: $navbar-gap;
+    gap: $navbar-items-gap;
   }
 
   &__actions {
     display: flex;
     gap: $space-4;
+    margin-left: auto;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $navbar-item-height;
+    color: $navbar-item-default-foreground-rest;
+    padding: 0;
+    box-sizing: border-box;
+    transition: $transition-default;
+    cursor: pointer;
+    aspect-ratio: 1/1;
+
+    &:hover {
+      color: $semantic-foreground-primary;
+    }
   }
 
   &__item {
@@ -30,6 +48,7 @@
     padding: 0 $navbar-item-padding;
     height: $navbar-item-height;
     box-sizing: border-box;
+    text-wrap: nowrap;
 
     // Styling
     border-radius: $navbar-item-radii;
@@ -37,11 +56,7 @@
     background-color: $navbar-item-default-background-rest;
     font: $body-300-medium;
     cursor: pointer;
-    transition: all 0.2s ease;
-
-    &--icon-only {
-      aspect-ratio: 1/1;
-    }
+    transition: $transition-default;
 
     &:hover {
       color: $navbar-item-default-foreground-hover;
@@ -70,7 +85,7 @@
   }
 
   &__logo {
-    height: 40px;
+    height: $space-7;
     width: auto;
   }
 
@@ -81,12 +96,17 @@
     gap: $navbar-item-gap;
     padding: 0 $navbar-item-padding;
     height: $navbar-item-height;
+    transition: $transition-default;
 
     // Styling
     border-radius: $navbar-item-radii;
-    background-color: $black-a8;
+    background-color: $palette-black-a-8;
     color: $semantic-foreground-default;
     font: $body-300-medium;
     cursor: pointer;
+
+    &:hover {
+      background-color: $palette-black-a-9;
+    }
   }
 }
