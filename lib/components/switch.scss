@@ -1,0 +1,71 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/shadows" as *;
+@use "../tokens/typography" as *;
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__toggle {
+    position: relative;
+    display: inline-block;
+    width: $switch-width;
+    height: $switch-height;
+    flex-shrink: 0;
+  }
+
+  input {
+    appearance: none;
+    opacity: 0;
+
+    &:checked + .switch__slider {
+      background-color: $switch-background-active-rest;
+
+      &:hover {
+        background-color: $switch-background-active-hover;
+      }
+
+      &::before {
+        transform: translateX($switch-toggle-size);
+      }
+    }
+
+    &:focus-visible + .switch__slider {
+      outline: 4px auto Highlight;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: $switch-background-default-rest;
+    transition: $transition-default;
+    border-radius: $semantic-radii-pill;
+
+    &:hover {
+      background-color: $switch-background-default-hover;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: $switch-toggle-size;
+      width: $switch-toggle-size;
+      left: $space-1;
+      bottom: $space-1;
+      background-color: $switch-toggle-background;
+      transition: $transition-default;
+      border-radius: 50%;
+    }
+  }
+
+  &__label {
+    margin-left: $space-3;
+    cursor: pointer;
+    font: $body-300-medium;
+  }
+}
