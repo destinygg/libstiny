@@ -19,7 +19,7 @@
 
   input {
     appearance: none;
-    display: none;
+    opacity: 0;
 
     &:checked + .switch__slider {
       background-color: $switch-background-active-rest;
@@ -31,6 +31,10 @@
       &::before {
         transform: translateX($switch-toggle-size);
       }
+    }
+
+    &:focus-visible + .switch__slider {
+      outline: 4px auto Highlight;
     }
   }
 
