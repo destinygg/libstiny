@@ -129,6 +129,54 @@ We have 5 sizes and 4 font-widths of our Body font. These fonts should be used f
 }
 ```
 
+### Transitions
+We have built-in transitions in order to maintain a consistent user experience. You can use our `create-transition` mixin
+to easily apply transitions to multiple properties.
+
+```scss
+@use "~@destinygg/libstiny/lib/utils/transitions" as *;
+
+.example {
+  // The properties, the transition to use, the delay (optional, defaults to 0s)
+  @include create-transition((color, background-color), default, 150ms);
+}
+```
+
+You can also use curves from our library directly without the mixin.
+
+```scss
+@use "~@destinygg/libstiny/lib/utils/transitions" as *;
+
+.example {
+  transition: all map-get($transition-curves, enter-exit);
+}
+```
+
+Or if you prefer to break out of the system entirely, we do provide a map of our transition curves.
+
+```scss
+@use "~@destinygg/libstiny/lib/utils/transitions" as *;
+
+.example {
+  transition: all 500ms map-get($core-transitions, ease-in-out-cubic);
+}
+```
+
+#### Standard Transitions
+Below is the map of our standard transitions and their use cases.
+```scss
+$transition-curves: (
+  // Used for hover, active, and focus transitions
+  default: 150ms ease,
+  // Used for when a new element appears on screen, like a modal
+  enter-exit: 300ms map-get($core-transitions, ease-out-quart),
+  // Used for large elements, like drawers
+  large-enter-exit: 400ms cubic-bezier(0.32, 0.72, 0, 1),
+  // Used for moving existing elements around the screen
+  movement: 200ms map-get($core-transitions, ease-in-out-quart)
+);
+```
+
 ### Components
 Please visit the [Libstiny Documentation](https://libstiny.pages.dev/?path=/docs/alert--docs) for usage of our components.
 In order to view code examples, click the "Show Code" button in the bottom-right corner.
