@@ -3,6 +3,7 @@
 @use "../tokens/core" as *;
 @use "../tokens/semantic" as *;
 @use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
 
 .navbar {
   // Layout
@@ -23,6 +24,7 @@
   }
 
   &__icon {
+    @include create-transition(all, default);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +32,6 @@
     color: $navbar-item-default-foreground-rest;
     padding: 0;
     box-sizing: border-box;
-    transition: $transition-default;
     cursor: pointer;
     aspect-ratio: 1/1;
 
@@ -51,12 +52,12 @@
     text-wrap: nowrap;
 
     // Styling
+    @include create-transition(all, default);
     border-radius: $navbar-item-radii;
     color: $navbar-item-default-foreground-rest;
     background-color: $navbar-item-default-background-rest;
     font: $body-300-medium;
     cursor: pointer;
-    transition: $transition-default;
 
     &:hover {
       color: $navbar-item-default-foreground-hover;
@@ -96,9 +97,9 @@
     gap: $navbar-item-gap;
     padding: 0 $navbar-item-padding;
     height: $navbar-item-height;
-    transition: $transition-default;
 
     // Styling
+    @include create-transition(all, default);
     border-radius: $navbar-item-radii;
     background-color: $palette-black-a-8;
     color: $semantic-foreground-default;

@@ -2,6 +2,7 @@
 @use "../tokens/typography" as *;
 @use "../tokens/core" as *;
 @use "../tokens/semantic" as *;
+@use "../utils/transitions" as *;
 
 .tabs {
   display: flex;
@@ -12,6 +13,7 @@
 }
 
 .tab {
+  // Layout
   position: relative;
   display: flex;
   align-items: center;
@@ -20,17 +22,19 @@
   padding: 0 $tabs-padding;
   gap: $tabs-gap;
 
+  // Style
+  @include create-transition(all, default);
   color: $tabs-foreground-default;
   background-color: $tabs-background-default;
   font: $body-300-medium;
   cursor: pointer;
-  transition: $transition-default;
 
   &:hover {
     background-color: $tabs-background-hover;
   }
 
   &:after {
+    @include create-transition(all, default);
     content: "";
     position: absolute;
     width: 100%;
@@ -38,7 +42,6 @@
     bottom: -1px;
     left: 0;
     background-color: $tabs-border-default;
-    transition: $transition-default;
 
     .tabs--vertical & {
       height: 100%;

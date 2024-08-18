@@ -3,6 +3,7 @@
 @use "../tokens/semantic" as *;
 @use "../tokens/shadows" as *;
 @use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
 
 @keyframes radio-in {
   0% {
@@ -16,12 +17,12 @@
 }
 
 .radio {
+  @include create-transition(all, default);
   appearance: none;
   position: relative;
   width: $icon-default;
   height: $icon-default;
   border-radius: $semantic-radii-pill;
-  transition: $transition-default;
   box-sizing: border-box;
 
   border: 1px solid $radio-indicator-unselected-rest;

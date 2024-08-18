@@ -3,6 +3,7 @@
 @use "../tokens/semantic" as *;
 @use "../tokens/shadows" as *;
 @use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
 
 .switch {
   display: inline-flex;
@@ -39,11 +40,11 @@
   }
 
   &__slider {
+    @include create-transition(all, default);
     position: absolute;
     cursor: pointer;
     inset: 0;
     background-color: $switch-background-default-rest;
-    transition: $transition-default;
     border-radius: $semantic-radii-pill;
 
     &:hover {
@@ -51,6 +52,7 @@
     }
 
     &::before {
+      @include create-transition(all, movement);
       position: absolute;
       content: "";
       height: $switch-toggle-size;
@@ -58,7 +60,6 @@
       left: $space-1;
       bottom: $space-1;
       background-color: $switch-toggle-background;
-      transition: $transition-default;
       border-radius: 50%;
     }
   }
