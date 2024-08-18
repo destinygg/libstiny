@@ -2,6 +2,7 @@
 @use "../tokens/core" as *;
 @use "../tokens/typography" as *;
 @use "../utils/icon-size" as *;
+@use "../utils/transitions" as *;
 
 @mixin button--primary {
   background-color: $button-primary-background-rest;
@@ -93,12 +94,12 @@
   gap: $button-default-gap;
 
   // Style
+  @include create-transition(all, default);
   background: none;
   border: none;
   border-radius: $button-radii;
   font: $body-200-semi-bold;
   cursor: pointer;
-  transition: $transition-default;
 
   &:disabled {
     background-color: $button-disabled-background-rest;

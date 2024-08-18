@@ -3,6 +3,7 @@
 @use "../tokens/typography" as *;
 @use "../tokens/semantic" as *;
 @use "../utils/icon-size" as *;
+@use "../utils/transitions" as *;
 
 .input {
   display: inline-flex;
@@ -30,6 +31,7 @@
   }
 
   &__area {
+    @include create-transition(all, default);
     display: inline-flex;
     overflow: hidden;
     align-items: center;
@@ -38,7 +40,6 @@
     border: 1px solid $input-border-rest;
     color: $semantic-foreground-default;
     background-color: $input-background-rest;
-    transition: $transition-default;
 
     &:not(&:has(textarea)) {
       height: $input-height;
@@ -94,9 +95,9 @@
       font: $body-300-regular;
       color: $semantic-foreground-default;
       background-color: $input-background-rest;
-      transition: $transition-default;
       border: none !important;
       outline: none !important;
+      @include create-transition(all, default);
 
       &::placeholder {
         color: $input-placeholder;

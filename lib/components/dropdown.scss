@@ -2,6 +2,7 @@
 @use "../tokens/core" as *;
 @use "../tokens/typography" as *;
 @use "../tokens/semantic" as *;
+@use "../utils/transitions" as *;
 
 .dropdown {
   // Layout
@@ -24,11 +25,11 @@
     height: $dropdown-item-height;
 
     // Styling
+    @include create-transition(all, default);
     border-radius: $dropdown-item-radii;
     background-color: $dropdown-item-background-rest;
     color: $dropdown-item-foreground-rest;
     font: $body-200-medium;
-    transition: $transition-default;
     cursor: pointer;
 
     &:hover {

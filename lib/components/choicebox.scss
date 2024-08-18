@@ -3,6 +3,7 @@
 @use "../tokens/semantic" as *;
 @use "../tokens/shadows" as *;
 @use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
 
 .choicebox {
   // Layout
@@ -13,7 +14,7 @@
   cursor: pointer;
 
   // Style
-  transition: $transition-default;
+  @include create-transition(all, default);
   border-radius: $choicebox-radii;
   border: 1px solid $choicebox-border-unselected-rest;
   background-color: $choicebox-background-unselected-rest;
