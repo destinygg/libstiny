@@ -33,7 +33,7 @@ $transition-curves: (
   movement: 200ms map-get($core-transitions, ease-in-out-quart)
 );
 
-@mixin create-transition($properties, $curve: default, $delay: 0) {
+@mixin create-transition($properties, $curve: default, $delay: 0s) {
   $easing-function: map-get($transition-curves, $curve);
 
   @each $property in $properties {
