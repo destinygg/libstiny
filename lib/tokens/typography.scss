@@ -190,6 +190,108 @@ $body-100-bold:
   system-ui,
   sans-serif;
 
+$mono-600-regular:
+  400 list.slash(1.5rem, 2.25rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-600-medium:
+  500 list.slash(1.5rem, 2.25rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-600-semi-bold:
+  600 list.slash(1.5rem, 2.25rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-600-bold:
+  700 list.slash(1.5rem, 2.25rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+
+$mono-500-regular:
+  400 list.slash(1.25rem, 1.875rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-500-medium:
+  500 list.slash(1.25rem, 1.875rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-500-semi-bold:
+  600 list.slash(1.25rem, 1.875rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-500-bold:
+  700 list.slash(1.25rem, 1.875rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+
+$mono-400-regular:
+  400 list.slash(1.12rem, 1.75rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-400-medium:
+  500 list.slash(1.12rem, 1.75rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-400-semi-bold:
+  600 list.slash(1.12rem, 1.75rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-400-bold:
+  700 list.slash(1.12rem, 1.75rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+
+$mono-300-regular:
+  400 list.slash(1rem, 1.5rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-300-medium:
+  500 list.slash(1rem, 1.5rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-300-semi-bold:
+  600 list.slash(1rem, 1.5rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-300-bold:
+  700 list.slash(1rem, 1.5rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+
+$mono-200-regular:
+  400 list.slash(0.88rem, 1.25rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-200-medium:
+  500 list.slash(0.88rem, 1.25rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-200-semi-bold:
+  600 list.slash(0.88rem, 1.25rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-200-bold:
+  700 list.slash(0.88rem, 1.25rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+
+$mono-100-regular:
+  400 list.slash(0.75rem, 1.125rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-100-medium:
+  500 list.slash(0.75rem, 1.125rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-100-semi-bold:
+  600 list.slash(0.75rem, 1.125rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+$mono-100-bold:
+  700 list.slash(0.75rem, 1.125rem) JetBrains Mono,
+  system-ui,
+  sans-serif;
+
 // Function to extract the font size from the variable
 @function get-font-size($font-variable) {
   @return nth(nth(nth($font-variable, 1), 2), 1);
