@@ -26,9 +26,9 @@ $transition-curves: (
   // Used for hover, active, and focus transitions
   default: 150ms ease,
   // Used for when a new element appears on screen, like a modal
-  enter-exit: 300ms map-get($core-transitions, ease-out-quart),
+  enter-exit: 200ms map-get($core-transitions, ease-out-quart),
   // Used for large elements, like drawers
-  large-enter-exit: 400ms cubic-bezier(0.32, 0.72, 0, 1),
+  large-enter-exit: 300ms map-get($core-transitions, ease-out-quart),
   // Used for moving existing elements around the screen
   movement: 200ms map-get($core-transitions, ease-in-out-quart)
 );
@@ -39,4 +39,10 @@ $transition-curves: (
   @each $property in $properties {
     transition: #{$property} $easing-function $delay;
   }
+}
+
+@mixin create-animation($animation, $curve: default, $delay: 0s) {
+  $easing-function: map-get($transition-curves, $curve);
+
+  animation: #{$animation} $easing-function $delay;
 }

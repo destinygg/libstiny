@@ -125,7 +125,9 @@
     @include button--danger;
   }
 
-  &--icon-only {
+  &--icon-only,
+  &--icon-only.button--large,
+  &--icon-only.button--small {
     @include button--icon-only;
   }
 
