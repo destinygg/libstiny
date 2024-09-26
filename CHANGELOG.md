@@ -1,5 +1,18 @@
 # @destinygg/libstiny
 
+## 1.2.0
+
+### Minor Changes
+
+- 90407fe: Added JetBrains Mono typography
+- 7bee2bc: Adds create-transition mixin. Adds more transition curves
+
+### Patch Changes
+
+- 66c7c81: Fixed icon-only button padding. Fixed chrome input autocomplete. Adjusted drawer footer styles
+- df5d63a: Fix issue with option background for select inputs
+- 16d0540: Fix text wrapping in buttons
+
 ## 1.1.0
 
 ### Minor Changes
