@@ -3,6 +3,7 @@
 @use "../tokens/typography" as *;
 @use "../tokens/semantic" as *;
 @use "../utils/icon-size" as *;
+@use "../utils/transitions" as *;
 
 .input {
   display: inline-flex;
@@ -30,6 +31,7 @@
   }
 
   &__area {
+    @include create-transition(all, default);
     display: inline-flex;
     overflow: hidden;
     align-items: center;
@@ -38,7 +40,6 @@
     border: 1px solid $input-border-rest;
     color: $semantic-foreground-default;
     background-color: $input-background-rest;
-    transition: $transition-default;
 
     &:not(&:has(textarea)) {
       height: $input-height;
@@ -93,9 +94,20 @@
       padding: 0;
       font: $body-300-regular;
       color: $semantic-foreground-default;
-      background: transparent;
+      background-color: $input-background-rest;
       border: none !important;
       outline: none !important;
+      @include create-transition(all, default);
+
+      // Cringe chrome hack
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px $input-background-rest inset !important;
+        -webkit-text-fill-color: $semantic-foreground-default;
+        caret-color: white;
+      }
 
       &::placeholder {
         color: $input-placeholder;
@@ -103,6 +115,7 @@
 
       &:disabled {
         cursor: not-allowed;
+        background-color: $input-background-disabled;
       }
     }
   }

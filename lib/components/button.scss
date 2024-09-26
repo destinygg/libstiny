@@ -2,6 +2,7 @@
 @use "../tokens/core" as *;
 @use "../tokens/typography" as *;
 @use "../utils/icon-size" as *;
+@use "../utils/transitions" as *;
 
 @mixin button--primary {
   background-color: $button-primary-background-rest;
@@ -91,14 +92,15 @@
   height: $button-default-height;
   padding: 0 $button-default-padding;
   gap: $button-default-gap;
+  white-space: nowrap;
 
   // Style
+  @include create-transition(all, default);
   background: none;
   border: none;
   border-radius: $button-radii;
   font: $body-200-semi-bold;
   cursor: pointer;
-  transition: $transition-default;
 
   &:disabled {
     background-color: $button-disabled-background-rest;
@@ -123,7 +125,9 @@
     @include button--danger;
   }
 
-  &--icon-only {
+  &--icon-only,
+  &--icon-only.button--large,
+  &--icon-only.button--small {
     @include button--icon-only;
   }
 

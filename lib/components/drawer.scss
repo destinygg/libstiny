@@ -2,6 +2,7 @@
 @use "../tokens/core" as *;
 @use "../tokens/typography" as *;
 @use "../utils/icon-size" as *;
+@use "../utils/transitions" as *;
 
 .drawer {
   // Layout
@@ -36,6 +37,7 @@
 
   &__footer {
     display: flex;
+    justify-content: center;
     gap: $space-2;
     margin-top: auto;
   }
@@ -50,12 +52,12 @@
     gap: $drawer-item-gap;
 
     // Style
+    @include create-transition(all, default);
     background-color: $drawer-item-default-background-rest;
     color: $drawer-item-default-foreground-rest;
     border-radius: $drawer-item-radii;
     font: $body-300-medium;
     cursor: pointer;
-    transition: $transition-default;
 
     &:hover {
       background-color: $drawer-item-default-background-hover;
