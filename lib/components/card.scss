@@ -65,6 +65,7 @@
     .card__subtitle {
       font: $body-200-semi-bold;
       color: $card-default-subtitle;
+      word-wrap: break-word;
 
       .card--prominent & {
         color: $card-prominent-subtitle;
