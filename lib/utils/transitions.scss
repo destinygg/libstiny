@@ -36,9 +36,12 @@ $transition-curves: (
 @mixin create-transition($properties, $curve: default, $delay: 0s) {
   $easing-function: map-get($transition-curves, $curve);
 
+  $transition: ();
   @each $property in $properties {
-    transition: #{$property} $easing-function $delay;
+    $transition: append($transition, #{$property} $easing-function $delay, comma);
   }
+
+  transition: #{$transition};
 }
 
 @mixin create-animation($animation, $curve: default, $delay: 0s) {
