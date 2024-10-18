@@ -1,5 +1,12 @@
 # @destinygg/libstiny
 
+## 1.2.1
+
+### Patch Changes
+
+- 4322b06: Fix card subtitle word break
+- 4845a09: Fix create-transition for multiple transition properties
+
 ## 1.2.0
 
 ### Minor Changes
