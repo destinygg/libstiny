@@ -1,0 +1,64 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
+
+.stepper {
+  display: flex;
+  gap: $stepper-gap;
+
+  &__step {
+    display: flex;
+    flex: 1;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: $stepper-step-gap;
+
+    &--active {
+      .stepper__bar {
+        background-color: $stepper-step-bar-active-background;
+      }
+
+      .stepper__label,
+      .stepper__dot {
+        color: $stepper-step-label-active-foreground;
+      }
+    }
+
+    &--completed {
+      .stepper__bar {
+        background-color: $stepper-step-bar-done-background;
+      }
+
+      .stepper__label,
+      .stepper__dot {
+        color: $stepper-step-label-done-foreground;
+      }
+    }
+  }
+
+  &__bar {
+    height: $stepper-step-bar-height;
+    border-radius: $stepper-step-bar-radii;
+    background-color: $stepper-step-bar-todo-background;
+  }
+
+  &__label-container {
+    display: flex;
+    padding-right: $space-3;
+    align-items: center;
+  }
+
+  &__label {
+    font: $label;
+    letter-spacing: $label-letter-spacing;
+    color: $stepper-step-label-todo-foreground;
+  }
+
+  &__dot {
+    display: flex;
+    align-items: center;
+    color: $stepper-step-label-todo-foreground;
+  }
+}
