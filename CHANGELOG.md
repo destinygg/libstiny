@@ -1,5 +1,11 @@
 # @destinygg/libstiny
 
+## 1.3.0
+
+### Minor Changes
+
+- 8e1ff12: Added Stepper component
+
 ## 1.2.1
 
 ### Patch Changes

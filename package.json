@@ -1,7 +1,7 @@
 {
   "name": "@destinygg/libstiny",
   "description": "A framework-agnostic scss component library for use in the destiny.gg website",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "type": "module",
   "main": "lib/index.scss",
   "publishConfig": {
