@@ -64,17 +64,17 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0 $input-prefix-suffix-padding;
-      color: $input-prefix-suffix-foreground;
+      padding: 0 $input-prefix-padding;
+      color: $input-prefix-foreground;
       font: $body-100-semi-bold;
     }
 
     .input__prefix {
-      border-right: 1px solid $input-prefix-suffix-border;
+      border-right: 1px solid $input-prefix-border;
     }
 
     .input__suffix {
-      border-left: 1px solid $input-prefix-suffix-border;
+      border-left: 1px solid $input-prefix-border;
     }
   }
 
