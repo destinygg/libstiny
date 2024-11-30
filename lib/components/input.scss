@@ -59,14 +59,22 @@
       background-color: $input-background-disabled;
     }
 
+    .input__suffix,
     .input__prefix {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 0 $input-prefix-padding;
-      border-right: 1px solid $input-prefix-border;
       color: $input-prefix-foreground;
       font: $body-100-semi-bold;
+    }
+
+    .input__prefix {
+      border-right: 1px solid $input-prefix-border;
+    }
+
+    .input__suffix {
+      border-left: 1px solid $input-prefix-border;
     }
   }
 
