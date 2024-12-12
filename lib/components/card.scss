@@ -3,6 +3,7 @@
 @use "../tokens/semantic" as *;
 @use "../tokens/shadows" as *;
 @use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
 
 .card {
   // Layout
@@ -13,6 +14,7 @@
   box-sizing: border-box;
 
   // Styling
+  @include create-transition(all, default);
   border-radius: $card-radii;
   border: 1px solid $card-default-border;
   background-color: $card-default-background;
