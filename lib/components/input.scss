@@ -20,6 +20,16 @@
     }
   }
 
+  &--success {
+    .input__help-text {
+      color: $input-help-text-success;
+    }
+
+    .input__area {
+      border-color: $input-border-success;
+    }
+  }
+
   &__label {
     color: $input-label;
     font: $body-200-semi-bold;
@@ -45,11 +55,13 @@
       height: $input-height;
     }
 
-    .input:not(.input--error) &:hover:not(&:has(input:disabled)) {
+    .input:not(.input--error):not(.input--success)
+      &:hover:not(&:has(input:disabled)) {
       border-color: $input-border-hover;
     }
 
-    .input:not(.input--error) &:focus-within:not(&:has(input:disabled)) {
+    .input:not(.input--error):not(.input--success)
+      &:focus-within:not(&:has(input:disabled)) {
       border-color: $input-border-focused;
     }
 
