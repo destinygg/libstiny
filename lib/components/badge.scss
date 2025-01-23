@@ -35,6 +35,12 @@
     color: $badge-neutral-foreground;
     border-color: $badge-neutral-border;
   }
+
+  &--accent {
+    background-color: $badge-accent-background;
+    color: $badge-accent-foreground;
+    border-color: $badge-accent-border;
+  }
 }
 
 .badge {

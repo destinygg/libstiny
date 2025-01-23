@@ -8,6 +8,7 @@ export const badgeComponent = cva({
       danger: "badge--danger",
       neutral: "badge--neutral",
       success: "badge--success",
+      accent: "badge--accent",
     },
   },
 });
