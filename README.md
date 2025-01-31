@@ -2,7 +2,9 @@
 A CSS Component Library for destiny.gg
 
 ## Installation
-Run `npm install @destinygg/libstiny`
+```
+npm install @destinygg/libstiny
+```
 
 ## Usage
 You can import the entire CSS, including all variables, using
