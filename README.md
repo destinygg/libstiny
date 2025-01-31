@@ -2,10 +2,9 @@
 A CSS Component Library for destiny.gg
 
 ## Installation
-
-1. Generate a personal access token ([instructions](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)) and put it in your `~./npmrc` file.
-2. In the project directory at the same level as your `package.json`, create a `.npmrc` file and add the following: `@destinygg:registry=https://npm.pkg.github.com`
-3. Run `npm install @destinygg/libstiny`
+```
+npm install @destinygg/libstiny
+```
 
 ## Usage
 You can import the entire CSS, including all variables, using
