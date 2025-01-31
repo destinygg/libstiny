@@ -1,5 +1,12 @@
 # @destinygg/libstiny
 
+## 1.5.0
+
+### Minor Changes
+
+- Add success state to inputs
+- Update GitHub workflow to publish new releases to npm public registry
+
 ## 1.4.0
 
 ### Minor Changes
