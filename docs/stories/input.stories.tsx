@@ -1,16 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { inputComponent } from "../components/input";
 
+type ValidationState = "default" | "error" | "success";
+
 type InputArgs = {
   label: string;
   helpText: string;
-  error: boolean;
+  validationState: ValidationState;
   disabled: boolean;
 };
 
 const meta: Meta<InputArgs> = {
   title: "Input",
   tags: ["autodocs"],
+  argTypes: {
+    validationState: {
+      options: ["default", "error", "success"],
+      control: {
+        type: "select",
+      },
+    },
+  },
 };
 
 export default meta;
@@ -20,7 +30,7 @@ type Story = StoryObj<InputArgs>;
 export const TextInput: Story = {
   render: (args) => (
     <div
-      className={inputComponent({ error: args.error })}
+      className={inputComponent({ validationState: args.validationState })}
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
@@ -38,14 +48,14 @@ export const TextInput: Story = {
     label: "Input Label",
     helpText: "This is some help text",
     disabled: false,
-    error: false,
+    validationState: "default",
   },
 };
 
 export const Select: Story = {
   render: (args) => (
     <div
-      className={inputComponent({ error: args.error })}
+      className={inputComponent({ validationState: args.validationState })}
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
@@ -68,14 +78,14 @@ export const Select: Story = {
     label: "Input Label",
     helpText: "This is some help text",
     disabled: false,
-    error: false,
+    validationState: "default",
   },
 };
 
 export const TextArea: Story = {
   render: (args) => (
     <div
-      className={inputComponent({ error: args.error })}
+      className={inputComponent({ validationState: args.validationState })}
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
@@ -95,6 +105,6 @@ export const TextArea: Story = {
     label: "Input Label",
     helpText: "This is some help text",
     disabled: false,
-    error: false,
+    validationState: "default",
   },
 };

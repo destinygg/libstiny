@@ -3,8 +3,10 @@ import { cva } from "cva";
 export const inputComponent = cva({
   base: "input",
   variants: {
-    error: {
-      true: "input--error",
+    validationState: {
+      default: "",
+      error: "input--error",
+      success: "input--success",
     },
   },
 });
