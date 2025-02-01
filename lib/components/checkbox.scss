@@ -16,7 +16,7 @@
     background-color: $palette-neutral-3;
     border-radius: $semantic-radii-pill;
     width: $space-9;
-    height: $semantic-height-small;
+    height: $space-6;
 
     &::before {
       @include create-transition(all, movement);
@@ -75,7 +75,7 @@
     @include create-transition(all, default);
     display: block;
     cursor: pointer;
-    background-color: $semantic-background-surface;
+    background-color: $palette-neutral-2;
     border-radius: $semantic-radii-x-small;
     border: 1px solid $palette-neutral-7;
     width: 20px;
