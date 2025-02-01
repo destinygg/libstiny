@@ -1,0 +1,101 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/shadows" as *;
+@use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
+
+@mixin checkbox--switch {
+  input {
+    &:checked + .checkbox__icon::before {
+      transform: translateX($space-5);
+    }
+  }
+
+  .checkbox__icon {
+    background-color: $palette-neutral-3;
+    border-radius: $semantic-radii-pill;
+    width: $space-9;
+    height: $semantic-height-small;
+
+    &::before {
+      @include create-transition(all, movement);
+      position: absolute;
+      content: "";
+      height: $space-5;
+      width: $space-5;
+      left: $space-1;
+      top: $space-1;
+      background-color: $palette-neutral-12;
+      border-radius: 50%;
+    }
+  }
+
+  .checkbox__label {
+    font: $body-300-medium;
+  }
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &--switch {
+    @include checkbox--switch;
+  }
+
+  &__toggle {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  input {
+    display: none;
+
+    &:checked + .checkbox__icon {
+      background-color: $palette-primary-9;
+
+      &:hover {
+        background-color: $palette-primary-10;
+      }
+    }
+
+    &:checked + .checkbox__icon .checkbox__tick {
+      display: block;
+    }
+
+    &:focus-visible + .checkbox__icon {
+      outline: 4px auto Highlight;
+    }
+  }
+
+  &__icon {
+    @include create-transition(all, default);
+    display: block;
+    cursor: pointer;
+    background-color: $semantic-background-surface;
+    border-radius: $semantic-radii-x-small;
+    border: 1px solid $palette-neutral-7;
+    width: 20px;
+    height: 20px;
+
+    &:hover {
+      background-color: $palette-neutral-4;
+    }
+  }
+
+  &__tick {
+    display: none;
+    height: 100%;
+    margin: auto;
+  }
+
+  &__label {
+    margin-left: $space-3;
+    cursor: pointer;
+    font: $body-200-medium;
+    user-select: none;
+  }
+}
