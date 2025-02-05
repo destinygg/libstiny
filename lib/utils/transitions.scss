@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:map";
+
 $core-transitions: (
   // Ease-in curves
   ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53),
@@ -26,26 +29,30 @@ $transition-curves: (
   // Used for hover, active, and focus transitions
   default: 150ms ease,
   // Used for when a new element appears on screen, like a modal
-  enter-exit: 200ms map-get($core-transitions, ease-out-quart),
+  enter-exit: 200ms map.get($core-transitions, ease-out-quart),
   // Used for large elements, like drawers
-  large-enter-exit: 300ms map-get($core-transitions, ease-out-quart),
+  large-enter-exit: 300ms map.get($core-transitions, ease-out-quart),
   // Used for moving existing elements around the screen
-  movement: 200ms map-get($core-transitions, ease-in-out-quart)
+  movement: 200ms map.get($core-transitions, ease-in-out-quart)
 );
 
 @mixin create-transition($properties, $curve: default, $delay: 0s) {
-  $easing-function: map-get($transition-curves, $curve);
+  $easing-function: map.get($transition-curves, $curve);
 
   $transition: ();
   @each $property in $properties {
-    $transition: append($transition, #{$property} $easing-function $delay, comma);
+    $transition: list.append(
+      $transition,
+      #{$property} $easing-function $delay,
+      comma
+    );
   }
 
   transition: #{$transition};
 }
 
 @mixin create-animation($animation, $curve: default, $delay: 0s) {
-  $easing-function: map-get($transition-curves, $curve);
+  $easing-function: map.get($transition-curves, $curve);
 
   animation: #{$animation} $easing-function $delay;
 }
