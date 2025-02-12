@@ -58,10 +58,6 @@
 
     &:checked + .checkbox__icon {
       background-color: $palette-primary-9;
-
-      &:hover {
-        background-color: $palette-primary-10;
-      }
     }
 
     &:checked + .checkbox__icon .checkbox__tick {
@@ -73,6 +69,16 @@
     }
   }
 
+  &:hover {
+    .checkbox__icon {
+      background-color: $palette-neutral-4;
+    }
+
+    input:checked + .checkbox__icon {
+      background-color: $palette-primary-10;
+    }
+  }
+
   &__icon {
     @include create-transition(all, default);
     display: inline-block;
@@ -81,10 +87,6 @@
     border: 1px solid $palette-neutral-7;
     width: 20px;
     height: 20px;
-
-    &:hover {
-      background-color: $palette-neutral-4;
-    }
   }
 
   &__tick {
