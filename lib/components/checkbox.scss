@@ -76,7 +76,6 @@
   &__icon {
     @include create-transition(all, default);
     display: inline-block;
-    cursor: pointer;
     background-color: $palette-neutral-2;
     border-radius: $semantic-radii-x-small;
     border: 1px solid $palette-neutral-7;
@@ -96,7 +95,6 @@
 
   &__label {
     margin-left: $space-3;
-    cursor: pointer;
     font: $body-200-medium;
     user-select: none;
   }
