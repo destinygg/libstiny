@@ -47,12 +47,14 @@
 
   &__toggle {
     position: relative;
-    display: inline-block;
+    display: flex;
     flex-shrink: 0;
   }
 
   input {
-    display: none;
+    appearance: none;
+    opacity: 0;
+    margin: 0;
 
     &:checked + .checkbox__icon {
       background-color: $palette-primary-9;
@@ -73,7 +75,7 @@
 
   &__icon {
     @include create-transition(all, default);
-    display: block;
+    display: inline-block;
     cursor: pointer;
     background-color: $palette-neutral-2;
     border-radius: $semantic-radii-x-small;
