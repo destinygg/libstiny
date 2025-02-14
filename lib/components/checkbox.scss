@@ -81,7 +81,6 @@
 
   &__icon {
     @include create-transition(all, default);
-    display: inline-block;
     background-color: $palette-neutral-2;
     border-radius: $semantic-radii-x-small;
     border: 1px solid $palette-neutral-7;
