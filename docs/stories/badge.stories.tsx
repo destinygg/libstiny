@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { badgeComponent } from "../components/badge";
 
 type BadgeArgs = {
-  variant: "primary" | "success" | "danger" | "neutral";
+  variant: "primary" | "success" | "danger" | "neutral" | "accent";
   label: string;
 };
 
@@ -11,7 +11,7 @@ const meta: Meta<BadgeArgs> = {
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      options: ["primary", "success", "danger", "neutral"],
+      options: ["primary", "success", "danger", "neutral", "accent"],
       control: {
         type: "select",
       },
