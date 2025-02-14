@@ -1,19 +1,25 @@
 # Libstiny
+
 A CSS Component Library for destiny.gg
 
 ## Installation
+
 ```
 npm install @destinygg/libstiny
 ```
 
 ## Usage
+
 You can import the entire CSS, including all variables, using
+
 ```scss
 @use "~@destinygg/libstiny" as *;
 ```
 
 ### Namespacing
+
 You can also namespace the import for clarity and to avoid collisions with your own variables.
+
 ```scss
 @use "~@destinygg/libstiny" as dgg;
 
@@ -24,6 +30,7 @@ body {
 ```
 
 ### Core Tokens
+
 The Core Tokens are the base color, space, and icon size variables. You can import them from
 
 ```scss
@@ -31,6 +38,7 @@ The Core Tokens are the base color, space, and icon size variables. You can impo
 ```
 
 #### Colors
+
 We have four main color scales; `primary`, `success`, `danger`, `neutral` and each has 12 steps. In Dark Mode, 1 is darkest and 12 is lightest.
 
 ```scss
@@ -43,7 +51,9 @@ We have four main color scales; `primary`, `success`, `danger`, `neutral` and ea
 You can view the complete color palette [here](https://www.radix-ui.com/colors/docs/palette-composition/scales).
 
 #### Space
+
 To keep our layouts consistent, we use the following Space tokens to control padding, margin, and gap.
+
 ```scss
 $space-1: 0.25rem; // 4px
 $space-2: 0.5rem; // 8px
@@ -62,6 +72,7 @@ $space-12: 8rem; // 128px
 99% of the time, you should use one of these tokens.
 
 #### Icon Size
+
 We support 5 different sizes of icons.
 
 ```scss
@@ -73,6 +84,7 @@ $icon-xl: $space-7; // 40px
 ```
 
 ### Semantic Tokens
+
 These tokens have specific usages. You can import them from
 
 ```scss
@@ -80,7 +92,7 @@ These tokens have specific usages. You can import them from
 ```
 
 | Variable Name                  | Value (Dark Mode)     | Description                                                       |
-|--------------------------------|-----------------------|-------------------------------------------------------------------|
+| ------------------------------ | --------------------- | ----------------------------------------------------------------- |
 | `$semantic-background-default` | `$palette-neutral-1`  | The background color of the application                           |
 | `$semantic-background-overlay` | `$black-a10`          | The default overlay color for modals and drawers                  |
 | `$semantic-background-surface` | `$palette-neutral-2`  | The background color of surfaces, such as cards                   |
@@ -96,6 +108,7 @@ These tokens have specific usages. You can import them from
 | `$semantic-radii-pill`         | `9999px`              | The border radius of components that are pill-shaped, like badges |
 
 ### Typography
+
 We have our own typography system. There are two main styles, `Display` and `Body`. You can import them from
 
 ```scss
@@ -103,6 +116,7 @@ We have our own typography system. There are two main styles, `Display` and `Bod
 ```
 
 #### Display
+
 We have 6 sizes and 4 font-widths of our Display font. These fonts should be used for headers and other large text. We use the Poppins font here.
 
 ```scss
@@ -116,6 +130,7 @@ We have 6 sizes and 4 font-widths of our Display font. These fonts should be use
 ```
 
 #### Body
+
 We have 5 sizes and 4 font-widths of our Body font. These fonts should be used for body text and small headers. We use the Inter font here.
 
 ```scss
@@ -129,6 +144,7 @@ We have 5 sizes and 4 font-widths of our Body font. These fonts should be used f
 ```
 
 ### Transitions
+
 We have built-in transitions in order to maintain a consistent user experience. You can use our `create-transition` mixin
 to easily apply transitions to multiple properties.
 
@@ -147,7 +163,7 @@ You can also use curves from our library directly without the mixin.
 @use "~@destinygg/libstiny/lib/utils/transitions" as *;
 
 .example {
-  transition: all map-get($transition-curves, enter-exit);
+  transition: all map.get($transition-curves, enter-exit);
 }
 ```
 
@@ -157,25 +173,28 @@ Or if you prefer to break out of the system entirely, we do provide a map of our
 @use "~@destinygg/libstiny/lib/utils/transitions" as *;
 
 .example {
-  transition: all 500ms map-get($core-transitions, ease-in-out-cubic);
+  transition: all 500ms map.get($core-transitions, ease-in-out-cubic);
 }
 ```
 
 #### Standard Transitions
+
 Below is the map of our standard transitions and their use cases.
+
 ```scss
 $transition-curves: (
   // Used for hover, active, and focus transitions
   default: 150ms ease,
   // Used for when a new element appears on screen, like a modal
-  enter-exit: 300ms map-get($core-transitions, ease-out-quart),
+  enter-exit: 300ms map.get($core-transitions, ease-out-quart),
   // Used for large elements, like drawers
   large-enter-exit: 400ms cubic-bezier(0.32, 0.72, 0, 1),
   // Used for moving existing elements around the screen
-  movement: 200ms map-get($core-transitions, ease-in-out-quart)
+  movement: 200ms map.get($core-transitions, ease-in-out-quart)
 );
 ```
 
 ### Components
+
 Please visit the [Libstiny Documentation](https://libstiny.pages.dev/?path=/docs/alert--docs) for usage of our components.
 In order to view code examples, click the "Show Code" button in the bottom-right corner.
