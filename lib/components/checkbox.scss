@@ -1,0 +1,102 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/shadows" as *;
+@use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
+
+@mixin checkbox--switch {
+  input {
+    &:checked + .checkbox__icon::before {
+      transform: translateX($switch-toggle-size);
+    }
+  }
+
+  .checkbox__icon {
+    background-color: $switch-background-default-rest;
+    border-radius: $semantic-radii-pill;
+    border: none;
+    width: $switch-width;
+    height: $switch-height;
+
+    &::before {
+      @include create-transition(all, movement);
+      position: absolute;
+      content: "";
+      height: $switch-toggle-size;
+      width: $switch-toggle-size;
+      left: $space-1;
+      top: $space-1;
+      background-color: $switch-toggle-background;
+      border-radius: 50%;
+    }
+  }
+
+  .checkbox__label {
+    font: $body-300-medium;
+  }
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &--switch {
+    @include checkbox--switch;
+  }
+
+  &__toggle {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  input {
+    appearance: none;
+    margin: 0;
+
+    &:checked + .checkbox__icon {
+      background-color: $switch-background-active-rest;
+    }
+
+    &:checked + .checkbox__icon .checkbox__tick {
+      display: block;
+    }
+
+    &:focus-visible + .checkbox__icon {
+      outline: 4px auto Highlight;
+    }
+  }
+
+  &:hover {
+    .checkbox__icon {
+      background-color: $switch-background-default-hover;
+    }
+
+    input:checked + .checkbox__icon {
+      background-color: $switch-background-active-hover;
+    }
+  }
+
+  &__icon {
+    @include create-transition(all, default);
+    background-color: $palette-neutral-2;
+    border-radius: $semantic-radii-x-small;
+    border: 1px solid $palette-neutral-7;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__tick {
+    display: none;
+    height: 100%;
+    margin: auto;
+  }
+
+  &__label {
+    margin-left: $space-3;
+    font: $body-200-medium;
+    user-select: none;
+  }
+}
