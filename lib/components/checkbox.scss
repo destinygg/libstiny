@@ -8,26 +8,26 @@
 @mixin checkbox--switch {
   input {
     &:checked + .checkbox__icon::before {
-      transform: translateX($space-5);
+      transform: translateX($switch-toggle-size);
     }
   }
 
   .checkbox__icon {
-    background-color: $palette-neutral-3;
+    background-color: $switch-background-default-rest;
     border-radius: $semantic-radii-pill;
     border: none;
-    width: $space-9;
-    height: $space-6;
+    width: $switch-width;
+    height: $switch-height;
 
     &::before {
       @include create-transition(all, movement);
       position: absolute;
       content: "";
-      height: $space-5;
-      width: $space-5;
+      height: $switch-toggle-size;
+      width: $switch-toggle-size;
       left: $space-1;
       top: $space-1;
-      background-color: $palette-neutral-12;
+      background-color: $switch-toggle-background;
       border-radius: 50%;
     }
   }
@@ -57,7 +57,7 @@
     margin: 0;
 
     &:checked + .checkbox__icon {
-      background-color: $palette-primary-9;
+      background-color: $switch-background-active-rest;
     }
 
     &:checked + .checkbox__icon .checkbox__tick {
@@ -71,11 +71,11 @@
 
   &:hover {
     .checkbox__icon {
-      background-color: $palette-neutral-4;
+      background-color: $switch-background-default-hover;
     }
 
     input:checked + .checkbox__icon {
-      background-color: $palette-primary-10;
+      background-color: $switch-background-active-hover;
     }
   }
 
