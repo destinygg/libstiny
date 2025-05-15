@@ -1,0 +1,27 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/typography" as *;
+@use "../tokens/semantic" as *;
+@use "../utils/transitions" as *;
+
+.menu-item {
+  // Layout
+  display: flex;
+  align-items: center;
+  padding: 0 $menu-item-padding;
+  gap: $menu-item-gap;
+  height: $menu-item-height;
+
+  // Styling
+  @include create-transition(all, default);
+  border-radius: $menu-item-radii;
+  background-color: $menu-item-background-rest;
+  color: $menu-item-foreground-rest;
+  font: $body-200-medium;
+  cursor: pointer;
+
+  &:hover, &--active {
+    background-color: $menu-item-background-hover;
+    color: $menu-item-foreground-hover;
+  }
+}
