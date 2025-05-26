@@ -8,6 +8,7 @@
   // Layout
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: $side-nav-padding;
   gap: $side-nav-gap;
 
