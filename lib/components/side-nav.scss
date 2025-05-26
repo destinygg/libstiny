@@ -12,6 +12,12 @@
   padding: $side-nav-padding;
   gap: $side-nav-gap;
 
+  &__category {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
   &__item {
     // Layout
     display: flex;
