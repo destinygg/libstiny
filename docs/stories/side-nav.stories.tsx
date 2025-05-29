@@ -63,7 +63,7 @@ export const Primary: Story = {
         style={{ display: "flex", justifyContent: "center" }}
       >
         <img
-          src="https://cdn.omniliberal.dev/img/gemzar-do-not-pull.9bd7b41d0673956fad8c.png"
+          src="/gemzar-do-not-pull.png"
           style={{ width: 180, height: 180 }}
         />
       </div>
