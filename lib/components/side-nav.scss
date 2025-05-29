@@ -1,0 +1,52 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
+
+.side-nav {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $side-nav-padding;
+  gap: $side-nav-gap;
+
+  &__category {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__item {
+    // Layout
+    display: flex;
+    align-items: center;
+    padding: 0 $side-nav-item-padding;
+    gap: $side-nav-item-gap;
+    height: $side-nav-item-height;
+
+    // Styling
+    @include create-transition(all, default);
+    border-radius: $side-nav-item-radii;
+    background-color: $side-nav-item-default-background-rest;
+    color: $side-nav-item-default-foreground-rest;
+    font: $body-300-medium;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $side-nav-item-default-background-hover;
+      color: $side-nav-item-default-foreground-hover;
+    }
+
+    &--active {
+      background-color: $side-nav-item-active-background-rest;
+      color: $side-nav-item-active-foreground-rest;
+
+      &:hover {
+        background-color: $side-nav-item-active-background-hover;
+        color: $side-nav-item-active-foreground-hover;
+      }
+    }
+  }
+}
