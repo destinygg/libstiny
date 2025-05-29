@@ -1,5 +1,13 @@
 # @destinygg/libstiny
 
+## 1.6.0
+
+### Minor Changes
+
+- dbfa7a3: Add the SideNav component
+- a435893: Update SASS
+- Add accent Badge variant
+
 ## 1.5.0
 
 ### Minor Changes
