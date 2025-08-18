@@ -29,10 +29,26 @@ const Icon = () => (
   </svg>
 );
 
+const ChevronUp = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="m18 15-6-6-6 6" />
+  </svg>
+);
+
 export const Primary: Story = {
   render: () => (
     <div className="side-nav" style={{ width: "12rem", height: 545 }}>
-      <div className="side-nav__category">
+      <div className="side-nav__group">
         <div className="side-nav__item side-nav__item--active">
           <Icon />
           Overview
@@ -56,6 +72,23 @@ export const Primary: Story = {
         <div className="side-nav__item">
           <Icon />
           Advanced
+        </div>
+      </div>
+      <div className="side-nav-category">
+        <div className="side-nav__heading">
+          <Icon />
+          <span style={{ flex: 1 }}>Social Media</span>
+          <ChevronUp />
+        </div>
+        <div className="side-nav-category__content">
+          <div className="side-nav-category__indent"></div>
+          <div className="side-nav__group">
+            <div className="side-nav__item">YouTube</div>
+            <div className="side-nav__item">X</div>
+            <div className="side-nav__item">Instagram</div>
+            <div className="side-nav__item">Reddit</div>
+            <div className="side-nav__item">Discord</div>
+          </div>
         </div>
       </div>
       <div
