@@ -4,6 +4,11 @@ type NavbarArgs = {
   loggedIn: boolean;
 };
 
+type NavbarTitleArgs = {
+  title: string;
+  showTitle: boolean;
+};
+
 const meta: Meta<NavbarArgs> = {
   title: "Navbar",
   tags: ["autodocs"],
@@ -12,6 +17,7 @@ const meta: Meta<NavbarArgs> = {
 export default meta;
 
 type Story = StoryObj<NavbarArgs>;
+type TitleStory = StoryObj<NavbarTitleArgs>;
 
 const Icon = () => (
   <svg
@@ -96,5 +102,18 @@ export const Primary: Story = {
   ),
   args: {
     loggedIn: true,
+  },
+};
+
+export const Title: TitleStory = {
+  render: (args) => (
+    <div className="navbar__title">
+      <Icon />
+      {args.showTitle && args.title}
+    </div>
+  ),
+  args: {
+    title: "Title",
+    showTitle: true,
   },
 };
