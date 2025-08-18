@@ -71,6 +71,13 @@ export const Primary: Story = {
           <Icon />
         </button>
       </div>
+
+      <div className="drawer__action">
+        <button className="button button--secondary">
+          <Icon />
+          Exit Dashboard
+        </button>
+      </div>
     </div>
   ),
   args: {},
