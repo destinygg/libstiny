@@ -62,10 +62,7 @@ export const Primary: Story = {
         <Menu />
       </button>
 
-      <img
-        src="https://cdn.omniliberal.dev/3.11.1/img/destiny-logo.png"
-        className="navbar__logo"
-      />
+      <img src="/destiny-logo.png" className="navbar__logo" />
 
       <div className="navbar__items">
         <a className="navbar__icon">
@@ -112,10 +109,7 @@ export const WithTitle: TitleStory = {
         <Menu />
       </button>
 
-      <img
-        src="https://cdn.omniliberal.dev/3.11.1/img/destiny-logo.png"
-        className="navbar__logo"
-      />
+      <img src="/destiny-logo.png" className="navbar__logo" />
 
       <div className="navbar__title">
         <Icon />

@@ -33,10 +33,7 @@ export const Primary: Story = {
   render: () => (
     <div className="drawer" style={{ width: 340, height: 900 }}>
       <div>
-        <img
-          src="https://cdn.omniliberal.dev/3.12.0/img/destiny-logo.png"
-          className="drawer__logo"
-        />
+        <img src="/destiny-logo.png" className="drawer__logo" />
       </div>
 
       <button className="button button--primary button--full-width">
@@ -80,10 +77,7 @@ export const WithAction: Story = {
   render: () => (
     <div className="drawer" style={{ width: 340, height: 900 }}>
       <div>
-        <img
-          src="https://cdn.omniliberal.dev/3.12.0/img/destiny-logo.png"
-          className="drawer__logo"
-        />
+        <img src="/destiny-logo.png" className="drawer__logo" />
       </div>
 
       <div className="drawer__category">
