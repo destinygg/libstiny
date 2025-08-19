@@ -74,14 +74,14 @@ export const Primary: Story = {
           Advanced
         </div>
       </div>
-      <div className="side-nav-category">
+      <div className="side-nav__category">
         <div className="side-nav__heading">
           <Icon />
           <span style={{ flex: 1 }}>Social Media</span>
           <ChevronUp />
         </div>
-        <div className="side-nav-category__content">
-          <div className="side-nav-category__indent"></div>
+        <div className="side-nav__category-content">
+          <div className="side-nav__category-indent"></div>
           <div className="side-nav__group">
             <div className="side-nav__item">YouTube</div>
             <div className="side-nav__item">X</div>

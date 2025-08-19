@@ -71,15 +71,15 @@
       color: $side-nav-heading-foreground-hover;
     }
   }
-}
 
-.side-nav-category {
-  // Layout
-  display: flex;
-  flex-direction: column;
-  gap: $side-nav-category-gap;
+  &__category {
+    // Layout
+    display: flex;
+    flex-direction: column;
+    gap: $side-nav-category-gap;
+  }
 
-  &__indent {
+  &__category-indent {
     position: relative;
     width: $side-nav-category-indent-width;
 
@@ -95,7 +95,7 @@
     }
   }
 
-  &__content {
+  &__category-content {
     display: flex;
   }
 }
