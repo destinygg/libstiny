@@ -77,6 +77,16 @@
     display: flex;
     flex-direction: column;
     gap: $side-nav-category-gap;
+
+    &--collapsed {
+      .side-nav__category-content {
+        display: none;
+      }
+
+      .side-nav__heading-chevron {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   &__category-indent {
@@ -97,5 +107,9 @@
 
   &__category-content {
     display: flex;
+  }
+
+  &__heading-chevron {
+    @include create-transition(transform, default);
   }
 }

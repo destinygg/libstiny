@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
 
 type SideNavArgs = {};
 
@@ -29,7 +30,7 @@ const Icon = () => (
   </svg>
 );
 
-const ChevronUp = () => (
+const ChevronUp = ({ className }: { className: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -40,6 +41,7 @@ const ChevronUp = () => (
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
+    className={className}
   >
     <path d="m18 15-6-6-6 6" />
   </svg>
@@ -89,59 +91,82 @@ export const Primary: Story = {
 };
 
 export const Categorized: Story = {
-  render: () => (
-    <div className="side-nav" style={{ width: "14rem" }}>
-      <div className="side-nav__category">
-        <div className="side-nav__heading">
-          <Icon />
-          <span style={{ flex: 1 }}>Vegetables</span>
-          <ChevronUp className="side-nav__heading-chevron" />
-        </div>
-        <div className="side-nav__category-content">
-          <div className="side-nav__category-indent"></div>
-          <div className="side-nav__group">
-            <div className="side-nav__item">Carrots</div>
-            <div className="side-nav__item">Broccoli</div>
-            <div className="side-nav__item">Lettuce</div>
-            <div className="side-nav__item">Tomatoes</div>
-            <div className="side-nav__item">Cucumbers</div>
+  render: () => {
+    const [isVegetablesCollapsed, setIsVegetablesCollapsed] = useState(false);
+    const [isFruitsCollapsed, setIsFruitsCollapsed] = useState(false);
+    const [isBreadCollapsed, setIsBreadCollapsed] = useState(false);
+
+    return (
+      <div style={{ height: "60rem" }}>
+        <div className="side-nav" style={{ width: "14rem" }}>
+          <div
+            className={`side-nav__category ${isVegetablesCollapsed && "side-nav__category--collapsed"}`}
+          >
+            <div
+              className="side-nav__heading"
+              onClick={() => setIsVegetablesCollapsed(!isVegetablesCollapsed)}
+            >
+              <Icon />
+              <span style={{ flex: 1 }}>Vegetables</span>
+              <ChevronUp className="side-nav__heading-chevron" />
+            </div>
+            <div className="side-nav__category-content">
+              <div className="side-nav__category-indent"></div>
+              <div className="side-nav__group">
+                <div className="side-nav__item">Carrots</div>
+                <div className="side-nav__item">Broccoli</div>
+                <div className="side-nav__item">Lettuce</div>
+                <div className="side-nav__item">Tomatoes</div>
+                <div className="side-nav__item">Cucumbers</div>
+              </div>
+            </div>
+          </div>
+          <div
+            className={`side-nav__category ${isFruitsCollapsed && "side-nav__category--collapsed"}`}
+          >
+            <div
+              className="side-nav__heading"
+              onClick={() => setIsFruitsCollapsed(!isFruitsCollapsed)}
+            >
+              <Icon />
+              <span style={{ flex: 1 }}>Fruits</span>
+              <ChevronUp className="side-nav__heading-chevron" />
+            </div>
+            <div className="side-nav__category-content">
+              <div className="side-nav__category-indent"></div>
+              <div className="side-nav__group">
+                <div className="side-nav__item">Apples</div>
+                <div className="side-nav__item">Bananas</div>
+                <div className="side-nav__item">Cherries</div>
+                <div className="side-nav__item">Strawberries</div>
+                <div className="side-nav__item">Watermelon</div>
+              </div>
+            </div>
+          </div>
+          <div
+            className={`side-nav__category ${isBreadCollapsed && "side-nav__category--collapsed"}`}
+          >
+            <div
+              className="side-nav__heading"
+              onClick={() => setIsBreadCollapsed(!isBreadCollapsed)}
+            >
+              <Icon />
+              <span style={{ flex: 1 }}>Bread</span>
+              <ChevronUp className="side-nav__heading-chevron" />
+            </div>
+            <div className="side-nav__category-content">
+              <div className="side-nav__category-indent"></div>
+              <div className="side-nav__group">
+                <div className="side-nav__item">Sourdough</div>
+                <div className="side-nav__item">Rye</div>
+                <div className="side-nav__item">Wheat</div>
+                <div className="side-nav__item">Pumpernickel</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="side-nav__category">
-        <div className="side-nav__heading">
-          <Icon />
-          <span style={{ flex: 1 }}>Fruits</span>
-          <ChevronUp className="side-nav__heading-chevron" />
-        </div>
-        <div className="side-nav__category-content">
-          <div className="side-nav__category-indent"></div>
-          <div className="side-nav__group">
-            <div className="side-nav__item">Apples</div>
-            <div className="side-nav__item">Bananas</div>
-            <div className="side-nav__item">Cherries</div>
-            <div className="side-nav__item">Strawberries</div>
-            <div className="side-nav__item">Watermelon</div>
-          </div>
-        </div>
-      </div>
-      <div className="side-nav__category">
-        <div className="side-nav__heading">
-          <Icon />
-          <span style={{ flex: 1 }}>Bread</span>
-          <ChevronUp />
-        </div>
-        <div className="side-nav__category-content">
-          <div className="side-nav__category-indent"></div>
-          <div className="side-nav__group">
-            <div className="side-nav__item">Sourdough</div>
-            <div className="side-nav__item">Rye</div>
-            <div className="side-nav__item">Wheat</div>
-            <div className="side-nav__item">Pumpernickel</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  ),
+    );
+  },
   args: {},
 };
