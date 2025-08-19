@@ -105,11 +105,26 @@ export const Primary: Story = {
   },
 };
 
-export const Title: TitleStory = {
+export const WithTitle: TitleStory = {
   render: (args) => (
-    <div className="navbar__title">
-      <Icon />
-      {args.showTitle && args.title}
+    <div className="navbar">
+      <button className="button button--tertiary button--icon-only">
+        <Menu />
+      </button>
+
+      <img
+        src="https://cdn.omniliberal.dev/3.11.1/img/destiny-logo.png"
+        className="navbar__logo"
+      />
+
+      <div className="navbar__title">
+        <Icon />
+        {args.showTitle && args.title}
+      </div>
+
+      <div className="navbar__actions">
+        <div className="navbar__user">Username</div>
+      </div>
     </div>
   ),
   args: {
