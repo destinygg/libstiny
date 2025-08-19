@@ -71,9 +71,37 @@ export const Primary: Story = {
           <Icon />
         </button>
       </div>
+    </div>
+  ),
+  args: {},
+};
+
+export const WithAction: Story = {
+  render: () => (
+    <div className="drawer" style={{ width: 340, height: 900 }}>
+      <div>
+        <img
+          src="https://cdn.omniliberal.dev/3.12.0/img/destiny-logo.png"
+          className="drawer__logo"
+        />
+      </div>
+
+      <div className="drawer__category">
+        <span className="drawer__category-title">Cool Emotes</span>
+        <a className="drawer__item drawer__item--active">YEE</a>
+        <a className="drawer__item">nathanYee</a>
+        <a className="drawer__item">YEEHAW</a>
+      </div>
+
+      <div className="drawer__category">
+        <span className="drawer__category-title">Lame Emotes</span>
+        <a className="drawer__item">PEPE</a>
+        <a className="drawer__item">nathanPepe</a>
+        <a className="drawer__item">PARDNER</a>
+      </div>
 
       <div className="drawer__action">
-        <button className="button button--secondary">
+        <button className="button button--secondary" style={{ flex: 1 }}>
           <Icon />
           Exit Dashboard
         </button>
