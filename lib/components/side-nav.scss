@@ -11,6 +11,7 @@
   justify-content: space-between;
   padding: $side-nav-padding;
   gap: $side-nav-gap;
+  user-select: none;
 
   &__group {
     display: flex;
