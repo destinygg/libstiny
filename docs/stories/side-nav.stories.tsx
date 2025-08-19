@@ -74,23 +74,6 @@ export const Primary: Story = {
           Advanced
         </div>
       </div>
-      <div className="side-nav__category">
-        <div className="side-nav__heading">
-          <Icon />
-          <span style={{ flex: 1 }}>Social Media</span>
-          <ChevronUp />
-        </div>
-        <div className="side-nav__category-content">
-          <div className="side-nav__category-indent"></div>
-          <div className="side-nav__group">
-            <div className="side-nav__item">YouTube</div>
-            <div className="side-nav__item">X</div>
-            <div className="side-nav__item">Instagram</div>
-            <div className="side-nav__item">Reddit</div>
-            <div className="side-nav__item">Discord</div>
-          </div>
-        </div>
-      </div>
       <div
         className="side-nav__art"
         style={{ display: "flex", justifyContent: "center" }}
@@ -99,6 +82,64 @@ export const Primary: Story = {
           src="/gemzar-do-not-pull.png"
           style={{ width: 180, height: 180 }}
         />
+      </div>
+    </div>
+  ),
+  args: {},
+};
+
+export const Categorized: Story = {
+  render: () => (
+    <div className="side-nav" style={{ width: "14rem" }}>
+      <div className="side-nav__category">
+        <div className="side-nav__heading">
+          <Icon />
+          <span style={{ flex: 1 }}>Vegetables</span>
+          <ChevronUp className="side-nav__heading-chevron" />
+        </div>
+        <div className="side-nav__category-content">
+          <div className="side-nav__category-indent"></div>
+          <div className="side-nav__group">
+            <div className="side-nav__item">Carrots</div>
+            <div className="side-nav__item">Broccoli</div>
+            <div className="side-nav__item">Lettuce</div>
+            <div className="side-nav__item">Tomatoes</div>
+            <div className="side-nav__item">Cucumbers</div>
+          </div>
+        </div>
+      </div>
+      <div className="side-nav__category">
+        <div className="side-nav__heading">
+          <Icon />
+          <span style={{ flex: 1 }}>Fruits</span>
+          <ChevronUp className="side-nav__heading-chevron" />
+        </div>
+        <div className="side-nav__category-content">
+          <div className="side-nav__category-indent"></div>
+          <div className="side-nav__group">
+            <div className="side-nav__item">Apples</div>
+            <div className="side-nav__item">Bananas</div>
+            <div className="side-nav__item">Cherries</div>
+            <div className="side-nav__item">Strawberries</div>
+            <div className="side-nav__item">Watermelon</div>
+          </div>
+        </div>
+      </div>
+      <div className="side-nav__category">
+        <div className="side-nav__heading">
+          <Icon />
+          <span style={{ flex: 1 }}>Bread</span>
+          <ChevronUp />
+        </div>
+        <div className="side-nav__category-content">
+          <div className="side-nav__category-indent"></div>
+          <div className="side-nav__group">
+            <div className="side-nav__item">Sourdough</div>
+            <div className="side-nav__item">Rye</div>
+            <div className="side-nav__item">Wheat</div>
+            <div className="side-nav__item">Pumpernickel</div>
+          </div>
+        </div>
       </div>
     </div>
   ),
