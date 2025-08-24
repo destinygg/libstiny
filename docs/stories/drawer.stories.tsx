@@ -40,18 +40,20 @@ export const Primary: Story = {
         Subscribe
       </button>
 
-      <div className="drawer__category">
-        <span className="drawer__category-title">Community</span>
-        <a className="drawer__item drawer__item--active">YouTube</a>
-        <a className="drawer__item">Kick</a>
-        <a className="drawer__item">Reddit</a>
-        <a className="drawer__item">Discord</a>
-      </div>
+      <div className="drawer__category-group">
+        <div className="drawer__category">
+          <span className="drawer__category-title">Community</span>
+          <a className="drawer__item drawer__item--active">YouTube</a>
+          <a className="drawer__item">Kick</a>
+          <a className="drawer__item">Reddit</a>
+          <a className="drawer__item">Discord</a>
+        </div>
 
-      <div className="drawer__category">
-        <span className="drawer__category-title">Podcasts</span>
-        <a className="drawer__item">Bridges</a>
-        <a className="drawer__item">Anything Else?</a>
+        <div className="drawer__category">
+          <span className="drawer__category-title">Podcasts</span>
+          <a className="drawer__item">Bridges</a>
+          <a className="drawer__item">Anything Else?</a>
+        </div>
       </div>
 
       <div className="drawer__footer">
@@ -80,18 +82,20 @@ export const WithAction: Story = {
         <img src="/destiny-logo.png" className="drawer__logo" />
       </div>
 
-      <div className="drawer__category">
-        <span className="drawer__category-title">Cool Emotes</span>
-        <a className="drawer__item drawer__item--active">YEE</a>
-        <a className="drawer__item">nathanYee</a>
-        <a className="drawer__item">YEEHAW</a>
-      </div>
+      <div className="drawer__category-group">
+        <div className="drawer__category">
+          <span className="drawer__category-title">Cool Emotes</span>
+          <a className="drawer__item drawer__item--active">YEE</a>
+          <a className="drawer__item">nathanYee</a>
+          <a className="drawer__item">YEEHAW</a>
+        </div>
 
-      <div className="drawer__category">
-        <span className="drawer__category-title">Lame Emotes</span>
-        <a className="drawer__item">PEPE</a>
-        <a className="drawer__item">nathanPepe</a>
-        <a className="drawer__item">PARDNER</a>
+        <div className="drawer__category">
+          <span className="drawer__category-title">Lame Emotes</span>
+          <a className="drawer__item">PEPE</a>
+          <a className="drawer__item">nathanPepe</a>
+          <a className="drawer__item">PARDNER</a>
+        </div>
       </div>
 
       <div className="drawer__action">
