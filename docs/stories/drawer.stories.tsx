@@ -98,7 +98,7 @@ export const WithAction: Story = {
         </div>
       </div>
 
-      <div className="drawer__action">
+      <div className="drawer__action-footer">
         <button className="button button--secondary">
           <Icon />
           Exit Dashboard
