@@ -95,7 +95,7 @@ export const WithAction: Story = {
       </div>
 
       <div className="drawer__action">
-        <button className="button button--secondary" style={{ flex: 1 }}>
+        <button className="button button--secondary">
           <Icon />
           Exit Dashboard
         </button>
