@@ -110,4 +110,12 @@
       background-color: $palette-black-a-9;
     }
   }
+
+  &__title {
+    display: inline-flex;
+    align-items: center;
+    gap: $navbar-title-gap;
+
+    font: $display-100-semi-bold;
+  }
 }

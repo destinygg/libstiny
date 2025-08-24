@@ -39,7 +39,6 @@
     display: flex;
     justify-content: center;
     gap: $space-2;
-    margin-top: auto;
   }
 
   &__item {
@@ -73,5 +72,21 @@
         color: $drawer-item-active-foreground-hover;
       }
     }
+  }
+
+  &__action-footer {
+    display: flex;
+    flex-direction: column;
+    padding-top: $drawer-action-padding;
+
+    border-top: 1px solid $drawer-action-border;
+  }
+
+  &__category-group {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: $drawer-gap;
+    overflow: auto;
   }
 }

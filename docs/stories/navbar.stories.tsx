@@ -4,6 +4,11 @@ type NavbarArgs = {
   loggedIn: boolean;
 };
 
+type NavbarTitleArgs = {
+  title: string;
+  showTitle: boolean;
+};
+
 const meta: Meta<NavbarArgs> = {
   title: "Navbar",
   tags: ["autodocs"],
@@ -12,6 +17,7 @@ const meta: Meta<NavbarArgs> = {
 export default meta;
 
 type Story = StoryObj<NavbarArgs>;
+type TitleStory = StoryObj<NavbarTitleArgs>;
 
 const Icon = () => (
   <svg
@@ -56,10 +62,7 @@ export const Primary: Story = {
         <Menu />
       </button>
 
-      <img
-        src="https://cdn.omniliberal.dev/3.11.1/img/destiny-logo.png"
-        className="navbar__logo"
-      />
+      <img src="/destiny-logo.png" className="navbar__logo" />
 
       <div className="navbar__items">
         <a className="navbar__icon">
@@ -96,5 +99,30 @@ export const Primary: Story = {
   ),
   args: {
     loggedIn: true,
+  },
+};
+
+export const WithTitle: TitleStory = {
+  render: (args) => (
+    <div className="navbar">
+      <button className="button button--tertiary button--icon-only">
+        <Menu />
+      </button>
+
+      <img src="/destiny-logo.png" className="navbar__logo" />
+
+      <div className="navbar__title">
+        <Icon />
+        {args.showTitle && args.title}
+      </div>
+
+      <div className="navbar__actions">
+        <div className="navbar__user">Username</div>
+      </div>
+    </div>
+  ),
+  args: {
+    title: "Title",
+    showTitle: true,
   },
 };

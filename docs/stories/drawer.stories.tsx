@@ -33,28 +33,27 @@ export const Primary: Story = {
   render: () => (
     <div className="drawer" style={{ width: 340, height: 900 }}>
       <div>
-        <img
-          src="https://cdn.omniliberal.dev/3.12.0/img/destiny-logo.png"
-          className="drawer__logo"
-        />
+        <img src="/destiny-logo.png" className="drawer__logo" />
       </div>
 
       <button className="button button--primary button--full-width">
         Subscribe
       </button>
 
-      <div className="drawer__category">
-        <span className="drawer__category-title">Community</span>
-        <a className="drawer__item drawer__item--active">YouTube</a>
-        <a className="drawer__item">Kick</a>
-        <a className="drawer__item">Reddit</a>
-        <a className="drawer__item">Discord</a>
-      </div>
+      <div className="drawer__category-group">
+        <div className="drawer__category">
+          <span className="drawer__category-title">Community</span>
+          <a className="drawer__item drawer__item--active">YouTube</a>
+          <a className="drawer__item">Kick</a>
+          <a className="drawer__item">Reddit</a>
+          <a className="drawer__item">Discord</a>
+        </div>
 
-      <div className="drawer__category">
-        <span className="drawer__category-title">Podcasts</span>
-        <a className="drawer__item">Bridges</a>
-        <a className="drawer__item">Anything Else?</a>
+        <div className="drawer__category">
+          <span className="drawer__category-title">Podcasts</span>
+          <a className="drawer__item">Bridges</a>
+          <a className="drawer__item">Anything Else?</a>
+        </div>
       </div>
 
       <div className="drawer__footer">
@@ -69,6 +68,40 @@ export const Primary: Story = {
         </button>
         <button className="button button--tertiary button--icon-only">
           <Icon />
+        </button>
+      </div>
+    </div>
+  ),
+  args: {},
+};
+
+export const WithAction: Story = {
+  render: () => (
+    <div className="drawer" style={{ width: 340, height: 900 }}>
+      <div>
+        <img src="/destiny-logo.png" className="drawer__logo" />
+      </div>
+
+      <div className="drawer__category-group">
+        <div className="drawer__category">
+          <span className="drawer__category-title">Cool Emotes</span>
+          <a className="drawer__item drawer__item--active">YEE</a>
+          <a className="drawer__item">nathanYee</a>
+          <a className="drawer__item">YEEHAW</a>
+        </div>
+
+        <div className="drawer__category">
+          <span className="drawer__category-title">Lame Emotes</span>
+          <a className="drawer__item">PEPE</a>
+          <a className="drawer__item">nathanPepe</a>
+          <a className="drawer__item">PARDNER</a>
+        </div>
+      </div>
+
+      <div className="drawer__action-footer">
+        <button className="button button--secondary">
+          <Icon />
+          Exit Dashboard
         </button>
       </div>
     </div>
