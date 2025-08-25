@@ -1,5 +1,14 @@
 # @destinygg/libstiny
 
+## 1.7.0
+
+### Minor Changes
+
+- b6cbd78: Add SideNav Heading, SideNav Category, Drawer Action and Navbar Title
+  Port modified Drawer layout from Dgg
+  Fix Dgg logo 404 due to hotlinking
+- 3ea6191: Add tokens for SideNav Heading, SideNav Category, Drawer Action, and NavBar Title components
+
 ## 1.6.0
 
 ### Minor Changes
