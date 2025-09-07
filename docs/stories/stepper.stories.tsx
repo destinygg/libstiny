@@ -22,9 +22,9 @@ const DotIcon = () => (
     <path
       d="M10.0833 10.9167C10.5436 10.9167 10.9167 10.5436 10.9167 10.0833C10.9167 9.6231 10.5436 9.25 10.0833 9.25C9.6231 9.25 9.25 9.6231 9.25 10.0833C9.25 10.5436 9.6231 10.9167 10.0833 10.9167Z"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
