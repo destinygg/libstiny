@@ -1,5 +1,11 @@
 # @destinygg/libstiny
 
+## 1.8.0
+
+### Minor Changes
+
+- 4669711: Add the checkbox component
+
 ## 1.7.0
 
 ### Minor Changes
