@@ -35,10 +35,6 @@
       &:not(:disabled) + .checkbox__icon {
         background-color: $checkbox-checked-background-rest;
         border-color: transparent;
-
-        &:hover {
-          background-color: $checkbox-checked-background-hover;
-        }
       }
     }
 
@@ -73,8 +69,14 @@
     border: 1px solid $input-border-rest;
   }
 
-  &:hover .checkbox__icon {
-    border-color: $input-border-hover;
+  &:hover {
+    .checkbox__icon {
+      border-color: $input-border-hover;
+    }
+
+    &:has(input:checked:not(:disabled)) .checkbox__icon {
+      background-color: $checkbox-checked-background-hover;
+    }
   }
 
   &__tick {
