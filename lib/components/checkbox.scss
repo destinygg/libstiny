@@ -81,8 +81,11 @@
 
   &__tick {
     display: none;
+    width: $space-3;
+    height: $space-3;
 
     color: $checkbox-checked-foreground-default;
+    stroke-width: 4px;
   }
 
   &__label {
