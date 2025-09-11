@@ -10,6 +10,7 @@
   grid-template-columns: $icon-default auto;
   cursor: pointer;
   gap: $checkbox-gap;
+  align-items: center;
 
   input {
     appearance: none;
