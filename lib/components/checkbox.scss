@@ -7,7 +7,7 @@
 
 .checkbox {
   display: grid;
-  grid-template-columns: $icon-default auto;
+  grid-template-columns: $checkbox-width auto;
   cursor: pointer;
   gap: $checkbox-gap;
   align-items: center;
@@ -54,7 +54,7 @@
 
   &__toggle {
     display: flex;
-    height: $icon-default;
+    height: $checkbox-width;
   }
 
   &__icon {
