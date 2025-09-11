@@ -17,30 +17,26 @@ type Story = StoryObj<CheckboxArgs>;
 const TickIcon = () => (
   <svg
     className="checkbox__tick"
-    width="10"
-    height="8"
-    viewBox="0 0 10 8"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   >
-    <path
-      d="M9 1L3.5 6.5L1 4"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+    <path d="M20 6 9 17l-5-5" />
   </svg>
 );
 
 export const Primary: Story = {
   render: (args) => (
     <label className="checkbox">
-      <span className="checkbox__toggle">
-        <input type="checkbox" disabled={args.disabled} />
-        <span className="checkbox__icon">
-          <TickIcon />
-        </span>
+      <input type="checkbox" disabled={args.disabled} />
+      <span className="checkbox__box">
+        <TickIcon />
       </span>
       <span className="checkbox__label">{args.label}</span>
     </label>
