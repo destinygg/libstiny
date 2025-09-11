@@ -6,8 +6,7 @@
 @use "../utils/transitions" as *;
 
 .checkbox {
-  display: grid;
-  grid-template-columns: $checkbox-width auto;
+  display: inline-flex;
   cursor: pointer;
   gap: $checkbox-gap;
   align-items: center;
@@ -18,22 +17,22 @@
     position: absolute;
 
     &:disabled {
-      & + .checkbox__icon {
+      & + .checkbox__box {
         background-color: $input-background-disabled;
         border-color: $input-border-rest;
       }
 
-      & + .checkbox__icon .checkbox__tick {
+      & + .checkbox__box .checkbox__tick {
         color: $checkbox-checked-foreground-disabled;
       }
     }
 
     &:checked {
-      & + .checkbox__icon .checkbox__tick {
+      & + .checkbox__box .checkbox__tick {
         display: block;
       }
 
-      &:not(:disabled) + .checkbox__icon {
+      &:not(:disabled) + .checkbox__box {
         background-color: $checkbox-checked-background-rest;
         border-color: transparent;
       }
@@ -42,7 +41,7 @@
     &:focus-visible {
       outline: none;
 
-      & + .checkbox__icon {
+      & + .checkbox__box {
         outline: 4px auto highlight;
       }
     }
@@ -52,20 +51,14 @@
     color: $checkbox-label-disabled;
   }
 
-  &__toggle {
-    display: flex;
-    height: $checkbox-width;
-  }
-
-  &__icon {
+  &__box {
     @include create-transition(all, default);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    min-width: 0;
-    padding: 0.2rem;
+    position: relative;
+    width: $checkbox-width;
+    height: $checkbox-width;
+    box-sizing: border-box;
+    flex-shrink: 0;
 
     background-color: $input-background-rest;
     border-radius: $semantic-radii-x-small;
@@ -73,18 +66,23 @@
   }
 
   &:hover {
-    .checkbox__icon {
+    .checkbox__box {
       border-color: $input-border-hover;
     }
 
-    &:has(input:checked:not(:disabled)) .checkbox__icon {
+    &:has(input:checked:not(:disabled)) .checkbox__box {
       background-color: $checkbox-checked-background-hover;
     }
   }
 
   &__tick {
     display: none;
-    height: 100%;
+    position: absolute;
+    width: $checkbox-tick-width;
+    height: $checkbox-tick-width;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     color: $checkbox-checked-foreground-default;
   }

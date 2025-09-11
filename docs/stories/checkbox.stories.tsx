@@ -34,11 +34,9 @@ const TickIcon = () => (
 export const Primary: Story = {
   render: (args) => (
     <label className="checkbox">
-      <span className="checkbox__toggle">
-        <input type="checkbox" disabled={args.disabled} />
-        <span className="checkbox__icon">
-          <TickIcon />
-        </span>
+      <input type="checkbox" disabled={args.disabled} />
+      <span className="checkbox__box">
+        <TickIcon />
       </span>
       <span className="checkbox__label">{args.label}</span>
     </label>
