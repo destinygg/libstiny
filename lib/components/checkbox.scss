@@ -54,7 +54,7 @@
 
   &__toggle {
     display: flex;
-    height: 100%;
+    height: $icon-default;
   }
 
   &__icon {
@@ -64,6 +64,8 @@
     justify-content: center;
     align-items: center;
     flex: 1;
+    min-width: 0;
+    padding: 0.2rem;
 
     background-color: $input-background-rest;
     border-radius: $semantic-radii-x-small;
@@ -82,8 +84,7 @@
 
   &__tick {
     display: none;
-    width: $space-3;
-    height: $space-3;
+    height: 100%;
 
     color: $checkbox-checked-foreground-default;
   }
