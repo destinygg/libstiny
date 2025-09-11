@@ -1,5 +1,11 @@
 # @destinygg/libstiny
 
+## 1.8.1
+
+### Patch Changes
+
+- e15c2bb: Fix ticked checkbox size
+
 ## 1.8.0
 
 ### Minor Changes
