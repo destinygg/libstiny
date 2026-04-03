@@ -1,0 +1,94 @@
+@use "../tokens/component" as *;
+@use "../tokens/core" as *;
+@use "../tokens/typography" as *;
+@use "../tokens/semantic" as *;
+@use "../utils/transitions" as *;
+
+.popover {
+  // Layout
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: $popover-padding;
+  gap: $popover-gap;
+
+  // Styling
+  border-radius: $popover-radii;
+  background-color: $popover-background;
+  border: 1px solid $popover-border;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font: $body-300-semi-bold;
+    color: $popover-title-foreground;
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $popover-close-size;
+    height: $popover-close-size;
+    padding: 0;
+    border: none;
+    background: none;
+    color: $popover-close-foreground;
+    cursor: pointer;
+    @include create-transition(color, default);
+
+    &:hover {
+      color: $popover-close-foreground-hover;
+    }
+  }
+
+  &__content {
+    font: $body-200-medium;
+    color: $popover-content-foreground;
+  }
+
+  &__arrow {
+    position: absolute;
+    width: $popover-arrow-size;
+    height: $popover-arrow-size;
+    background-color: $popover-arrow-background;
+    border: 1px solid $popover-arrow-border;
+    transform: rotate(45deg);
+  }
+
+  &--top &__arrow {
+    bottom: calc($popover-arrow-size / -2);
+    left: 50%;
+    margin-left: calc($popover-arrow-size / -2);
+    border-top: none;
+    border-left: none;
+  }
+
+  &--bottom &__arrow {
+    top: calc($popover-arrow-size / -2);
+    left: 50%;
+    margin-left: calc($popover-arrow-size / -2);
+    border-bottom: none;
+    border-right: none;
+  }
+
+  &--left &__arrow {
+    right: calc($popover-arrow-size / -2);
+    top: 50%;
+    margin-top: calc($popover-arrow-size / -2);
+    border-bottom: none;
+    border-left: none;
+  }
+
+  &--right &__arrow {
+    left: calc($popover-arrow-size / -2);
+    top: 50%;
+    margin-top: calc($popover-arrow-size / -2);
+    border-top: none;
+    border-right: none;
+  }
+}
