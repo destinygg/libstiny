@@ -1,5 +1,11 @@
 # @destinygg/libstiny
 
+## 1.9.0
+
+### Minor Changes
+
+- Add the popover component
+
 ## 1.8.1
 
 ### Patch Changes
