@@ -1,0 +1,49 @@
+@use "../tokens/component" as *;
+@use "../tokens/typography" as *;
+@use "../utils/transitions" as *;
+
+.breadcrumb {
+  // Layout
+  display: flex;
+  align-items: center;
+  gap: $breadcrumb-gap;
+  margin-bottom: $breadcrumb-margin-bottom;
+
+  // Style
+  font: $body-200-medium;
+  color: $breadcrumb-foreground;
+
+  &__link {
+    // Layout
+    display: inline-flex;
+    align-items: center;
+    gap: $breadcrumb-link-gap;
+
+    // Style
+    @include create-transition(color, default);
+    color: $breadcrumb-link-foreground-rest;
+    text-decoration: none;
+
+    &:hover {
+      color: $breadcrumb-link-foreground-hover;
+    }
+
+    // The leading crumb is prefixed with a back arrow, sized to the text.
+    .lucide {
+      width: $breadcrumb-icon-size;
+      height: $breadcrumb-icon-size;
+      flex-shrink: 0;
+    }
+  }
+
+  &__separator {
+    width: $breadcrumb-separator-size;
+    height: $breadcrumb-separator-size;
+    border-radius: $breadcrumb-separator-radii;
+    background: $breadcrumb-separator-background;
+  }
+
+  &__current {
+    color: $breadcrumb-current-foreground;
+  }
+}
