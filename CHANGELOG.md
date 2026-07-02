@@ -1,5 +1,12 @@
 # @destinygg/libstiny
 
+## 1.10.0
+
+### Minor Changes
+
+- 8e48575: Add the breadcrumb component
+- 969562f: Add the segmented control component
+
 ## 1.9.0
 
 ### Minor Changes
