@@ -16,6 +16,18 @@ You can import the entire CSS, including all variables, using
 @use "~@destinygg/libstiny" as *;
 ```
 
+### Plain CSS
+
+If your project doesn't use Sass, the package also ships a pre-compiled stylesheet
+containing every component and token. Import it once, at the root of your application.
+
+```js
+import "@destinygg/libstiny/dist/libstiny.css";
+```
+
+This gives you the component classes and CSS output only. The Sass variables
+documented below are available exclusively through the `@use` entry points.
+
 ### Namespacing
 
 You can also namespace the import for clarity and to avoid collisions with your own variables.
