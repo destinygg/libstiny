@@ -1,28 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { SectionHeader } from "@destinygg/libstiny/react";
 
-type SectionHeaderArgs = {
-  text: string;
-};
-
-const meta: Meta<SectionHeaderArgs> = {
-  title: "Section Header",
+const meta = {
+  title: "SectionHeader",
+  component: SectionHeader,
   tags: ["autodocs"],
-};
+  argTypes: { level: { control: "select", options: [1, 2, 3, 4, 5, 6] } },
+  args: { children: "Section Header" },
+} satisfies Meta<typeof SectionHeader>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<SectionHeaderArgs>;
+export const Primary: Story = {};
 
-export const Primary: Story = {
-  render: (args) => (
-    <div className="section-header">
-      <div className="section-header__content">
-        <h2 className="section-header__heading">{args.text}</h2>
-        <div className="section-header__divider"></div>
-      </div>
-    </div>
-  ),
-  args: {
-    text: "Section Header",
-  },
-};
+// `level` only changes the heading tag, for document-outline correctness.
+export const LevelThree: Story = { args: { level: 3 } };

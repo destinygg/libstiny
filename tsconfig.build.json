@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Incompatible with declaration emit, which tsup's dts pass performs.
+    // Nothing under src/ imports with a .ts extension.
+    "allowImportingTsExtensions": false
+  },
+  // Scope the dts pass to library source: docs/ and .storybook/ must never
+  // influence the published types.
+  "include": ["src"]
+}

@@ -210,3 +210,83 @@ $transition-curves: (
 
 Please visit the [Libstiny Documentation](https://libstiny.pages.dev/?path=/docs/alert--docs) for usage of our components.
 In order to view code examples, click the "Show Code" button in the bottom-right corner.
+
+## React Components
+
+Libstiny also ships pre-styled React components. They are entirely optional — the
+SCSS and tokens above work exactly the same whether or not you use them, so
+non-React consumers are unaffected.
+
+```
+npm install @destinygg/libstiny react react-dom
+```
+
+```jsx
+import { Button, Badge, Card, Notification, SectionHeader, Table } from "@destinygg/libstiny/react";
+
+<Button intent="secondary" size="large">Save</Button>
+<Button render={<a href="/faq" />}>Styled as a button, renders an anchor</Button>
+```
+
+The components apply libstiny's classes for you, so you still need the stylesheet
+once at the root of your app — either the Sass entry or `dist/libstiny.css`.
+
+### Props
+
+Every component takes its native element's props, plus a `className` that is
+appended to (never replaces) the libstiny classes, and a `render` prop to
+substitute the rendered element.
+
+The colour axis is called `intent` on every component, matching the Twig
+components in the website repo.
+
+### Components that need behaviour
+
+Components with real interaction are built on
+[Base UI](https://base-ui.com) and live under their own subpath, so that
+installing libstiny does not oblige you to install Base UI if you only use the
+presentational components:
+
+```
+npm install @base-ui/react
+```
+
+```jsx
+import { Tabs } from "@destinygg/libstiny/react/tabs";
+
+<Tabs.Root defaultValue="one">
+  <Tabs.List>
+    <Tabs.Tab value="one">One</Tabs.Tab>
+    <Tabs.Tab value="two">Two</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel value="one">…</Tabs.Panel>
+  <Tabs.Panel value="two">…</Tabs.Panel>
+</Tabs.Root>;
+```
+
+Keyboard navigation, roving tabindex and the `tablist`/`tab`/`tabpanel` roles come
+from Base UI; the libstiny classes are applied from its component state.
+
+### Module resolution caveat
+
+The package deliberately has no `exports` map, because adding one breaks the
+`@use "~@destinygg/libstiny"` Sass import that every stylesheet consumer relies
+on. As a result the React entry resolves by directory-index lookup, which works
+in **webpack, Vite, esbuild, Rollup**, and in TypeScript under
+`moduleResolution: "bundler"` or `"node"` — but **not** in raw Node ESM or under
+`moduleResolution: "nodenext"`, which report:
+
+```
+ERR_UNSUPPORTED_DIR_IMPORT               # Node ESM
+TS2307: Cannot find module '@destinygg/libstiny/react'   # tsc --moduleResolution nodenext
+```
+
+If you hit either, import the file directly:
+
+```js
+import { Button } from "@destinygg/libstiny/react/index.js";
+```
+
+This is temporary. Once consumers migrate off the deprecated `~` prefix in their
+Sass imports, the package can adopt an `exports` map and the bare specifier will
+work everywhere.

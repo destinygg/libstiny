@@ -25,3 +25,6 @@ dist-ssr
 
 # Storybook build output
 storybook-static
+
+# Built React entry (published via `files`, same as dist/)
+/react/
