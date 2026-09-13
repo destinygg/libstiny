@@ -1,6 +1,6 @@
 import * as React from "react";
 import { notificationVariants } from "../variants/notification";
-import { renderElement, type RenderProp } from "./utils/render";
+import { useRenderElement, type RenderProp } from "./utils/render";
 
 export type NotificationIntent = "primary" | "success" | "danger" | "neutral";
 /** `alert` is the large inline form; `toast` is the compact floating form. */
@@ -54,7 +54,7 @@ export const Notification = React.forwardRef<HTMLDivElement, NotificationProps>(
         </div>
       ) : null;
 
-    return renderElement(
+    return useRenderElement(
       render,
       "div",
       {

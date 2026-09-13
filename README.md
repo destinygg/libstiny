@@ -237,6 +237,23 @@ Every component takes its native element's props, plus a `className` that is
 appended to (never replaces) the libstiny classes, and a `render` prop to
 substitute the rendered element.
 
+`render` behaves exactly like the `render` prop on Base UI components, because
+it is implemented with Base UI's own `useRender`. Props on the substituted
+element win, except that `className` and `style` are merged, event handlers on
+both run (the element's first, and it can call `event.preventBaseUIHandler()`
+to skip the component's), and refs on both receive the node:
+
+```jsx
+<Button onClick={track} render={<a href="/faq" onClick={navigate} />}>
+  FAQ
+</Button>
+// both navigate() and track() run
+```
+
+You don't need to install `@base-ui/react` for this; the small piece it relies
+on is bundled. In React Server Components apps, the components are client
+components.
+
 The colour axis is called `intent` on every component, matching the Twig
 components in the website repo.
 

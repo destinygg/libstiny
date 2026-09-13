@@ -1,6 +1,6 @@
 import * as React from "react";
 import { badgeVariants } from "../variants/badge";
-import { renderElement, type RenderProp } from "./utils/render";
+import { useRenderElement, type RenderProp } from "./utils/render";
 
 export type BadgeIntent =
   | "primary"
@@ -18,7 +18,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   function Badge({ intent, className, render, ...rest }, ref) {
-    return renderElement(
+    return useRenderElement(
       render,
       "span",
       { ...rest, className: badgeVariants({ intent, className }) },

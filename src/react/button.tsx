@@ -1,6 +1,6 @@
 import * as React from "react";
 import { buttonVariants } from "../variants/button";
-import { renderElement, type RenderProp } from "./utils/render";
+import { useRenderElement, type RenderProp } from "./utils/render";
 
 export type ButtonIntent = "primary" | "secondary" | "tertiary" | "danger";
 export type ButtonSize = "default" | "small" | "large";
@@ -37,7 +37,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) {
-    return renderElement(
+    return useRenderElement(
       render,
       "button",
       {

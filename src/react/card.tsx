@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cardVariants } from "../variants/card";
-import { renderElement, type RenderProp } from "./utils/render";
+import { useRenderElement, type RenderProp } from "./utils/render";
 
 export interface CardProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
@@ -39,7 +39,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(function Card(
 ) {
   const body = children ?? description;
 
-  return renderElement(
+  return useRenderElement(
     render,
     "div",
     {
