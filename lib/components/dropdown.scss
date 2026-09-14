@@ -4,6 +4,12 @@
 @use "../tokens/semantic" as *;
 @use "../utils/transitions" as *;
 
+// Carries the stacking order for a positioned dropdown, so one opened from
+// inside a modal or drawer (z-index 900) paints above it.
+.dropdown-positioner {
+  z-index: 1000;
+}
+
 .dropdown {
   // Layout
   display: flex;
@@ -30,15 +36,19 @@
     background-color: $dropdown-item-background-rest;
     color: $dropdown-item-foreground-rest;
     font: $body-200-medium;
+    text-decoration: none;
     cursor: pointer;
 
-    &:hover {
+    // `--highlighted` marks the item with keyboard focus.
+    &:hover,
+    &--highlighted {
       background-color: $dropdown-item-background-hover;
       color: $dropdown-item-foreground-hover;
     }
   }
 
   hr {
+    border-style: solid;
     border-width: 1px;
     border-color: $semantic-border-default;
     margin: $space-1 0;

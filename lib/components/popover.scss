@@ -4,6 +4,12 @@
 @use "../tokens/semantic" as *;
 @use "../utils/transitions" as *;
 
+// Carries the stacking order for a positioned popover, so one opened from
+// inside a modal or drawer (z-index 900) paints above it.
+.popover-positioner {
+  z-index: 1000;
+}
+
 .popover {
   // Layout
   position: relative;
@@ -24,6 +30,7 @@
   }
 
   &__title {
+    margin: 0;
     font: $body-300-semi-bold;
     color: $popover-title-foreground;
   }
@@ -60,34 +67,33 @@
     transform: rotate(45deg);
   }
 
+  // Each arrow is centred with a single `left` or `top`, not 50% plus a
+  // negative margin. A positioned popover sets that coordinate inline to point
+  // at its trigger, which must replace the centring completely.
   &--top &__arrow {
     bottom: calc($popover-arrow-size / -2);
-    left: 50%;
-    margin-left: calc($popover-arrow-size / -2);
+    left: calc(50% - $popover-arrow-size / 2);
     border-top: none;
     border-left: none;
   }
 
   &--bottom &__arrow {
     top: calc($popover-arrow-size / -2);
-    left: 50%;
-    margin-left: calc($popover-arrow-size / -2);
+    left: calc(50% - $popover-arrow-size / 2);
     border-bottom: none;
     border-right: none;
   }
 
   &--left &__arrow {
     right: calc($popover-arrow-size / -2);
-    top: 50%;
-    margin-top: calc($popover-arrow-size / -2);
+    top: calc(50% - $popover-arrow-size / 2);
     border-bottom: none;
     border-left: none;
   }
 
   &--right &__arrow {
     left: calc($popover-arrow-size / -2);
-    top: 50%;
-    margin-top: calc($popover-arrow-size / -2);
+    top: calc(50% - $popover-arrow-size / 2);
     border-top: none;
     border-right: none;
   }

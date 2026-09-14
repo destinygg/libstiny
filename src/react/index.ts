@@ -35,6 +35,52 @@ export type { CheckboxProps } from "./checkbox";
 export { Choicebox } from "./choicebox";
 export type { ChoiceboxProps } from "./choicebox";
 
+export {
+  Drawer,
+  DrawerActionFooter,
+  DrawerCategory,
+  DrawerCategoryGroup,
+  DrawerClose,
+  DrawerFooter,
+  DrawerItem,
+  DrawerLogo,
+  DrawerPanel,
+  DrawerPopup,
+  DrawerRoot,
+  DrawerTrigger,
+} from "./drawer";
+export type {
+  DrawerActionFooterProps,
+  DrawerCategoryGroupProps,
+  DrawerCategoryProps,
+  DrawerCloseProps,
+  DrawerFooterProps,
+  DrawerItemProps,
+  DrawerLogoProps,
+  DrawerPanelProps,
+  DrawerPopupProps,
+  DrawerRootProps,
+  DrawerTriggerProps,
+} from "./drawer";
+
+export {
+  Dropdown,
+  DropdownItem,
+  DropdownLinkItem,
+  DropdownPopup,
+  DropdownRoot,
+  DropdownSeparator,
+  DropdownTrigger,
+} from "./dropdown";
+export type {
+  DropdownItemProps,
+  DropdownLinkItemProps,
+  DropdownPopupProps,
+  DropdownRootProps,
+  DropdownSeparatorProps,
+  DropdownTriggerProps,
+} from "./dropdown";
+
 export { Input, Select, TextArea } from "./input";
 export type {
   InputProps,
@@ -42,6 +88,28 @@ export type {
   SelectProps,
   TextAreaProps,
 } from "./input";
+
+export {
+  Modal,
+  ModalActions,
+  ModalClose,
+  ModalHeader,
+  ModalPopup,
+  ModalRoot,
+  ModalSubtitle,
+  ModalTitle,
+  ModalTrigger,
+} from "./modal";
+export type {
+  ModalActionsProps,
+  ModalCloseProps,
+  ModalHeaderProps,
+  ModalPopupProps,
+  ModalRootProps,
+  ModalSubtitleProps,
+  ModalTitleProps,
+  ModalTriggerProps,
+} from "./modal";
 
 export {
   Navbar,
@@ -71,6 +139,27 @@ export type {
   NotificationProps,
   NotificationType,
 } from "./notification";
+
+export {
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverHeader,
+  PopoverPopup,
+  PopoverRoot,
+  PopoverTitle,
+  PopoverTrigger,
+} from "./popover";
+export type {
+  PopoverCloseProps,
+  PopoverContentProps,
+  PopoverHeaderProps,
+  PopoverPopupProps,
+  PopoverRootProps,
+  PopoverSide,
+  PopoverTitleProps,
+  PopoverTriggerProps,
+} from "./popover";
 
 export { Radio } from "./radio";
 export type { RadioProps } from "./radio";
