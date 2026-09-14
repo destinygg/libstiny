@@ -1,138 +1,73 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Icon, ChevronUp } from "./_icons";
-import { useState } from "react";
+import { SideNav } from "@destinygg/libstiny/react";
+import { Icon } from "./_icons";
 
-type SideNavArgs = {};
-
-const meta: Meta<SideNavArgs> = {
+const meta = {
   title: "SideNav",
+  component: SideNav.Root,
   tags: ["autodocs"],
-};
+} satisfies Meta<typeof SideNav.Root>;
 
 export default meta;
-
-type Story = StoryObj<SideNavArgs>;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: () => (
-    <div className="side-nav" style={{ width: "12rem", height: 545 }}>
-      <div className="side-nav__group">
-        <div className="side-nav__item side-nav__item--active">
-          <Icon />
-          Overview
-        </div>
-        <div className="side-nav__item">
-          <Icon />
-          Subscriptions
-        </div>
-        <div className="side-nav__item">
-          <Icon />
-          Connections
-        </div>
-        <div className="side-nav__item">
-          <Icon />
-          Messages
-        </div>
-        <div className="side-nav__item">
-          <Icon />
-          Developer
-        </div>
-        <div className="side-nav__item">
-          <Icon />
-          Advanced
-        </div>
-      </div>
+    <SideNav.Root style={{ width: "12rem", height: 545 }}>
+      <SideNav.Group>
+        {[
+          "Overview",
+          "Subscriptions",
+          "Connections",
+          "Messages",
+          "Developer",
+          "Advanced",
+        ].map((name) => (
+          <SideNav.Item key={name} href="#" active={name === "Overview"}>
+            <Icon />
+            {name}
+          </SideNav.Item>
+        ))}
+      </SideNav.Group>
       <div
         className="side-nav__art"
         style={{ display: "flex", justifyContent: "center" }}
       >
         <img
           src="/gemzar-do-not-pull.png"
+          alt=""
           style={{ width: 180, height: 180 }}
         />
       </div>
-    </div>
+    </SideNav.Root>
   ),
-  args: {},
 };
 
-export const Categorized: Story = {
-  render: () => {
-    const [isVegetablesCollapsed, setIsVegetablesCollapsed] = useState(false);
-    const [isFruitsCollapsed, setIsFruitsCollapsed] = useState(false);
-    const [isBreadCollapsed, setIsBreadCollapsed] = useState(false);
+const categories = {
+  Vegetables: ["Carrots", "Broccoli", "Lettuce", "Tomatoes", "Cucumbers"],
+  Fruits: ["Apples", "Bananas", "Cherries", "Strawberries", "Watermelon"],
+  Bread: ["Sourdough", "Rye", "Wheat", "Pumpernickel"],
+};
 
-    return (
-      <div style={{ height: "60rem" }}>
-        <div className="side-nav" style={{ width: "14rem" }}>
-          <div
-            className={`side-nav__category ${isVegetablesCollapsed && "side-nav__category--collapsed"}`}
-          >
-            <div
-              className="side-nav__heading"
-              onClick={() => setIsVegetablesCollapsed(!isVegetablesCollapsed)}
-            >
-              <Icon />
-              <span style={{ flex: 1 }}>Vegetables</span>
-              <ChevronUp className="side-nav__heading-chevron" />
-            </div>
-            <div className="side-nav__category-content">
-              <div className="side-nav__category-indent"></div>
-              <div className="side-nav__group">
-                <div className="side-nav__item">Carrots</div>
-                <div className="side-nav__item">Broccoli</div>
-                <div className="side-nav__item">Lettuce</div>
-                <div className="side-nav__item">Tomatoes</div>
-                <div className="side-nav__item">Cucumbers</div>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`side-nav__category ${isFruitsCollapsed && "side-nav__category--collapsed"}`}
-          >
-            <div
-              className="side-nav__heading"
-              onClick={() => setIsFruitsCollapsed(!isFruitsCollapsed)}
-            >
-              <Icon />
-              <span style={{ flex: 1 }}>Fruits</span>
-              <ChevronUp className="side-nav__heading-chevron" />
-            </div>
-            <div className="side-nav__category-content">
-              <div className="side-nav__category-indent"></div>
-              <div className="side-nav__group">
-                <div className="side-nav__item">Apples</div>
-                <div className="side-nav__item">Bananas</div>
-                <div className="side-nav__item">Cherries</div>
-                <div className="side-nav__item">Strawberries</div>
-                <div className="side-nav__item">Watermelon</div>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`side-nav__category ${isBreadCollapsed && "side-nav__category--collapsed"}`}
-          >
-            <div
-              className="side-nav__heading"
-              onClick={() => setIsBreadCollapsed(!isBreadCollapsed)}
-            >
-              <Icon />
-              <span style={{ flex: 1 }}>Bread</span>
-              <ChevronUp className="side-nav__heading-chevron" />
-            </div>
-            <div className="side-nav__category-content">
-              <div className="side-nav__category-indent"></div>
-              <div className="side-nav__group">
-                <div className="side-nav__item">Sourdough</div>
-                <div className="side-nav__item">Rye</div>
-                <div className="side-nav__item">Wheat</div>
-                <div className="side-nav__item">Pumpernickel</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  },
-  args: {},
+// Each heading is a real button: Tab to it, then Enter or Space collapses the
+// category. Collapse state lives in Base UI's Collapsible, not in the story.
+export const Categorized: Story = {
+  render: () => (
+    <div style={{ height: "60rem" }}>
+      <SideNav.Root style={{ width: "14rem" }}>
+        {Object.entries(categories).map(([category, items]) => (
+          <SideNav.Category key={category} defaultOpen={category !== "Bread"}>
+            <SideNav.Heading icon={<Icon />}>{category}</SideNav.Heading>
+            <SideNav.Panel>
+              {items.map((item) => (
+                <SideNav.Item key={item} href="#">
+                  {item}
+                </SideNav.Item>
+              ))}
+            </SideNav.Panel>
+          </SideNav.Category>
+        ))}
+      </SideNav.Root>
+    </div>
+  ),
 };

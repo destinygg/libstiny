@@ -78,6 +78,34 @@ export type { RadioProps } from "./radio";
 export { SectionHeader } from "./section-header";
 export type { SectionHeaderProps } from "./section-header";
 
+export {
+  SegmentedControl,
+  SegmentedControlItem,
+  SegmentedControlRoot,
+} from "./segmented-control";
+export type {
+  SegmentedControlItemProps,
+  SegmentedControlRootProps,
+} from "./segmented-control";
+
+export {
+  SideNav,
+  SideNavCategory,
+  SideNavGroup,
+  SideNavHeading,
+  SideNavItem,
+  SideNavPanel,
+  SideNavRoot,
+} from "./side-nav";
+export type {
+  SideNavCategoryProps,
+  SideNavGroupProps,
+  SideNavHeadingProps,
+  SideNavItemProps,
+  SideNavPanelProps,
+  SideNavRootProps,
+} from "./side-nav";
+
 export { Stepper, StepperRoot, StepperStep } from "./stepper";
 export type {
   StepperRootProps,
