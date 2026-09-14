@@ -283,21 +283,37 @@ state. Tabs, for example, provides roving tabindex and the
 ### Module resolution caveat
 
 The package deliberately has no `exports` map, because adding one breaks the
-`@use "~@destinygg/libstiny"` Sass import that every stylesheet consumer relies
-on. As a result the React entry resolves by directory-index lookup, which works
-in **webpack, Vite, esbuild, Rollup**, and in TypeScript under
-`moduleResolution: "bundler"` or `"node"` — but **not** in raw Node ESM or under
-`moduleResolution: "nodenext"`, which report:
+`@use "~@destinygg/libstiny"` Sass import that stylesheet consumers rely on.
+Without one, `@destinygg/libstiny/react` is resolved by finding `react/index.js`
+inside the package, and not every environment does that:
 
-```
-ERR_UNSUPPORTED_DIR_IMPORT               # Node ESM
-TS2307: Cannot find module '@destinygg/libstiny/react'   # tsc --moduleResolution nodenext
-```
+| Environment                                 | `@destinygg/libstiny/react`                                                   |
+| ------------------------------------------- | ----------------------------------------------------------------------------- |
+| Vite, esbuild, Rollup (with `node-resolve`) | resolves                                                                      |
+| webpack                                     | resolves, **except** in strict-ESM files — see below                          |
+| Node.js ESM, without a bundler              | fails with `ERR_UNSUPPORTED_DIR_IMPORT`                                       |
+| TypeScript, `moduleResolution: "bundler"`   | resolves                                                                      |
+| TypeScript, `moduleResolution: "node10"`    | resolves in TypeScript 5; the option no longer exists in TypeScript 7         |
+| TypeScript, `moduleResolution: "nodenext"`  | fails with `TS2307` in TypeScript 7 (TypeScript 5.4 still resolves the types) |
 
-If you hit either, import the file directly:
+webpack treats `.mjs` files, and `.js` files in a package with `"type": "module"`,
+as strict ESM, and requires fully specified import paths in them. Importing the
+bare subpath from such a file fails with `Module not found: Can't resolve
+'@destinygg/libstiny/react'`.
+
+In every one of these cases, importing the file directly works, types included:
 
 ```js
 import { Button } from "@destinygg/libstiny/react/index.js";
+```
+
+With webpack you can instead turn off fully specified resolution for the affected
+files:
+
+```js
+module: {
+  rules: [{ test: /\.m?js$/, resolve: { fullySpecified: false } }],
+},
 ```
 
 This is temporary. Once consumers migrate off the deprecated `~` prefix in their

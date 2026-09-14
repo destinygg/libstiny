@@ -30,7 +30,9 @@ stylesheets), and `fullWidth` is added (`.button--full-width` existed but was
 unreachable).
 
 Note: the package still has no `exports` map, because adding one breaks the
-`@use "~@destinygg/libstiny"` Sass import. The React entry therefore resolves in
-bundlers (webpack, Vite, esbuild, Rollup) and under TypeScript
-`moduleResolution: "bundler"` or `"node"`, but not in raw Node ESM or under
-`"nodenext"`. See the README for the escape hatch.
+`@use "~@destinygg/libstiny"` Sass import. `@destinygg/libstiny/react` therefore
+resolves in Vite, esbuild, Rollup and webpack, and under TypeScript's `bundler`
+resolution, but not in Node.js ESM without a bundler, in webpack strict-ESM files
+(`.mjs`, or `.js` in a `"type": "module"` package), or under TypeScript 7's
+`nodenext` resolution. Importing `@destinygg/libstiny/react/index.js` works in
+all of them; see the README.
