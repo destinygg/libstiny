@@ -214,22 +214,42 @@ In order to view code examples, click the "Show Code" button in the bottom-right
 ## React Components
 
 Libstiny also ships pre-styled React components. They are entirely optional — the
-SCSS and tokens above work exactly the same whether or not you use them, so
-non-React consumers are unaffected.
+SCSS and tokens above work exactly the same whether or not you use them, and
+projects that only use the stylesheets install nothing extra.
 
 ```
-npm install @destinygg/libstiny react react-dom
+npm install @destinygg/libstiny react react-dom @base-ui/react
 ```
+
+`@base-ui/react` is required. Interactive components such as Tabs are built on
+[Base UI](https://base-ui.com), and every component's `render` prop uses it. It
+is declared as an optional peer dependency only so that stylesheet-only projects
+are never asked to install it.
+
+Every component is exported from `@destinygg/libstiny/react`, and importing one
+does not bundle the others:
 
 ```jsx
-import { Button, Badge, Card, Notification, SectionHeader, Table } from "@destinygg/libstiny/react";
+import { Button, Tabs } from "@destinygg/libstiny/react";
 
 <Button intent="secondary" size="large">Save</Button>
 <Button render={<a href="/faq" />}>Styled as a button, renders an anchor</Button>
 ```
 
+```jsx
+<Tabs.Root defaultValue="one">
+  <Tabs.List>
+    <Tabs.Tab value="one">One</Tabs.Tab>
+    <Tabs.Tab value="two">Two</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel value="one">…</Tabs.Panel>
+  <Tabs.Panel value="two">…</Tabs.Panel>
+</Tabs.Root>
+```
+
 The components apply libstiny's classes for you, so you still need the stylesheet
-once at the root of your app — either the Sass entry or `dist/libstiny.css`.
+once at the root of your app — either the Sass entry or `dist/libstiny.css`. In
+React Server Components apps, the components are client components.
 
 ### Props
 
@@ -250,39 +270,15 @@ to skip the component's), and refs on both receive the node:
 // both navigate() and track() run
 ```
 
-You don't need to install `@base-ui/react` for this; the small piece it relies
-on is bundled. In React Server Components apps, the components are client
-components.
-
 The colour axis is called `intent` on every component, matching the Twig
 components in the website repo.
 
-### Components that need behaviour
+### Interactive components
 
-Components with real interaction are built on
-[Base UI](https://base-ui.com) and live under their own subpath, so that
-installing libstiny does not oblige you to install Base UI if you only use the
-presentational components:
-
-```
-npm install @base-ui/react
-```
-
-```jsx
-import { Tabs } from "@destinygg/libstiny/react/tabs";
-
-<Tabs.Root defaultValue="one">
-  <Tabs.List>
-    <Tabs.Tab value="one">One</Tabs.Tab>
-    <Tabs.Tab value="two">Two</Tabs.Tab>
-  </Tabs.List>
-  <Tabs.Panel value="one">…</Tabs.Panel>
-  <Tabs.Panel value="two">…</Tabs.Panel>
-</Tabs.Root>;
-```
-
-Keyboard navigation, roving tabindex and the `tablist`/`tab`/`tabpanel` roles come
-from Base UI; the libstiny classes are applied from its component state.
+For components built on Base UI, keyboard navigation, focus management and ARIA
+roles come from Base UI; the libstiny classes are applied from its component
+state. Tabs, for example, provides roving tabindex and the
+`tablist`/`tab`/`tabpanel` roles.
 
 ### Module resolution caveat
 

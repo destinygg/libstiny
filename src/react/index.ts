@@ -1,10 +1,10 @@
-// Presentational components only. The built entry must not IMPORT anything a
-// consumer would have to install beyond React: module resolution happens before
-// tree-shaking, so an external Base UI import here would break consumers who
-// installed libstiny but not @base-ui/react, even if they only use <Button>.
-// The small pieces this entry does need (CVA, Base UI's useRender) are bundled
-// in; Base UI-backed components live in subpath entries such as
-// @destinygg/libstiny/react/tabs, where they share the consumer's Base UI.
+// Every React component, presentational and Base UI-backed alike, is exported
+// from this one entry. Consumers must install @base-ui/react alongside react
+// and react-dom; it is declared as an OPTIONAL peer only so that stylesheet-only
+// consumers, who never import this entry, are not made to install it.
+//
+// Importing one component does not bundle the others: tsup emits a file per
+// component and package.json's `sideEffects` lets bundlers skip unused files.
 
 export { Badge } from "./badge";
 export type { BadgeIntent, BadgeProps } from "./badge";
@@ -27,5 +27,13 @@ export type { SectionHeaderProps } from "./section-header";
 
 export { Table } from "./table";
 export type { TableProps } from "./table";
+
+export { Tabs, TabsList, TabsPanel, TabsRoot, TabsTab } from "./tabs";
+export type {
+  TabsListProps,
+  TabsPanelProps,
+  TabsRootProps,
+  TabsTabProps,
+} from "./tabs";
 
 export type { RenderProp } from "./utils/render";

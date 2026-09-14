@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Tabs as BaseTabs } from "@base-ui/react/tabs";
-import { cx, resolve } from "./utils";
+import { cx, resolve } from "./utils/class-name";
 
 /*
  * There are zero `data-*` selectors anywhere in lib/, so Base UI's own

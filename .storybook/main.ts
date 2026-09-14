@@ -19,14 +19,10 @@ const config: StorybookConfig = {
 
   // Stories import the *published* specifiers so the "Show code" panel is
   // copy-pasteable for consumers, but resolve to source for HMR and docgen.
-  // The `/tabs` key must come first: a bare `/react` prefix would shadow it.
   async viteFinal(cfg) {
     cfg.resolve ??= {};
     cfg.resolve.alias = {
       ...cfg.resolve.alias,
-      "@destinygg/libstiny/react/tabs": fileURLToPath(
-        new URL("../src/react/tabs/index.tsx", import.meta.url),
-      ),
       "@destinygg/libstiny/react": fileURLToPath(
         new URL("../src/react/index.ts", import.meta.url),
       ),

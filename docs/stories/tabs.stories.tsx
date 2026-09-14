@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Tabs } from "@destinygg/libstiny/react/tabs";
+import { Tabs } from "@destinygg/libstiny/react";
 
 const meta = {
   title: "Tabs",
