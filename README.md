@@ -210,3 +210,112 @@ $transition-curves: (
 
 Please visit the [Libstiny Documentation](https://libstiny.pages.dev/?path=/docs/alert--docs) for usage of our components.
 In order to view code examples, click the "Show Code" button in the bottom-right corner.
+
+## React Components
+
+Libstiny also ships pre-styled React components. They are entirely optional — the
+SCSS and tokens above work exactly the same whether or not you use them, and
+projects that only use the stylesheets install nothing extra.
+
+```
+npm install @destinygg/libstiny react react-dom @base-ui/react
+```
+
+`@base-ui/react` is required. Interactive components such as Tabs are built on
+[Base UI](https://base-ui.com), and every component's `render` prop uses it. It
+is declared as an optional peer dependency only so that stylesheet-only projects
+are never asked to install it.
+
+Every component is exported from `@destinygg/libstiny/react`, and importing one
+does not bundle the others:
+
+```jsx
+import { Button, Tabs } from "@destinygg/libstiny/react";
+
+<Button intent="secondary" size="large">Save</Button>
+<Button render={<a href="/faq" />}>Styled as a button, renders an anchor</Button>
+```
+
+```jsx
+<Tabs.Root defaultValue="one">
+  <Tabs.List>
+    <Tabs.Tab value="one">One</Tabs.Tab>
+    <Tabs.Tab value="two">Two</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel value="one">…</Tabs.Panel>
+  <Tabs.Panel value="two">…</Tabs.Panel>
+</Tabs.Root>
+```
+
+The components apply libstiny's classes for you, so you still need the stylesheet
+once at the root of your app — either the Sass entry or `dist/libstiny.css`. In
+React Server Components apps, the components are client components.
+
+### Props
+
+Every component takes its native element's props, plus a `className` that is
+appended to (never replaces) the libstiny classes, and a `render` prop to
+substitute the rendered element.
+
+`render` behaves exactly like the `render` prop on Base UI components, because
+it is implemented with Base UI's own `useRender`. Props on the substituted
+element win, except that `className` and `style` are merged, event handlers on
+both run (the element's first, and it can call `event.preventBaseUIHandler()`
+to skip the component's), and refs on both receive the node:
+
+```jsx
+<Button onClick={track} render={<a href="/faq" onClick={navigate} />}>
+  FAQ
+</Button>
+// both navigate() and track() run
+```
+
+The colour axis is called `intent` on every component, matching the Twig
+components in the website repo.
+
+### Interactive components
+
+For components built on Base UI, keyboard navigation, focus management and ARIA
+roles come from Base UI; the libstiny classes are applied from its component
+state. Tabs, for example, provides roving tabindex and the
+`tablist`/`tab`/`tabpanel` roles.
+
+### Module resolution caveat
+
+The package deliberately has no `exports` map, because adding one breaks the
+`@use "~@destinygg/libstiny"` Sass import that stylesheet consumers rely on.
+Without one, `@destinygg/libstiny/react` is resolved by finding `react/index.js`
+inside the package, and not every environment does that:
+
+| Environment                                 | `@destinygg/libstiny/react`                                                   |
+| ------------------------------------------- | ----------------------------------------------------------------------------- |
+| Vite, esbuild, Rollup (with `node-resolve`) | resolves                                                                      |
+| webpack                                     | resolves, **except** in strict-ESM files — see below                          |
+| Node.js ESM, without a bundler              | fails with `ERR_UNSUPPORTED_DIR_IMPORT`                                       |
+| TypeScript, `moduleResolution: "bundler"`   | resolves                                                                      |
+| TypeScript, `moduleResolution: "node10"`    | resolves in TypeScript 5; the option no longer exists in TypeScript 7         |
+| TypeScript, `moduleResolution: "nodenext"`  | fails with `TS2307` in TypeScript 7 (TypeScript 5.4 still resolves the types) |
+
+webpack treats `.mjs` files, and `.js` files in a package with `"type": "module"`,
+as strict ESM, and requires fully specified import paths in them. Importing the
+bare subpath from such a file fails with `Module not found: Can't resolve
+'@destinygg/libstiny/react'`.
+
+In every one of these cases, importing the file directly works, types included:
+
+```js
+import { Button } from "@destinygg/libstiny/react/index.js";
+```
+
+With webpack you can instead turn off fully specified resolution for the affected
+files:
+
+```js
+module: {
+  rules: [{ test: /\.m?js$/, resolve: { fullySpecified: false } }],
+},
+```
+
+This is temporary. Once consumers migrate off the deprecated `~` prefix in their
+Sass imports, the package can adopt an `exports` map and the bare specifier will
+work everywhere.

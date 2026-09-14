@@ -1,56 +1,52 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { cardComponent } from "../components/card";
+import { Badge, Button, Card } from "@destinygg/libstiny/react";
 
-type CardArgs = {
-  content: string;
-  title: string;
-  subtitle: string;
-  prominent: false;
-};
-
-const meta: Meta<CardArgs> = {
+const meta = {
   title: "Card",
+  component: Card,
   tags: ["autodocs"],
-};
-
-export default meta;
-
-type Story = StoryObj<CardArgs>;
-
-export const Primary: Story = {
-  render: (args) => (
-    <div
-      className={cardComponent({ prominent: args.prominent })}
-      style={{ width: 340 }}
-    >
-      <div className="card__extra">
-        <span className="badge">Badge</span>
-        <span className="badge">Badge</span>
-        <span className="badge">Badge</span>
-      </div>
-
-      <div className="card__header">
-        <span className="card__title">{args.title}</span>
-        <span className="card__subtitle">{args.subtitle}</span>
-      </div>
-
-      <div className="card__description">
-        As you guys might know, Destiny had a meetup in Georgia today to canvas.
-        I was super excited for this since I live there, and I had a chance to
-        meet the guy I watch constantly in person. On the...
-      </div>
-
-      <div className="card__extra card__extra--right">
-        <button className="button button--tertiary">Action</button>
-        <button className="button button--secondary">Action</button>
-      </div>
-    </div>
-  ),
   args: {
     title: "Card Title",
     subtitle: "Card subtitle",
-    content:
-      "As you guys might know, Destiny had a meetup in Georgia today to canvas. I was super excited for this since I live there, and I had a chance to meet the guy I watch constantly in person. On the...",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
     prominent: false,
   },
+} satisfies Meta<typeof Card>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
+  render: (args) => (
+    <Card
+      {...args}
+      style={{ width: 340 }}
+      badges={
+        <>
+          <Badge>Badge</Badge>
+          <Badge intent="success">Badge</Badge>
+          <Badge intent="danger">Badge</Badge>
+        </>
+      }
+      actions={
+        <>
+          <Button intent="tertiary">Action</Button>
+          <Button intent="secondary">Action</Button>
+        </>
+      }
+    />
+  ),
+};
+
+export const Prominent: Story = {
+  ...Primary,
+  args: { prominent: true },
+};
+
+// Slots are omitted entirely when empty rather than rendered hollow, so the
+// `:empty` rules in card.scss never have to catch a stray whitespace node.
+export const TitleOnly: Story = {
+  render: (args) => <Card {...args} style={{ width: 340 }} />,
+  args: { subtitle: undefined, description: undefined },
 };

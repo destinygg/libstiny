@@ -24,6 +24,13 @@
 
   // Style
   @include create-transition(all, default);
+  // `.tab` may be rendered on a <button> (the React Tabs component) as well as
+  // a <div> or <li>. These resets are no-ops on the latter two, and strip the
+  // UA button styling on the former. `.segmented-control__tab` carries the
+  // same reset for the same reason.
+  border: none;
+  appearance: none;
+  text-decoration: none;
   color: $tabs-foreground-default;
   background-color: $tabs-background-default;
   font: $body-300-medium;

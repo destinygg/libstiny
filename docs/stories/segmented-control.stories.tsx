@@ -1,20 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { cva } from "cva";
+import { segmentedControlTabVariants as tab } from "../../src/variants/segmented-control";
 
 type SegmentedControlArgs = {};
-
-const tab = cva({
-  base: "segmented-control__tab",
-  variants: {
-    active: {
-      true: "segmented-control__tab--active",
-    },
-    accent: {
-      true: "segmented-control__tab--accent",
-    },
-  },
-});
 
 const meta: Meta<SegmentedControlArgs> = {
   title: "SegmentedControl",
@@ -87,7 +75,11 @@ export const Primary: Story = {
     const [selected, setSelected] = useState("all");
 
     return (
-      <div className="segmented-control" role="group" aria-label="Filter designs">
+      <div
+        className="segmented-control"
+        role="group"
+        aria-label="Filter designs"
+      >
         <button
           type="button"
           className={tab({ active: selected === "all" })}
@@ -116,7 +108,11 @@ export const Tabs: Story = {
     const [selected, setSelected] = useState("designs");
 
     return (
-      <div className="segmented-control" role="group" aria-label="My Vestaboard">
+      <div
+        className="segmented-control"
+        role="group"
+        aria-label="My Vestaboard"
+      >
         <button
           type="button"
           className={tab({ active: selected === "designs" })}

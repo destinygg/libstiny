@@ -10,6 +10,16 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    // Stories import the published specifiers so their "Show code" output is
+    // copy-pasteable for consumers; these map them back to source for
+    // typechecking, mirroring the Vite aliases in .storybook/main.ts.
+    //
+    // Deliberately NO `baseUrl`: it would make bare specifiers resolve against
+    // the project root first, so `import "react"` would hit the built `react/`
+    // output directory instead of node_modules/react.
+    "paths": {
+      "@destinygg/libstiny/react": ["./src/react/index.ts"]
+    },
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
@@ -19,5 +29,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["lib", "docs", ".storybook"]
+  "include": ["src", "docs", ".storybook"]
 }

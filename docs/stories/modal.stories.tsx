@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "@destinygg/libstiny/react";
 
 type ModalArgs = {
   title: string;
@@ -23,8 +24,8 @@ export const Primary: Story = {
       </div>
       Content
       <div className="modal__actions">
-        <button className="button button--tertiary">Action</button>
-        <button className="button button--primary">Action</button>
+        <Button intent="tertiary">Action</Button>
+        <Button>Action</Button>
       </div>
     </div>
   ),

@@ -1,83 +1,45 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
-import { cva } from "cva";
+import { Tabs } from "@destinygg/libstiny/react";
 
-type TabsArgs = {};
-
-const tab = cva({
-  base: "tab",
-  variants: {
-    active: {
-      true: "tab--active",
-    },
-  },
-});
-
-const meta: Meta<TabsArgs> = {
+const meta = {
   title: "Tabs",
   tags: ["autodocs"],
-};
+} satisfies Meta<Record<string, never>>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<TabsArgs>;
-
+// Unlike the old div+onClick markup, these are real tabs: arrow keys, Home/End,
+// roving tabindex and role="tablist"/"tab"/"tabpanel" all come from Base UI,
+// while the libstiny classes come from the state bridge in the wrapper.
 export const Primary: Story = {
-  render: () => {
-    const [checked, setChecked] = useState("option1");
-
-    return (
-      <div className="tabs">
-        <div
-          className={tab({ active: checked === "tab1" })}
-          onClick={() => setChecked("tab1")}
-        >
-          Tab 1
-        </div>
-        <div
-          className={tab({ active: checked === "tab2" })}
-          onClick={() => setChecked("tab2")}
-        >
-          Tab 2
-        </div>
-        <div
-          className={tab({ active: checked === "tab3" })}
-          onClick={() => setChecked("tab3")}
-        >
-          Tab 3
-        </div>
-      </div>
-    );
-  },
-  args: {},
+  render: () => (
+    <Tabs.Root defaultValue="tab1">
+      <Tabs.List>
+        <Tabs.Tab value="tab1">Tab 1</Tabs.Tab>
+        <Tabs.Tab value="tab2">Tab 2</Tabs.Tab>
+        <Tabs.Tab value="tab3">Tab 3</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value="tab1">First panel</Tabs.Panel>
+      <Tabs.Panel value="tab2">Second panel</Tabs.Panel>
+      <Tabs.Panel value="tab3">Third panel</Tabs.Panel>
+    </Tabs.Root>
+  ),
 };
 
+// `orientation` drives `.tabs--vertical` on the List, which is the ancestor the
+// vertical underline rules in tabs.scss select against.
 export const Vertical: Story = {
-  render: () => {
-    const [checked, setChecked] = useState("option1");
-
-    return (
-      <div className="tabs tabs--vertical" style={{ width: 200 }}>
-        <div
-          className={tab({ active: checked === "tab1" })}
-          onClick={() => setChecked("tab1")}
-        >
-          Tab 1
-        </div>
-        <div
-          className={tab({ active: checked === "tab2" })}
-          onClick={() => setChecked("tab2")}
-        >
-          Tab 2
-        </div>
-        <div
-          className={tab({ active: checked === "tab3" })}
-          onClick={() => setChecked("tab3")}
-        >
-          Tab 3
-        </div>
-      </div>
-    );
-  },
-  args: {},
+  render: () => (
+    <Tabs.Root defaultValue="tab1" orientation="vertical">
+      <Tabs.List style={{ width: 200 }}>
+        <Tabs.Tab value="tab1">Tab 1</Tabs.Tab>
+        <Tabs.Tab value="tab2">Tab 2</Tabs.Tab>
+        <Tabs.Tab value="tab3">Tab 3</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value="tab1">First panel</Tabs.Panel>
+      <Tabs.Panel value="tab2">Second panel</Tabs.Panel>
+      <Tabs.Panel value="tab3">Third panel</Tabs.Panel>
+    </Tabs.Root>
+  ),
 };

@@ -1,87 +1,47 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { notificationComponent } from "../components/alert";
-import { buttonComponent } from "../components/button";
+import { Button, Notification } from "@destinygg/libstiny/react";
 
-type NotificationArgs = {
-  variant: "primary" | "success" | "danger" | "neutral";
-  type: "toast" | "alert";
-  content: string;
-  title: string;
-};
-
-const meta: Meta<NotificationArgs> = {
+const meta = {
   title: "Notification",
+  component: Notification,
   tags: ["autodocs"],
   argTypes: {
-    variant: {
+    intent: {
+      control: "select",
       options: ["primary", "success", "danger", "neutral"],
-      control: {
-        type: "select",
-      },
     },
+    type: { control: "inline-radio", options: ["alert", "toast"] },
   },
-};
+  args: {
+    intent: "neutral",
+    type: "alert",
+    title: "Notification Title",
+    message: "Supporting copy that explains what just happened.",
+  },
+} satisfies Meta<typeof Notification>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<NotificationArgs>;
-
+// The colour and size axes combine freely.
 export const Alert: Story = {
   render: (args) => (
-    <div
-      className={notificationComponent({
-        variant: args.variant,
-        type: "alert",
-      })}
-    >
-      <div className="notification__content">
-        <span className="notification__title">{args.title}</span>
-        <span className="notification__body">{args.content}</span>
-      </div>
-
-      <button
-        className={buttonComponent({
-          intent: "secondary",
-        })}
-      >
-        Alert Action
-      </button>
-    </div>
+    <Notification
+      {...args}
+      action={<Button intent="secondary">Action</Button>}
+    />
   ),
-  args: {
-    variant: "primary",
-    title: "Alert Title",
-    content:
-      "As you guys might know, Destiny had a meetup in Georgia today to canvas. I was super excited for this since I live there, and I had a chance to meet the guy I watch constantly in person. On the...",
-  },
 };
 
 export const Toast: Story = {
-  render: (args) => (
-    <div
-      className={notificationComponent({
-        variant: args.variant,
-        type: "toast",
-      })}
-      style={{ width: 400 }}
-    >
-      <div className="notification__content">
-        <span className="notification__title">{args.title}</span>
-        <span className="notification__body">{args.content}</span>
-      </div>
-
-      <button
-        className={buttonComponent({
-          intent: "secondary",
-        })}
-      >
-        Action
-      </button>
-    </div>
-  ),
-  args: {
-    variant: "primary",
-    title: "Alert Title",
-    content: "As you guys might know, Destiny had a meetup in Georgia today",
-  },
+  ...Alert,
+  args: { type: "toast" },
 };
+
+// Danger gets `role="alert"`; everything else gets `role="status"`.
+export const Danger: Story = {
+  ...Alert,
+  args: { intent: "danger" },
+};
+
+export const Success: Story = { ...Alert, args: { intent: "success" } };

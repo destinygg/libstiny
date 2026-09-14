@@ -1,36 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { badgeComponent } from "../components/badge";
+import { Badge } from "@destinygg/libstiny/react";
 
-type BadgeArgs = {
-  variant: "primary" | "success" | "danger" | "neutral" | "accent";
-  label: string;
-};
-
-const meta: Meta<BadgeArgs> = {
+const meta = {
   title: "Badge",
+  component: Badge,
   tags: ["autodocs"],
   argTypes: {
-    variant: {
+    intent: {
+      control: "select",
       options: ["primary", "success", "danger", "neutral", "accent"],
-      control: {
-        type: "select",
-      },
     },
   },
-};
+  args: { intent: "primary", children: "Badge" },
+} satisfies Meta<typeof Badge>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<BadgeArgs>;
-
-export const Primary: Story = {
-  render: (args) => (
-    <span className={badgeComponent({ variant: args.variant })}>
-      {args.label}
-    </span>
-  ),
-  args: {
-    variant: "primary",
-    label: "Badge Content",
-  },
-};
+export const Primary: Story = {};
+export const Success: Story = { args: { intent: "success" } };
+export const Danger: Story = { args: { intent: "danger" } };
+export const Neutral: Story = { args: { intent: "neutral" } };
+export const Accent: Story = { args: { intent: "accent" } };

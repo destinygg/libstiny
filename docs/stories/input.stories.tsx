@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { inputComponent } from "../components/input";
+import { inputVariants } from "../../src/variants/input";
 
 type ValidationState = "default" | "error" | "success";
 
@@ -30,7 +30,7 @@ type Story = StoryObj<InputArgs>;
 export const TextInput: Story = {
   render: (args) => (
     <div
-      className={inputComponent({ validationState: args.validationState })}
+      className={inputVariants({ validationState: args.validationState })}
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
@@ -55,7 +55,7 @@ export const TextInput: Story = {
 export const Select: Story = {
   render: (args) => (
     <div
-      className={inputComponent({ validationState: args.validationState })}
+      className={inputVariants({ validationState: args.validationState })}
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
@@ -85,7 +85,7 @@ export const Select: Story = {
 export const TextArea: Story = {
   render: (args) => (
     <div
-      className={inputComponent({ validationState: args.validationState })}
+      className={inputVariants({ validationState: args.validationState })}
       style={{ width: 400 }}
     >
       <label>{args.label}</label>
