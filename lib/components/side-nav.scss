@@ -34,6 +34,7 @@
     background-color: $side-nav-item-default-background-rest;
     color: $side-nav-item-default-foreground-rest;
     font: $body-300-medium;
+    text-decoration: none;
     cursor: pointer;
 
     &:hover {
@@ -65,7 +66,11 @@
     background-color: $side-nav-heading-background-rest;
     color: $side-nav-heading-foreground-rest;
     font: $body-200-bold;
+    text-align: start;
     cursor: pointer;
+    // The heading is a <button> when it toggles its category.
+    border: none;
+    appearance: none;
 
     &:hover {
       background-color: $side-nav-heading-background-hover;
@@ -108,6 +113,10 @@
 
   &__category-content {
     display: flex;
+  }
+
+  &__heading-text {
+    flex: 1;
   }
 
   &__heading-chevron {

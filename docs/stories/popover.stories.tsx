@@ -1,123 +1,97 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Button, Popover } from "@destinygg/libstiny/react";
 
 type PopoverArgs = {
   title: string;
   content: string;
+  side: "top" | "bottom" | "left" | "right";
 };
 
 const meta: Meta<PopoverArgs> = {
   title: "Popover",
   tags: ["autodocs"],
+  argTypes: {
+    side: {
+      options: ["top", "bottom", "left", "right"],
+      control: { type: "select" },
+    },
+  },
+  args: {
+    title: "Popover Title",
+    content:
+      "This is the popover content. It can contain any text or elements.",
+    side: "bottom",
+  },
 };
 
 export default meta;
 
 type Story = StoryObj<PopoverArgs>;
 
-export const Top: Story = {
+// Room on every side of the trigger, so no side has to flip.
+const frame = { padding: 240, display: "flex", justifyContent: "center" };
+
+// The arrow sits on the edge facing the trigger, and follows `side`.
+export const Primary: Story = {
   render: (args) => (
-    <div style={{ padding: 60, display: "flex", justifyContent: "center" }}>
-      <div className="popover popover--top" style={{ width: 280 }}>
-        <div className="popover__header">
-          <span className="popover__title">{args.title}</span>
-          <button className="popover__close">&#x2715;</button>
-        </div>
-        <div className="popover__content">{args.content}</div>
-        <div className="popover__arrow" />
-      </div>
+    <div style={frame}>
+      <Popover.Root>
+        <Popover.Trigger render={<Button intent="secondary" />}>
+          Open popover
+        </Popover.Trigger>
+        <Popover.Popup side={args.side} style={{ width: 280 }}>
+          <Popover.Header>
+            <Popover.Title>{args.title}</Popover.Title>
+            <Popover.Close />
+          </Popover.Header>
+          <Popover.Content>{args.content}</Popover.Content>
+        </Popover.Popup>
+      </Popover.Root>
     </div>
   ),
-  args: {
-    title: "Popover Title",
-    content:
-      "This is the popover content. It can contain any text or elements.",
-  },
 };
 
-export const Bottom: Story = {
-  render: (args) => (
-    <div style={{ padding: 60, display: "flex", justifyContent: "center" }}>
-      <div className="popover popover--bottom" style={{ width: 280 }}>
-        <div className="popover__arrow" />
-        <div className="popover__header">
-          <span className="popover__title">{args.title}</span>
-        </div>
-        <div className="popover__content">{args.content}</div>
-      </div>
-    </div>
-  ),
-  args: {
-    title: "Bottom Popover",
-    content:
-      "Arrow points upward because the popover sits below its trigger.",
-  },
-};
+export const Top: Story = { ...Primary, args: { side: "top" } };
+export const Left: Story = { ...Primary, args: { side: "left" } };
+export const Right: Story = { ...Primary, args: { side: "right" } };
 
-export const Left: Story = {
+// The trigger sits at the bottom of the frame, so there's no room below it:
+// the popover flips to the top and its arrow flips with it.
+export const Flip: Story = {
   render: (args) => (
-    <div style={{ padding: 60 }}>
-      <div className="popover popover--left" style={{ width: 280 }}>
-        <div className="popover__header">
-          <span className="popover__title">{args.title}</span>
-          <button className="popover__close">&#x2715;</button>
-        </div>
-        <div className="popover__content">{args.content}</div>
-        <div className="popover__arrow" />
-      </div>
+    <div
+      style={{
+        height: "90vh",
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "center",
+      }}
+    >
+      <Popover.Root>
+        <Popover.Trigger render={<Button intent="secondary" />}>
+          Open popover
+        </Popover.Trigger>
+        <Popover.Popup side="bottom" style={{ width: 280, height: 160 }}>
+          <Popover.Content>{args.content}</Popover.Content>
+        </Popover.Popup>
+      </Popover.Root>
     </div>
   ),
-  args: {
-    title: "Left Popover",
-    content: "Arrow points right because the popover sits to the left.",
-  },
-};
-
-export const Right: Story = {
-  render: (args) => (
-    <div style={{ padding: 60 }}>
-      <div className="popover popover--right" style={{ width: 280 }}>
-        <div className="popover__arrow" />
-        <div className="popover__header">
-          <span className="popover__title">{args.title}</span>
-        </div>
-        <div className="popover__content">{args.content}</div>
-      </div>
-    </div>
-  ),
-  args: {
-    title: "Right Popover",
-    content: "Arrow points left because the popover sits to the right.",
-  },
-};
-
-export const WithoutClose: Story = {
-  render: (args) => (
-    <div style={{ padding: 60, display: "flex", justifyContent: "center" }}>
-      <div className="popover popover--top" style={{ width: 280 }}>
-        <div className="popover__header">
-          <span className="popover__title">{args.title}</span>
-        </div>
-        <div className="popover__content">{args.content}</div>
-        <div className="popover__arrow" />
-      </div>
-    </div>
-  ),
-  args: {
-    title: "No Close Button",
-    content: "This popover omits the close button element entirely.",
-  },
 };
 
 export const ContentOnly: Story = {
   render: () => (
-    <div style={{ padding: 60, display: "flex", justifyContent: "center" }}>
-      <div className="popover popover--top" style={{ width: 240 }}>
-        <div className="popover__content">
-          A minimal popover with just content, no header.
-        </div>
-        <div className="popover__arrow" />
-      </div>
+    <div style={frame}>
+      <Popover.Root>
+        <Popover.Trigger render={<Button intent="secondary" />}>
+          Open popover
+        </Popover.Trigger>
+        <Popover.Popup style={{ width: 240 }}>
+          <Popover.Content>
+            A minimal popover with just content, no header.
+          </Popover.Content>
+        </Popover.Popup>
+      </Popover.Root>
     </div>
   ),
-  args: {},
 };

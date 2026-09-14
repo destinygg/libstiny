@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Icon, Menu } from "./_icons";
-import { Button } from "@destinygg/libstiny/react";
+import { Badge, Button, Navbar } from "@destinygg/libstiny/react";
 
 type NavbarArgs = {
   loggedIn: boolean;
@@ -23,43 +23,47 @@ type TitleStory = StoryObj<NavbarTitleArgs>;
 
 export const Primary: Story = {
   render: (args) => (
-    <div className="navbar">
-      <Button intent="tertiary" iconOnly>
+    <Navbar.Root>
+      <Button intent="tertiary" iconOnly aria-label="Menu">
         <Menu />
       </Button>
 
-      <img src="/destiny-logo.png" className="navbar__logo" />
+      <Navbar.Logo src="/destiny-logo.png" alt="Destiny" />
 
-      <div className="navbar__items">
-        <a className="navbar__icon">
+      <Navbar.Items>
+        <Navbar.Icon href="#" aria-label="YouTube">
           <Icon />
-        </a>
-        <a className="navbar__icon">
+        </Navbar.Icon>
+        <Navbar.Icon href="#" aria-label="Kick">
           <Icon />
-        </a>
-        <a className="navbar__icon">
+        </Navbar.Icon>
+        <Navbar.Icon href="#" aria-label="Reddit">
           <Icon />
-        </a>
-        <a className="navbar__icon">
+        </Navbar.Icon>
+        <Navbar.Icon href="#" aria-label="Discord">
           <Icon />
-        </a>
-      </div>
+        </Navbar.Icon>
+      </Navbar.Items>
 
-      <div className="navbar__items">
-        <a className="navbar__item navbar__item--active">Home</a>
-        <a className="navbar__item">
-          Big Screen <span className="badge badge--danger">Live</span>
-        </a>
-        <a className="navbar__item">Donate</a>
-        <a className="navbar__item">Merch</a>
-      </div>
+      <Navbar.Items>
+        <Navbar.Item href="#" active>
+          Home
+        </Navbar.Item>
+        <Navbar.Item href="#">
+          Big Screen <Badge intent="danger">Live</Badge>
+        </Navbar.Item>
+        <Navbar.Item href="#">Donate</Navbar.Item>
+        <Navbar.Item href="#">Merch</Navbar.Item>
+      </Navbar.Items>
 
-      <div className="navbar__actions">
-        {args.loggedIn && <div className="navbar__user">Username</div>}
-
-        {!args.loggedIn && <Button>Sign In</Button>}
-      </div>
-    </div>
+      <Navbar.Actions>
+        {args.loggedIn ? (
+          <Navbar.User>Username</Navbar.User>
+        ) : (
+          <Button>Sign In</Button>
+        )}
+      </Navbar.Actions>
+    </Navbar.Root>
   ),
   args: {
     loggedIn: true,
@@ -68,22 +72,22 @@ export const Primary: Story = {
 
 export const WithTitle: TitleStory = {
   render: (args) => (
-    <div className="navbar">
-      <Button intent="tertiary" iconOnly>
+    <Navbar.Root>
+      <Button intent="tertiary" iconOnly aria-label="Menu">
         <Menu />
       </Button>
 
-      <img src="/destiny-logo.png" className="navbar__logo" />
+      <Navbar.Logo src="/destiny-logo.png" alt="Destiny" />
 
-      <div className="navbar__title">
+      <Navbar.Title>
         <Icon />
         {args.showTitle && args.title}
-      </div>
+      </Navbar.Title>
 
-      <div className="navbar__actions">
-        <div className="navbar__user">Username</div>
-      </div>
-    </div>
+      <Navbar.Actions>
+        <Navbar.User>Username</Navbar.User>
+      </Navbar.Actions>
+    </Navbar.Root>
   ),
   args: {
     title: "Title",

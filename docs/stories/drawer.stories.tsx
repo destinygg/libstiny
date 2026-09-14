@@ -1,92 +1,118 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Icon } from "./_icons";
-import { Button } from "@destinygg/libstiny/react";
+import { Icon, Menu } from "./_icons";
+import { Button, Drawer, Navbar } from "@destinygg/libstiny/react";
 
-type DrawerArgs = {};
-
-const meta: Meta<DrawerArgs> = {
+const meta = {
   title: "Drawer",
+  component: Drawer.Panel,
   tags: ["autodocs"],
-};
+} satisfies Meta<typeof Drawer.Panel>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<DrawerArgs>;
+const categories = (
+  <Drawer.CategoryGroup>
+    <Drawer.Category title="Community">
+      <Drawer.Item href="#" active>
+        YouTube
+      </Drawer.Item>
+      <Drawer.Item href="#">Kick</Drawer.Item>
+      <Drawer.Item href="#">Reddit</Drawer.Item>
+      <Drawer.Item href="#">Discord</Drawer.Item>
+    </Drawer.Category>
 
+    <Drawer.Category title="Podcasts">
+      <Drawer.Item href="#">Bridges</Drawer.Item>
+      <Drawer.Item href="#">Anything Else?</Drawer.Item>
+    </Drawer.Category>
+  </Drawer.CategoryGroup>
+);
+
+const footer = (
+  <Drawer.Footer>
+    {["YouTube", "Kick", "Reddit", "Discord"].map((name) => (
+      <Button key={name} intent="tertiary" iconOnly aria-label={name}>
+        <Icon />
+      </Button>
+    ))}
+  </Drawer.Footer>
+);
+
+// The drawer inline in the page, e.g. as a persistent sidebar.
 export const Primary: Story = {
   render: () => (
-    <div className="drawer" style={{ width: 340, height: 900 }}>
+    <Drawer.Panel style={{ width: 340, height: 900 }}>
       <div>
-        <img src="/destiny-logo.png" className="drawer__logo" />
+        <Drawer.Logo src="/destiny-logo.png" alt="Destiny" />
       </div>
-
       <Button fullWidth>Subscribe</Button>
-
-      <div className="drawer__category-group">
-        <div className="drawer__category">
-          <span className="drawer__category-title">Community</span>
-          <a className="drawer__item drawer__item--active">YouTube</a>
-          <a className="drawer__item">Kick</a>
-          <a className="drawer__item">Reddit</a>
-          <a className="drawer__item">Discord</a>
-        </div>
-
-        <div className="drawer__category">
-          <span className="drawer__category-title">Podcasts</span>
-          <a className="drawer__item">Bridges</a>
-          <a className="drawer__item">Anything Else?</a>
-        </div>
-      </div>
-
-      <div className="drawer__footer">
-        <Button intent="tertiary" iconOnly>
-          <Icon />
-        </Button>
-        <Button intent="tertiary" iconOnly>
-          <Icon />
-        </Button>
-        <Button intent="tertiary" iconOnly>
-          <Icon />
-        </Button>
-        <Button intent="tertiary" iconOnly>
-          <Icon />
-        </Button>
-      </div>
-    </div>
+      {categories}
+      {footer}
+    </Drawer.Panel>
   ),
-  args: {},
 };
 
 export const WithAction: Story = {
   render: () => (
-    <div className="drawer" style={{ width: 340, height: 900 }}>
+    <Drawer.Panel style={{ width: 340, height: 900 }}>
       <div>
-        <img src="/destiny-logo.png" className="drawer__logo" />
+        <Drawer.Logo src="/destiny-logo.png" alt="Destiny" />
       </div>
 
-      <div className="drawer__category-group">
-        <div className="drawer__category">
-          <span className="drawer__category-title">Cool Emotes</span>
-          <a className="drawer__item drawer__item--active">YEE</a>
-          <a className="drawer__item">nathanYee</a>
-          <a className="drawer__item">YEEHAW</a>
-        </div>
+      <Drawer.CategoryGroup>
+        <Drawer.Category title="Cool Emotes">
+          <Drawer.Item href="#" active>
+            YEE
+          </Drawer.Item>
+          <Drawer.Item href="#">nathanYee</Drawer.Item>
+          <Drawer.Item href="#">YEEHAW</Drawer.Item>
+        </Drawer.Category>
 
-        <div className="drawer__category">
-          <span className="drawer__category-title">Lame Emotes</span>
-          <a className="drawer__item">PEPE</a>
-          <a className="drawer__item">nathanPepe</a>
-          <a className="drawer__item">PARDNER</a>
-        </div>
-      </div>
+        <Drawer.Category title="Lame Emotes">
+          <Drawer.Item href="#">PEPE</Drawer.Item>
+          <Drawer.Item href="#">nathanPepe</Drawer.Item>
+          <Drawer.Item href="#">PARDNER</Drawer.Item>
+        </Drawer.Category>
+      </Drawer.CategoryGroup>
 
-      <div className="drawer__action-footer">
+      <Drawer.ActionFooter>
         <Button intent="secondary">
           <Icon />
           Exit Dashboard
         </Button>
-      </div>
-    </div>
+      </Drawer.ActionFooter>
+    </Drawer.Panel>
   ),
-  args: {},
+};
+
+// Off-canvas: the navbar's menu button opens the drawer from the left edge.
+// Escape, a click on the overlay, the close button or swiping left dismisses it.
+export const OffCanvas: Story = {
+  render: () => (
+    <Drawer.Root>
+      <Navbar.Root>
+        <Drawer.Trigger
+          render={<Button intent="tertiary" iconOnly aria-label="Menu" />}
+        >
+          <Menu />
+        </Drawer.Trigger>
+        <Navbar.Logo src="/destiny-logo.png" alt="Destiny" />
+      </Navbar.Root>
+
+      <Drawer.Popup aria-label="Navigation">
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Drawer.Logo src="/destiny-logo.png" alt="Destiny" />
+          <Drawer.Close
+            render={<Button intent="tertiary" iconOnly aria-label="Close" />}
+          >
+            <Menu />
+          </Drawer.Close>
+        </div>
+        <Button fullWidth>Subscribe</Button>
+        {categories}
+        {footer}
+      </Drawer.Popup>
+    </Drawer.Root>
+  ),
 };

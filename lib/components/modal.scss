@@ -1,8 +1,12 @@
 @use "../tokens/component" as *;
+@use "../tokens/core" as *;
 @use "../tokens/typography" as *;
 
+// Fixed, not absolute: the overlay is portalled to <body>, and on a scrolled
+// page an absolute overlay would cover the top of the document instead of
+// the viewport.
 .modal-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -10,6 +14,33 @@
   background-color: $modal-overlay-background;
   backdrop-filter: blur(4px);
   z-index: 900;
+}
+
+// Centres the modal above the overlay. Items start at the top and the modal
+// takes `margin-block: auto`, so a modal taller than the viewport scrolls
+// instead of being clipped at the top as `align-items: center` would.
+.modal-viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: $space-4;
+  overflow-y: auto;
+
+  // `display: flex` would otherwise override the `hidden` attribute that a
+  // kept-mounted, closed modal carries.
+  &[hidden] {
+    display: none;
+  }
+
+  > .modal {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-block: auto;
+  }
 }
 
 .modal {
@@ -26,11 +57,13 @@
   border: 1px solid $modal-window-border;
 
   &__title {
+    margin: 0;
     font: $display-100-semi-bold;
     color: $modal-title-foreground;
   }
 
   &__subtitle {
+    margin: 0;
     font: $body-300-semi-bold;
     color: $modal-subtitle-foreground;
   }

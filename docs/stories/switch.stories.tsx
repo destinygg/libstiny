@@ -1,25 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Switch } from "@destinygg/libstiny/react";
 
-type SwitchArgs = {};
-
-const meta: Meta<SwitchArgs> = {
+const meta = {
   title: "Switch",
+  component: Switch,
   tags: ["autodocs"],
-};
+  args: {
+    children: "Toggle me",
+  },
+} satisfies Meta<typeof Switch>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<SwitchArgs>;
+// A native checkbox with role="switch": Space toggles it and screen readers
+// announce it as on or off.
+export const Primary: Story = {};
 
-export const Primary: Story = {
-  render: () => (
-    <label className="switch">
-      <span className="switch__toggle">
-        <input type="checkbox" />
-        <span className="switch__slider switch__slider--round"></span>
-      </span>
-      <span className="switch__label">Toggle me</span>
-    </label>
-  ),
-  args: {},
+export const On: Story = {
+  args: { defaultChecked: true },
 };

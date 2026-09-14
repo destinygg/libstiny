@@ -1,110 +1,71 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { inputVariants } from "../../src/variants/input";
+import { Input, Select, TextArea } from "@destinygg/libstiny/react";
 
-type ValidationState = "default" | "error" | "success";
-
-type InputArgs = {
-  label: string;
-  helpText: string;
-  validationState: ValidationState;
-  disabled: boolean;
-};
-
-const meta: Meta<InputArgs> = {
+const meta = {
   title: "Input",
+  component: Input,
   tags: ["autodocs"],
   argTypes: {
     validationState: {
-      options: ["default", "error", "success"],
-      control: {
-        type: "select",
-      },
+      options: [undefined, "error", "success"],
+      control: { type: "select" },
     },
   },
-};
+  args: {
+    label: "Input Label",
+    helpText: "This is some help text",
+    disabled: false,
+    validationState: undefined,
+    style: { width: 400 },
+  },
+} satisfies Meta<typeof Input>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<InputArgs>;
-
+// The label's `for` and the control's `aria-describedby` are wired up for you.
 export const TextInput: Story = {
-  render: (args) => (
-    <div
-      className={inputVariants({ validationState: args.validationState })}
-      style={{ width: 400 }}
-    >
-      <label>{args.label}</label>
-      <div className="input__area">
-        <div className="input__prefix">https://</div>
-
-        <div className="input__container">
-          <input placeholder="Placeholder text..." disabled={args.disabled} />
-        </div>
-      </div>
-      <span className="input__help-text">{args.helpText}</span>
-    </div>
-  ),
   args: {
-    label: "Input Label",
-    helpText: "This is some help text",
-    disabled: false,
-    validationState: "default",
+    prefix: "https://",
+    placeholder: "Placeholder text...",
   },
 };
 
-export const Select: Story = {
-  render: (args) => (
-    <div
-      className={inputVariants({ validationState: args.validationState })}
-      style={{ width: 400 }}
-    >
-      <label>{args.label}</label>
-      <div className="input__area">
-        <div className="input__prefix">https://</div>
-
-        <div className="input__container">
-          <select disabled={args.disabled}>
-            <option value=""></option>
-            <option value="1">Value 1</option>
-            <option value="2">Value 2</option>
-            <option value="3">Value 3</option>
-          </select>
-        </div>
-      </div>
-      <span className="input__help-text">{args.helpText}</span>
-    </div>
-  ),
+export const WithSuffix: Story = {
   args: {
-    label: "Input Label",
-    helpText: "This is some help text",
-    disabled: false,
-    validationState: "default",
+    label: "Amount",
+    helpText: "Minimum donation is $5",
+    prefix: "$",
+    suffix: "USD",
+    inputMode: "decimal",
+    placeholder: "0.00",
   },
 };
 
-export const TextArea: Story = {
-  render: (args) => (
-    <div
-      className={inputVariants({ validationState: args.validationState })}
-      style={{ width: 400 }}
+// Select and TextArea take the same frame props as Input.
+export const SelectInput: Story = {
+  name: "Select",
+  render: ({ label, helpText, prefix, validationState, disabled, style }) => (
+    <Select
+      {...{ label, helpText, prefix, validationState, disabled, style }}
+      defaultValue=""
     >
-      <label>{args.label}</label>
-      <div className="input__area">
-        <div className="input__container">
-          <textarea
-            placeholder="Placeholder text..."
-            disabled={args.disabled}
-            rows={5}
-          />
-        </div>
-      </div>
-      <span className="input__help-text">{args.helpText}</span>
-    </div>
+      <option value=""></option>
+      <option value="1">Value 1</option>
+      <option value="2">Value 2</option>
+      <option value="3">Value 3</option>
+    </Select>
   ),
-  args: {
-    label: "Input Label",
-    helpText: "This is some help text",
-    disabled: false,
-    validationState: "default",
-  },
+  args: { prefix: "https://" },
+};
+
+export const TextAreaInput: Story = {
+  name: "TextArea",
+  render: ({ label, helpText, validationState, disabled, style }) => (
+    <TextArea
+      {...{ label, helpText, validationState, disabled, style }}
+      placeholder="Placeholder text..."
+      rows={5}
+    />
+  ),
 };

@@ -1,48 +1,25 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Checkbox } from "@destinygg/libstiny/react";
 
-type CheckboxArgs = {
-  disabled: boolean;
-  label: string;
-};
-
-const meta: Meta<CheckboxArgs> = {
+const meta = {
   title: "Checkbox",
+  component: Checkbox,
   tags: ["autodocs"],
-};
+  args: {
+    children: "Toggle me",
+    disabled: false,
+  },
+} satisfies Meta<typeof Checkbox>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<CheckboxArgs>;
+export const Primary: Story = {};
 
-const TickIcon = () => (
-  <svg
-    className="checkbox__tick"
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path d="M20 6 9 17l-5-5" />
-  </svg>
-);
+export const Checked: Story = {
+  args: { defaultChecked: true },
+};
 
-export const Primary: Story = {
-  render: (args) => (
-    <label className="checkbox">
-      <input type="checkbox" disabled={args.disabled} />
-      <span className="checkbox__box">
-        <TickIcon />
-      </span>
-      <span className="checkbox__label">{args.label}</span>
-    </label>
-  ),
-  args: {
-    disabled: false,
-    label: "Toggle me",
-  },
+export const Disabled: Story = {
+  args: { defaultChecked: true, disabled: true },
 };

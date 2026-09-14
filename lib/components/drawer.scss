@@ -4,6 +4,13 @@
 @use "../utils/icon-size" as *;
 @use "../utils/transitions" as *;
 
+// The layer the off-canvas drawer is positioned in, above the overlay.
+.drawer-viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+}
+
 .drawer {
   // Layout
   display: flex;
@@ -56,7 +63,11 @@
     color: $drawer-item-default-foreground-rest;
     border-radius: $drawer-item-radii;
     font: $body-300-medium;
+    text-decoration: none;
     cursor: pointer;
+    // Items can be buttons as well as links.
+    border: none;
+    appearance: none;
 
     &:hover {
       background-color: $drawer-item-default-background-hover;
@@ -80,6 +91,24 @@
     padding-top: $drawer-action-padding;
 
     border-top: 1px solid $drawer-action-border;
+  }
+
+  // Fixed to the left edge of the viewport, above the overlay.
+  &--off-canvas {
+    position: fixed;
+    inset-block: 0;
+    left: 0;
+    width: $drawer-width;
+    max-width: calc(100% - $space-7);
+    // While a swipe is in progress the drawer's transform is set inline; once
+    // released, it settles back by this offset.
+    transform: translateX(var(--drawer-swipe-movement-x, 0px));
+    @include create-transition(transform, large-enter-exit);
+
+    // The off-screen position it slides in from and out to.
+    &.drawer--closed {
+      transform: translateX(-100%);
+    }
   }
 
   &__category-group {

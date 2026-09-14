@@ -1,29 +1,52 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Button, Dropdown, Navbar } from "@destinygg/libstiny/react";
 
-type DropdownArgs = {};
-
-const meta: Meta<DropdownArgs> = {
+const meta = {
   title: "Dropdown",
+  component: Dropdown.Popup,
   tags: ["autodocs"],
-};
+} satisfies Meta<typeof Dropdown.Popup>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<DropdownArgs>;
-
+// Arrow keys and typeahead move the highlight. Items close the menu when
+// chosen; link items leave it open.
 export const Primary: Story = {
   render: () => (
-    <div className="dropdown" style={{ width: 280 }}>
-      <div className="dropdown__item">Account Settings</div>
-      <div className="dropdown__item">Subscriptions</div>
-      <div className="dropdown__item">Connections</div>
-      <div className="dropdown__item">Messages</div>
-      <div className="dropdown__item">Authentication</div>
-      <div className="dropdown__item">Developer</div>
-      <div className="dropdown__item">Advanced</div>
-      <hr />
-      <div className="dropdown__item">Log Out</div>
-    </div>
+    <Dropdown.Root>
+      <Dropdown.Trigger render={<Button intent="secondary" />}>
+        Account
+      </Dropdown.Trigger>
+      <Dropdown.Popup style={{ width: 280 }}>
+        <Dropdown.LinkItem href="#">Account Settings</Dropdown.LinkItem>
+        <Dropdown.LinkItem href="#">Subscriptions</Dropdown.LinkItem>
+        <Dropdown.LinkItem href="#">Connections</Dropdown.LinkItem>
+        <Dropdown.LinkItem href="#">Messages</Dropdown.LinkItem>
+        <Dropdown.LinkItem href="#">Authentication</Dropdown.LinkItem>
+        <Dropdown.LinkItem href="#">Developer</Dropdown.LinkItem>
+        <Dropdown.LinkItem href="#">Advanced</Dropdown.LinkItem>
+        <Dropdown.Separator />
+        <Dropdown.Item>Log Out</Dropdown.Item>
+      </Dropdown.Popup>
+    </Dropdown.Root>
   ),
-  args: {},
+};
+
+// The navbar's user button as the trigger.
+export const FromNavbar: Story = {
+  render: () => (
+    <Navbar.Root>
+      <Navbar.Actions>
+        <Dropdown.Root>
+          <Dropdown.Trigger render={<Navbar.User />}>Username</Dropdown.Trigger>
+          <Dropdown.Popup style={{ width: 240 }}>
+            <Dropdown.LinkItem href="#">Profile</Dropdown.LinkItem>
+            <Dropdown.Separator />
+            <Dropdown.Item>Log Out</Dropdown.Item>
+          </Dropdown.Popup>
+        </Dropdown.Root>
+      </Navbar.Actions>
+    </Navbar.Root>
+  ),
 };
