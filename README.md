@@ -248,8 +248,10 @@ import { Button, Tabs } from "@destinygg/libstiny/react";
 ```
 
 The components apply libstiny's classes for you, so you still need the stylesheet
-once at the root of your app — either the Sass entry or `dist/libstiny.css`. In
-React Server Components apps, the components are client components.
+once at the root of your app — either the Sass entry or `dist/libstiny.css`. No
+CSS reset is required: classes that render on buttons, headings and links reset
+those elements' browser defaults themselves. In React Server Components apps, the
+components are client components.
 
 ### Props
 
@@ -273,12 +275,115 @@ to skip the component's), and refs on both receive the node:
 The colour axis is called `intent` on every component, matching the Twig
 components in the website repo.
 
+### Compound components
+
+Components with several parts expose them on a namespace object, following Base
+UI's naming. Every part is also a named export (`ModalRoot`, `ModalPopup`, …).
+
+```jsx
+import { Breadcrumb } from "@destinygg/libstiny/react";
+
+<Breadcrumb.Root>
+  <Breadcrumb.Link href="/auction">Auction</Breadcrumb.Link>
+  <Breadcrumb.Separator />
+  <Breadcrumb.Current>Design #42</Breadcrumb.Current>
+</Breadcrumb.Root>;
+```
+
+Parts that own a fixed internal structure render it for you. For example,
+`Stepper.Step` renders the bar, dot and label, and `SideNav.Heading` renders the
+chevron.
+
+### Form controls
+
+`Input`, `Select`, `TextArea`, `Checkbox`, `Switch`, `Radio` and `Choicebox`
+render native form controls. The browser supplies their roles, keyboard
+behaviour, label clicks and form submission.
+
+Their props are split between two elements. `className` and `style` go on the
+outer wrapper, the element you lay out. Every other prop, and the `ref`, go on
+the native control, so `name`, `value`, `checked`, `onChange` and form-library
+refs work as they would on a bare `<input>`. Form controls don't take `render`,
+because their markup is fixed.
+
+```jsx
+<Input
+  label="Email"
+  helpText="We'll never share it"
+  validationState="error"
+  name="email"
+  style={{ width: 320 }}
+/>
+<Checkbox name="terms">I agree</Checkbox>
+```
+
+`Input`, `Select` and `TextArea` wire the label to the control. The help text is
+attached with `aria-describedby`, and `validationState="error"` also sets
+`aria-invalid`.
+
 ### Interactive components
 
-For components built on Base UI, keyboard navigation, focus management and ARIA
-roles come from Base UI; the libstiny classes are applied from its component
-state. Tabs, for example, provides roving tabindex and the
-`tablist`/`tab`/`tabpanel` roles.
+These components are built on Base UI. Keyboard navigation, focus management
+and ARIA roles come from Base UI, and the libstiny classes are applied from its
+component state.
+
+| Component          | Built on    | Provides                                                                         |
+| ------------------ | ----------- | -------------------------------------------------------------------------------- |
+| `Tabs`             | Tabs        | roving tabindex, arrow keys, `tablist`/`tab`/`tabpanel` roles                    |
+| `SegmentedControl` | ToggleGroup | roving tabindex, arrow keys, `aria-pressed`; one option always stays selected    |
+| `SideNav.Category` | Collapsible | a heading `<button>` with `aria-expanded`                                        |
+| `Modal`            | Dialog      | focus trap and return, Escape and outside-click dismissal, scroll lock           |
+| `Drawer`           | Drawer      | as Modal, plus swipe-to-dismiss                                                  |
+| `Dropdown`         | Menu        | `menu` role, arrow keys and typeahead, Escape and outside-click dismissal        |
+| `Popover`          | Popover     | collision-aware positioning, Escape and outside-click dismissal, `aria-expanded` |
+
+Parts that carry no libstiny class, such as `Modal.Root`, `Modal.Trigger` and
+`Modal.Close`, are Base UI's own components, and accept everything their Base UI
+documentation describes. Give a trigger the look of a button with `render`:
+
+```jsx
+<Modal.Root>
+  <Modal.Trigger render={<Button intent="secondary" />}>Edit</Modal.Trigger>
+  <Modal.Popup>
+    <Modal.Header>
+      <Modal.Title>Edit profile</Modal.Title>
+      <Modal.Subtitle>Changes are visible to everyone.</Modal.Subtitle>
+    </Modal.Header>
+    <Input label="Display name" name="displayName" />
+    <Modal.Actions>
+      <Modal.Close render={<Button intent="tertiary" />}>Cancel</Modal.Close>
+      <Button type="submit">Save</Button>
+    </Modal.Actions>
+  </Modal.Popup>
+</Modal.Root>
+```
+
+### Overlays
+
+`Modal.Popup`, `Drawer.Popup`, `Dropdown.Popup` and `Popover.Popup` each include
+the portal, overlay, viewport or positioner layers Base UI needs, so a single
+element gives you the libstiny look.
+
+- **Props.** On `Dropdown.Popup` and `Popover.Popup`, `side`, `align`,
+  `sideOffset` and `alignOffset` position the popup. On all four, `container`
+  and `keepMounted` configure the portal. Every other prop goes to the popup
+  element itself.
+- **Portals.** Overlays render into `document.body`, so the stylesheet must be
+  loaded globally, not scoped to a subtree.
+- **Stacking.** The modal and drawer sit at `z-index: 900`, and the dropdown and
+  popover positioners at `1000`, so a menu opened inside a modal paints above it.
+- **Dropdown clicks.** Choosing a `Dropdown.Item` closes the menu; following a
+  `Dropdown.LinkItem` doesn't. Pass `closeOnClick` to change either.
+- **Popover sides.** The popover's `popover--{side}` modifier follows the side it
+  actually renders on, so when it flips away from a viewport edge, its arrow
+  flips too.
+
+The React overlays are independent of the website's Stimulus controllers.
+`Modal` doesn't listen for the `openModal`/`closeModal` window events, doesn't
+set `aria-hidden` on a `.modal-root`, and doesn't emit the website's own wrapper
+classes such as `.modal-root` or `.dropdown-root`. Open and close overlays from
+React with `open` and `onOpenChange`. An `id` on a popup is passed through to
+the element.
 
 ### Module resolution caveat
 
