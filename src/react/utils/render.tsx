@@ -21,7 +21,7 @@ export type RenderProp = React.ReactElement<Record<string, unknown>>;
  *   callback refs are not re-attached on every render.
  *
  * `@base-ui/react` is only an optional peer, so tsup bundles `useRender` into
- * the core entry rather than leaving an import every consumer must install.
+ * libstiny's build rather than leaving an import every consumer must install.
  */
 export function useRenderElement<T extends Element>(
   render: RenderProp | undefined,

@@ -12,6 +12,8 @@ Add pre-styled React components, alongside the existing SCSS and tokens.
   event handlers and refs exactly as the `render` prop on Base UI components
   does, without requiring `@base-ui/react` to be installed. Both entries are
   marked `"use client"`.
+- Each component is emitted as its own file, so importing one component does
+  not bundle the others.
 - New `@destinygg/libstiny/react/tabs` entry exporting `Tabs`, built on Base UI.
   It supplies keyboard navigation, roving tabindex and the
   `tablist`/`tab`/`tabpanel` roles that the previous markup had none of, and

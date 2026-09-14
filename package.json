@@ -23,7 +23,7 @@
     "dev": "vite",
     "build": "npm run build:css && npm run build:react",
     "build:css": "sass lib/index.scss dist/libstiny.css",
-    "build:react": "node -e \"require('node:fs').rmSync('react',{recursive:true,force:true})\" && tsup",
+    "build:react": "tsup",
     "typecheck": "tsc -p tsconfig.json",
     "prepack": "npm run build",
     "preview": "vite preview",
