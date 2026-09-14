@@ -9,11 +9,47 @@
 export { Badge } from "./badge";
 export type { BadgeIntent, BadgeProps } from "./badge";
 
+export {
+  Breadcrumb,
+  BreadcrumbCurrent,
+  BreadcrumbLink,
+  BreadcrumbRoot,
+  BreadcrumbSeparator,
+} from "./breadcrumb";
+export type {
+  BreadcrumbCurrentProps,
+  BreadcrumbLinkProps,
+  BreadcrumbRootProps,
+  BreadcrumbSeparatorProps,
+} from "./breadcrumb";
+
 export { Button } from "./button";
 export type { ButtonIntent, ButtonProps, ButtonSize } from "./button";
 
 export { Card } from "./card";
 export type { CardProps } from "./card";
+
+export {
+  Navbar,
+  NavbarActions,
+  NavbarIcon,
+  NavbarItem,
+  NavbarItems,
+  NavbarLogo,
+  NavbarRoot,
+  NavbarTitle,
+  NavbarUser,
+} from "./navbar";
+export type {
+  NavbarActionsProps,
+  NavbarIconProps,
+  NavbarItemProps,
+  NavbarItemsProps,
+  NavbarLogoProps,
+  NavbarRootProps,
+  NavbarTitleProps,
+  NavbarUserProps,
+} from "./navbar";
 
 export { Notification } from "./notification";
 export type {
@@ -24,6 +60,13 @@ export type {
 
 export { SectionHeader } from "./section-header";
 export type { SectionHeaderProps } from "./section-header";
+
+export { Stepper, StepperRoot, StepperStep } from "./stepper";
+export type {
+  StepperRootProps,
+  StepperStepProps,
+  StepperStepStatus,
+} from "./stepper";
 
 export { Table } from "./table";
 export type { TableProps } from "./table";

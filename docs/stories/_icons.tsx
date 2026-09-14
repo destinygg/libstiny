@@ -36,3 +36,10 @@ export const ChevronUp = ({ className = "lucide" }: IconProps) => (
     <path d="M15 12.5 10 7.5 5 12.5" />
   </svg>
 );
+
+export const ArrowLeft = ({ className = "lucide" }: IconProps) => (
+  <svg {...base} viewBox="0 0 24 24" className={className}>
+    <path d="m12 19-7-7 7-7" />
+    <path d="M19 12H5" />
+  </svg>
+);

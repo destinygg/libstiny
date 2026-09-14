@@ -34,6 +34,7 @@
     box-sizing: border-box;
     cursor: pointer;
     aspect-ratio: 1/1;
+    text-decoration: none;
 
     &:hover {
       color: $semantic-foreground-primary;
@@ -50,6 +51,7 @@
     height: $navbar-item-height;
     box-sizing: border-box;
     text-wrap: nowrap;
+    text-decoration: none;
 
     // Styling
     @include create-transition(all, default);
@@ -100,6 +102,8 @@
 
     // Styling
     @include create-transition(all, default);
+    border: none;
+    appearance: none;
     border-radius: $navbar-item-radii;
     background-color: $palette-black-a-8;
     color: $semantic-foreground-default;

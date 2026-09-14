@@ -1,66 +1,40 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Breadcrumb } from "@destinygg/libstiny/react";
+import { ArrowLeft } from "./_icons";
 
-type BreadcrumbArgs = {};
-
-const meta: Meta<BreadcrumbArgs> = {
+const meta = {
   title: "Breadcrumb",
+  component: Breadcrumb.Root,
   tags: ["autodocs"],
-};
+} satisfies Meta<typeof Breadcrumb.Root>;
 
 export default meta;
-
-type Story = StoryObj<BreadcrumbArgs>;
-
-const ArrowLeft = () => (
-  <svg
-    className="lucide"
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="m12 19-7-7 7-7" />
-    <path d="M19 12H5" />
-  </svg>
-);
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: () => (
-    <nav className="breadcrumb" aria-label="Breadcrumb">
-      <a className="breadcrumb__link" href="#">
+    <Breadcrumb.Root>
+      <Breadcrumb.Link href="#">
         <ArrowLeft />
         Back to Auction
-      </a>
-      <span className="breadcrumb__separator" aria-hidden="true"></span>
-      <span className="breadcrumb__current" aria-current="page">
-        Submit a Design
-      </span>
-    </nav>
+      </Breadcrumb.Link>
+      <Breadcrumb.Separator />
+      <Breadcrumb.Current>Submit a Design</Breadcrumb.Current>
+    </Breadcrumb.Root>
   ),
-  args: {},
 };
 
 export const Nested: Story = {
   render: () => (
-    <nav className="breadcrumb" aria-label="Breadcrumb">
-      <a className="breadcrumb__link" href="#">
+    <Breadcrumb.Root>
+      <Breadcrumb.Link href="#">
         <ArrowLeft />
         Auction
-      </a>
-      <span className="breadcrumb__separator" aria-hidden="true"></span>
-      <a className="breadcrumb__link" href="#">
-        History
-      </a>
-      <span className="breadcrumb__separator" aria-hidden="true"></span>
-      <span className="breadcrumb__current" aria-current="page">
-        Design #42
-      </span>
-    </nav>
+      </Breadcrumb.Link>
+      <Breadcrumb.Separator />
+      <Breadcrumb.Link href="#">History</Breadcrumb.Link>
+      <Breadcrumb.Separator />
+      <Breadcrumb.Current>Design #42</Breadcrumb.Current>
+    </Breadcrumb.Root>
   ),
-  args: {},
 };
