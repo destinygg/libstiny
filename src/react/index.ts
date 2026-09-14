@@ -29,6 +29,20 @@ export type { ButtonIntent, ButtonProps, ButtonSize } from "./button";
 export { Card } from "./card";
 export type { CardProps } from "./card";
 
+export { Checkbox } from "./checkbox";
+export type { CheckboxProps } from "./checkbox";
+
+export { Choicebox } from "./choicebox";
+export type { ChoiceboxProps } from "./choicebox";
+
+export { Input, Select, TextArea } from "./input";
+export type {
+  InputProps,
+  InputValidationState,
+  SelectProps,
+  TextAreaProps,
+} from "./input";
+
 export {
   Navbar,
   NavbarActions,
@@ -58,6 +72,9 @@ export type {
   NotificationType,
 } from "./notification";
 
+export { Radio } from "./radio";
+export type { RadioProps } from "./radio";
+
 export { SectionHeader } from "./section-header";
 export type { SectionHeaderProps } from "./section-header";
 
@@ -67,6 +84,9 @@ export type {
   StepperStepProps,
   StepperStepStatus,
 } from "./stepper";
+
+export { Switch } from "./switch";
+export type { SwitchProps } from "./switch";
 
 export { Table } from "./table";
 export type { TableProps } from "./table";

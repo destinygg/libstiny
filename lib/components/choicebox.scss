@@ -31,6 +31,12 @@
     right: $choicebox-radio-offset;
   }
 
+  // Stacks the title, subtitle and any extra content beside the radio.
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__title {
     font: $body-300-semi-bold;
   }
