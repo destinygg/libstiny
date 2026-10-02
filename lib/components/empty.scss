@@ -1,0 +1,65 @@
+@use "../tokens/component" as *;
+@use "../tokens/semantic" as *;
+@use "../tokens/typography" as *;
+
+// What a list, pane, or tab shows when it has nothing to show: an icon in a
+// tile, a short title saying what is missing, an optional line of help, and
+// an optional action that fills the void.
+.empty {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $empty-gap;
+  padding: $empty-padding;
+  box-sizing: border-box;
+
+  // Style
+  text-align: center;
+
+  // Takes up the slack in a flex parent, and centres itself in it.
+  &--fill {
+    flex: 1;
+    justify-content: center;
+  }
+
+  &__icon {
+    // Layout
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: $empty-icon-size;
+    height: $empty-icon-size;
+
+    // Style
+    border-radius: $empty-icon-radii;
+    background-color: $empty-icon-background;
+    color: $empty-icon-foreground;
+
+    .lucide {
+      width: $empty-icon-glyph-size;
+      height: $empty-icon-glyph-size;
+    }
+  }
+
+  &__title {
+    font: $body-400-semi-bold;
+    color: $empty-title-foreground;
+  }
+
+  &__description {
+    max-width: $empty-description-width;
+    font: $body-200-regular;
+    color: $empty-description-foreground;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  // Sits a little further from the text than the rest of the stack.
+  &__action {
+    margin-top: $empty-action-margin-top;
+  }
+}
