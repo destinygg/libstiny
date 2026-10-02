@@ -16,6 +16,7 @@
   border-radius: $popover-radii;
   background-color: $popover-background;
   border: 1px solid $popover-border;
+  box-shadow: $popover-shadow;
 
   &__header {
     display: flex;
@@ -29,6 +30,11 @@
   }
 
   &__close {
+    // The close button floats in the corner rather than taking a slot in the
+    // header, so a popover without a header still gets one in the same place.
+    position: absolute;
+    top: $popover-close-offset;
+    right: $popover-close-offset;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,46 +55,5 @@
   &__content {
     font: $body-200-medium;
     color: $popover-content-foreground;
-  }
-
-  &__arrow {
-    position: absolute;
-    width: $popover-arrow-size;
-    height: $popover-arrow-size;
-    background-color: $popover-arrow-background;
-    border: 1px solid $popover-arrow-border;
-    transform: rotate(45deg);
-  }
-
-  &--top &__arrow {
-    bottom: calc($popover-arrow-size / -2);
-    left: 50%;
-    margin-left: calc($popover-arrow-size / -2);
-    border-top: none;
-    border-left: none;
-  }
-
-  &--bottom &__arrow {
-    top: calc($popover-arrow-size / -2);
-    left: 50%;
-    margin-left: calc($popover-arrow-size / -2);
-    border-bottom: none;
-    border-right: none;
-  }
-
-  &--left &__arrow {
-    right: calc($popover-arrow-size / -2);
-    top: 50%;
-    margin-top: calc($popover-arrow-size / -2);
-    border-bottom: none;
-    border-left: none;
-  }
-
-  &--right &__arrow {
-    left: calc($popover-arrow-size / -2);
-    top: 50%;
-    margin-top: calc($popover-arrow-size / -2);
-    border-top: none;
-    border-right: none;
   }
 }
