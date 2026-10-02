@@ -1,3 +1,7 @@
 @use "colors" as *;
 
 $blue-glow: 0px 0px 64px 0px #0077ff3a;
+
+// The lift the designs give floating panels (popovers, and anything else that
+// overlays page content).
+$drop-shadow: 0 1.625rem 3.75rem -1.125rem rgb(0 0 0 / 90%);
