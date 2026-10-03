@@ -5,15 +5,25 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    # Must match the environment name on the npm trusted publisher, and is what
+    # the required reviewer sits on.
+    environment: release
     permissions:
       contents: read
+      # Mints the OIDC token npm trades for publish rights. Replaces NPM_TOKEN.
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org
+      # `npm stage` arrived in npm 11.15.0, which is newer than the npm the
+      # runner image ships with.
+      - run: npm install -g npm@latest
       - run: npm ci
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # Staged publish: this uploads the tarball but does not make the version
+      # installable. A maintainer finishes the release from their own machine:
+      #   npm stage list
+      #   npm stage approve <stage-id>   # prompts for 2FA
+      - run: npm stage publish --access public --provenance
