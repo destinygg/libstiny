@@ -1,0 +1,50 @@
+@use "../tokens/component" as *;
+
+// A bar of controls that act on something else, such as the formatting buttons
+// above a textarea. The bar is a single Tab stop: arrow keys, Home and End move
+// between its controls (a roving tabindex, wired up by the consumer), and
+// groups of controls are told apart by a separator.
+.toolbar {
+  // Layout
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $toolbar-gap;
+  padding: $toolbar-padding;
+  box-sizing: border-box;
+
+  // Style
+  border: 1px solid $toolbar-border;
+  border-radius: $toolbar-radii;
+  background-color: $toolbar-background;
+
+  // Goes on a button in the bar, alongside the button classes. A tertiary
+  // button's hover fill is the bar's own background, so it would vanish here;
+  // these take the next steps up the scale instead.
+  &__button {
+    &:not(:disabled):hover {
+      background-color: $toolbar-button-background-hover;
+    }
+
+    &:not(:disabled):active {
+      background-color: $toolbar-button-background-pressed;
+    }
+
+    // A disabled control stays in place, dimmed, rather than taking on the
+    // button's disabled fill.
+    &:disabled {
+      opacity: $toolbar-button-disabled-opacity;
+      box-shadow: none;
+      border-color: transparent;
+      background: none;
+      cursor: not-allowed;
+    }
+  }
+
+  &__separator {
+    align-self: stretch;
+    margin: $toolbar-separator-margin;
+    width: $toolbar-separator-width;
+    background-color: $toolbar-separator-background;
+  }
+}
