@@ -1,5 +1,14 @@
 # @destinygg/libstiny
 
+## 1.11.0
+
+### Minor Changes
+
+- 7accb67: Add the empty component
+- 449ab8d: Drop the popover's tail, tighten its padding, and give it a drop shadow
+- 17c682e: Add a small variant to the switch component
+- 9f7065b: Add the toolbar component
+
 ## 1.10.0
 
 ### Minor Changes
