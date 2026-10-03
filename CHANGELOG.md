@@ -1,5 +1,11 @@
 # @destinygg/libstiny
 
+## 1.12.0
+
+### Minor Changes
+
+- Ship the empty, popover, switch and toolbar changes, which were released as 1.11.0 but never reached npm
+
 ## 1.11.0
 
 ### Minor Changes
