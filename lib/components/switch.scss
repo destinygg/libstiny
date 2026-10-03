@@ -5,6 +5,27 @@
 @use "../tokens/typography" as *;
 @use "../utils/transitions" as *;
 
+@mixin switch--small {
+  .switch__toggle {
+    width: $switch-small-width;
+    height: $switch-small-height;
+  }
+
+  .switch__slider::before {
+    height: $switch-small-toggle-size;
+    width: $switch-small-toggle-size;
+  }
+
+  input:checked + .switch__slider::before {
+    transform: translateX($switch-small-toggle-size);
+  }
+
+  .switch__label {
+    margin-left: $space-2;
+    font: $body-200-medium;
+  }
+}
+
 .switch {
   display: inline-flex;
   align-items: center;
@@ -68,5 +89,9 @@
     margin-left: $space-3;
     cursor: pointer;
     font: $body-300-medium;
+  }
+
+  &--small {
+    @include switch--small;
   }
 }
